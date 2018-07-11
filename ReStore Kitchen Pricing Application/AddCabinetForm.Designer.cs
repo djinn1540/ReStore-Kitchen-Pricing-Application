@@ -485,6 +485,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AddCabinetForm";
             this.Text = "AddCabinetForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddCabinetForm_FormClosing);
             this.Load += new System.EventHandler(this.AddCabinetForm_Load);
             this.typeGroupBox.ResumeLayout(false);
             this.typeGroupBox.PerformLayout();

@@ -12,9 +12,9 @@ namespace ReStore_Kitchen_Pricing_Application
 {
     public partial class AddCabinetForm : Form
     {
-        Form parentForm;
+        kitchenForm parentForm;
 
-        public AddCabinetForm(Form parentForm) //parentForm is the form that "birthed" the addCabinetForm, specifically it is the kitchenForm
+        public AddCabinetForm(kitchenForm parentForm) //parentForm is the form that "birthed" the addCabinetForm, specifically it is the kitchenForm
         {
             InitializeComponent();
             this.parentForm = parentForm;
@@ -37,7 +37,17 @@ namespace ReStore_Kitchen_Pricing_Application
 
         private void finishAddingCabinetButton_Click(object sender, EventArgs e)
         {
+            //process the cabinet info into DataRow
+            DataRow cabinet = parentForm.CabinetDataTable
+
+            //add DataRow to the DataTable in parentForm
+
+            //change back to the KitchenForm
             this.Close();
+        }
+
+        private void AddCabinetForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
             parentForm.Enabled = true;
             parentForm.BringToFront();
         }

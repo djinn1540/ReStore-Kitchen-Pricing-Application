@@ -578,7 +578,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox otherInfoTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView CabinetDataTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn QtyCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn DimCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeCol;
@@ -586,7 +585,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FinCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn DoorsCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn DrawerCol;
-        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button addCabinetButton;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label4;
@@ -597,6 +595,8 @@
         private System.Windows.Forms.RadioButton cRatingRadioButton;
         private System.Windows.Forms.RadioButton bRatingRadioButton;
         private System.Windows.Forms.RadioButton aRatingRadioButton;
+        public System.Windows.Forms.DataGridView CabinetDataTable;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }
 
