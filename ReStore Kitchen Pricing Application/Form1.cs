@@ -29,9 +29,11 @@ namespace ReStore_Kitchen_Pricing_Application
 
         private void addCabinetButton_Click(object sender, EventArgs e)
         {
+            
             AddCabinetForm addCabForm = new AddCabinetForm(this);
-            this.Hide();
+            this.Enabled = false;
             addCabForm.Show();
+            
         }
     }
 }

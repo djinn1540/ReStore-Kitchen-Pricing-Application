@@ -38,7 +38,8 @@ namespace ReStore_Kitchen_Pricing_Application
         private void finishAddingCabinetButton_Click(object sender, EventArgs e)
         {
             this.Close();
-            parentForm.Show();
+            parentForm.Enabled = true;
+            parentForm.BringToFront();
         }
     }
 }
