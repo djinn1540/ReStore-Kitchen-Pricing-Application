@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(kitchenForm));
             this.kitchenIdentifierTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -51,7 +52,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.otherInfoTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.CabinetDataTable = new System.Windows.Forms.DataGridView();
+            this.CabinetDataGrid = new System.Windows.Forms.DataGridView();
             this.QtyCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DimCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,11 +71,12 @@
             this.cRatingRadioButton = new System.Windows.Forms.RadioButton();
             this.bRatingRadioButton = new System.Windows.Forms.RadioButton();
             this.aRatingRadioButton = new System.Windows.Forms.RadioButton();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CabinetDataTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CabinetDataGrid)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.SuspendLayout();
@@ -334,10 +336,10 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Other Information:";
             // 
-            // CabinetDataTable
+            // CabinetDataGrid
             // 
-            this.CabinetDataTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CabinetDataTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CabinetDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CabinetDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.QtyCol,
             this.DimCol,
             this.TypeCol,
@@ -345,12 +347,12 @@
             this.FinCol,
             this.DoorsCol,
             this.DrawerCol});
-            this.CabinetDataTable.Location = new System.Drawing.Point(13, 32);
-            this.CabinetDataTable.Name = "CabinetDataTable";
-            this.CabinetDataTable.RowTemplate.Height = 24;
-            this.CabinetDataTable.Size = new System.Drawing.Size(744, 291);
-            this.CabinetDataTable.TabIndex = 10;
-            this.CabinetDataTable.TabStop = false;
+            this.CabinetDataGrid.Location = new System.Drawing.Point(13, 32);
+            this.CabinetDataGrid.Name = "CabinetDataGrid";
+            this.CabinetDataGrid.RowTemplate.Height = 24;
+            this.CabinetDataGrid.Size = new System.Drawing.Size(744, 291);
+            this.CabinetDataGrid.TabIndex = 10;
+            this.CabinetDataGrid.TabStop = false;
             // 
             // QtyCol
             // 
@@ -392,12 +394,12 @@
             this.groupBox5.Controls.Add(this.addCabinetButton);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.label4);
-            this.groupBox5.Controls.Add(this.CabinetDataTable);
+            this.groupBox5.Controls.Add(this.CabinetDataGrid);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.groupBox5.Location = new System.Drawing.Point(261, 221);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(775, 380);
-            this.groupBox5.TabIndex = 11;
+            this.groupBox5.TabIndex = 8;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Cabinets:";
             // 
@@ -407,7 +409,7 @@
             this.addCabinetButton.Location = new System.Drawing.Point(621, 329);
             this.addCabinetButton.Name = "addCabinetButton";
             this.addCabinetButton.Size = new System.Drawing.Size(136, 32);
-            this.addCabinetButton.TabIndex = 8;
+            this.addCabinetButton.TabIndex = 0;
             this.addCabinetButton.Text = "Add Cabinet";
             this.addCabinetButton.UseVisualStyleBackColor = false;
             this.addCabinetButton.Click += new System.EventHandler(this.addCabinetButton_Click);
@@ -515,6 +517,16 @@
             this.aRatingRadioButton.Text = "A";
             this.aRatingRadioButton.UseVisualStyleBackColor = true;
             // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // kitchenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -543,7 +555,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CabinetDataTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CabinetDataGrid)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -595,8 +607,9 @@
         private System.Windows.Forms.RadioButton cRatingRadioButton;
         private System.Windows.Forms.RadioButton bRatingRadioButton;
         private System.Windows.Forms.RadioButton aRatingRadioButton;
-        public System.Windows.Forms.DataGridView CabinetDataTable;
+        public System.Windows.Forms.DataGridView CabinetDataGrid;
         private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }
 

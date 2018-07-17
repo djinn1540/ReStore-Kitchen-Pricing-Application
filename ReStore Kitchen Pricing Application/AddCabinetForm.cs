@@ -38,7 +38,7 @@ namespace ReStore_Kitchen_Pricing_Application
         private void finishAddingCabinetButton_Click(object sender, EventArgs e)
         {
             //process the cabinet info into DataRow
-            DataRow cabinet = parentForm.CabinetDataTable
+           // DataRow cabinet = parentForm.CabinetDataGrid.Rows.Add(TODO);
 
             //add DataRow to the DataTable in parentForm
 

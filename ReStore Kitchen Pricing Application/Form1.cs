@@ -35,5 +35,7 @@ namespace ReStore_Kitchen_Pricing_Application
             addCabForm.Show();
             
         }
+
+       
     }
 }
