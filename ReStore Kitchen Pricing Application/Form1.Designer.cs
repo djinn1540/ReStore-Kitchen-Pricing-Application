@@ -467,6 +467,7 @@
             this.minusCheckBox.Name = "minusCheckBox";
             this.minusCheckBox.Size = new System.Drawing.Size(63, 35);
             this.minusCheckBox.TabIndex = 4;
+            this.minusCheckBox.TabStop = false;
             this.minusCheckBox.Text = "(-)";
             this.minusCheckBox.UseVisualStyleBackColor = true;
             // 

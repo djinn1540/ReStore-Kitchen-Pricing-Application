@@ -302,6 +302,7 @@
             this.glassDoorsCheckBox.Name = "glassDoorsCheckBox";
             this.glassDoorsCheckBox.Size = new System.Drawing.Size(141, 29);
             this.glassDoorsCheckBox.TabIndex = 3;
+            this.glassDoorsCheckBox.TabStop = false;
             this.glassDoorsCheckBox.Text = "Glass Doors";
             this.glassDoorsCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -312,6 +313,7 @@
             this.selfExtendingCheckBox.Name = "selfExtendingCheckBox";
             this.selfExtendingCheckBox.Size = new System.Drawing.Size(311, 29);
             this.selfExtendingCheckBox.TabIndex = 2;
+            this.selfExtendingCheckBox.TabStop = false;
             this.selfExtendingCheckBox.Text = "Self-Extending/Closing Drawers";
             this.selfExtendingCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -322,6 +324,7 @@
             this.drawers2FloorCheckBox.Name = "drawers2FloorCheckBox";
             this.drawers2FloorCheckBox.Size = new System.Drawing.Size(176, 29);
             this.drawers2FloorCheckBox.TabIndex = 4;
+            this.drawers2FloorCheckBox.TabStop = false;
             this.drawers2FloorCheckBox.Text = "Drawers to Floor";
             this.drawers2FloorCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -332,6 +335,7 @@
             this.shelvesCheckBox.Name = "shelvesCheckBox";
             this.shelvesCheckBox.Size = new System.Drawing.Size(176, 29);
             this.shelvesCheckBox.TabIndex = 1;
+            this.shelvesCheckBox.TabStop = false;
             this.shelvesCheckBox.Text = "Roll-out Shelves";
             this.shelvesCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -353,6 +357,7 @@
             this.finishedRightCheckBox.Name = "finishedRightCheckBox";
             this.finishedRightCheckBox.Size = new System.Drawing.Size(78, 29);
             this.finishedRightCheckBox.TabIndex = 1;
+            this.finishedRightCheckBox.TabStop = false;
             this.finishedRightCheckBox.Text = "Right";
             this.finishedRightCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -393,6 +398,7 @@
             this.hingeRightCheckBox.Name = "hingeRightCheckBox";
             this.hingeRightCheckBox.Size = new System.Drawing.Size(78, 29);
             this.hingeRightCheckBox.TabIndex = 1;
+            this.hingeRightCheckBox.TabStop = false;
             this.hingeRightCheckBox.Text = "Right";
             this.hingeRightCheckBox.UseVisualStyleBackColor = true;
             // 
