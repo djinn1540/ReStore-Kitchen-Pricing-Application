@@ -59,19 +59,22 @@
             this.hingeRightCheckBox = new System.Windows.Forms.CheckBox();
             this.hingeLeftCheckBox = new System.Windows.Forms.CheckBox();
             this.doorsNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.DrawersNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.drawersNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.finishAddingCabinetButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.SampleDescParaLabel = new System.Windows.Forms.Label();
             this.qtyNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.typeGroupBox.SuspendLayout();
             this.dimensionGroupBox.SuspendLayout();
             this.accessoryGroupBox.SuspendLayout();
             this.finishedGroupBox.SuspendLayout();
             this.hingeGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doorsNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DrawersNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drawersNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qtyNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -238,18 +241,21 @@
             // 
             this.heightTextBox.Location = new System.Drawing.Point(77, 77);
             this.heightTextBox.Name = "heightTextBox";
-            this.heightTextBox.Size = new System.Drawing.Size(120, 30);
+            this.heightTextBox.Size = new System.Drawing.Size(97, 30);
             this.heightTextBox.TabIndex = 1;
             // 
             // depthTextBox
             // 
             this.depthTextBox.Location = new System.Drawing.Point(77, 122);
             this.depthTextBox.Name = "depthTextBox";
-            this.depthTextBox.Size = new System.Drawing.Size(120, 30);
+            this.depthTextBox.Size = new System.Drawing.Size(97, 30);
             this.depthTextBox.TabIndex = 2;
             // 
             // dimensionGroupBox
             // 
+            this.dimensionGroupBox.Controls.Add(this.label10);
+            this.dimensionGroupBox.Controls.Add(this.label8);
+            this.dimensionGroupBox.Controls.Add(this.label9);
             this.dimensionGroupBox.Controls.Add(this.heightTextBox);
             this.dimensionGroupBox.Controls.Add(this.depthTextBox);
             this.dimensionGroupBox.Controls.Add(this.widthListBox);
@@ -416,12 +422,12 @@
             0,
             0});
             // 
-            // DrawersNumericUpDown
+            // drawersNumericUpDown
             // 
-            this.DrawersNumericUpDown.Location = new System.Drawing.Point(546, 23);
-            this.DrawersNumericUpDown.Name = "DrawersNumericUpDown";
-            this.DrawersNumericUpDown.Size = new System.Drawing.Size(65, 30);
-            this.DrawersNumericUpDown.TabIndex = 2;
+            this.drawersNumericUpDown.Location = new System.Drawing.Point(546, 23);
+            this.drawersNumericUpDown.Name = "drawersNumericUpDown";
+            this.drawersNumericUpDown.Size = new System.Drawing.Size(65, 30);
+            this.drawersNumericUpDown.TabIndex = 2;
             // 
             // label6
             // 
@@ -472,6 +478,32 @@
             0,
             0});
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(178, 80);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 25);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "\"";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(66, 125);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 25);
+            this.label9.TabIndex = 23;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(178, 125);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(19, 25);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "\"";
+            // 
             // AddCabinetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -481,7 +513,7 @@
             this.Controls.Add(this.SampleDescParaLabel);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.finishAddingCabinetButton);
-            this.Controls.Add(this.DrawersNumericUpDown);
+            this.Controls.Add(this.drawersNumericUpDown);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.doorsNumericUpDown);
             this.Controls.Add(this.hingeGroupBox);
@@ -508,7 +540,7 @@
             this.hingeGroupBox.ResumeLayout(false);
             this.hingeGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doorsNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DrawersNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drawersNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qtyNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -547,11 +579,14 @@
         private System.Windows.Forms.CheckBox hingeRightCheckBox;
         private System.Windows.Forms.CheckBox hingeLeftCheckBox;
         private System.Windows.Forms.NumericUpDown doorsNumericUpDown;
-        private System.Windows.Forms.NumericUpDown DrawersNumericUpDown;
+        private System.Windows.Forms.NumericUpDown drawersNumericUpDown;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button finishAddingCabinetButton;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label SampleDescParaLabel;
         private System.Windows.Forms.NumericUpDown qtyNumericUpDown;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

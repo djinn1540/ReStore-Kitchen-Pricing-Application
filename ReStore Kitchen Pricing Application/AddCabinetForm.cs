@@ -67,16 +67,32 @@ namespace ReStore_Kitchen_Pricing_Application
         {
             bool ok = true;
 
-            if(Regex.IsMatch(qtyTextBox.Text , @"[^0-9]"))
+            if(qtyNumericUpDown.Value < 1)
             {
                 ok = false;
-                //outline qtyBox in red
+                //outline qtyBox in red TODO
             }
 
+            //check if no type is chosen
 
+            if (Regex.IsMatch(heightTextBox.Text, @"[^0-9]"))
+            {
+                ok = false;
+                //outline heightTxtBox in red TODO
+            }
+
+            if (Regex.IsMatch(depthTextBox.Text, @"[^0-9]"))
+            {
+                ok = false;
+                //outline depthTxtBox in red TODO
+            }
+
+            //check if "drawers to floor" is selected and doors > 0
 
             return ok;
         }
+
+        
 
         private String getCabinetType()
         {
