@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -37,10 +38,20 @@ namespace ReStore_Kitchen_Pricing_Application
 
         private void finishAddingCabinetButton_Click(object sender, EventArgs e)
         {
+            //verify proper input
+            if (!verifyCabinetInput())
+            {
+                //TODO add popup box 
+                return;
+            }
+
             //process the cabinet info into DataRow
-           // DataRow cabinet = parentForm.CabinetDataGrid.Rows.Add(TODO);
+            String dimensions = widthListBox.Text + heightTextBox.Text + depthTextBox.Text;
+            String type = getCabinetType();
+
 
             //add DataRow to the DataTable in parentForm
+            DataRow cabinet = parentForm.CabinetDataGrid.Rows.Add(qtyTextBox.Text, dimensions, ,,);
 
             //change back to the KitchenForm
             this.Close();
@@ -50,6 +61,26 @@ namespace ReStore_Kitchen_Pricing_Application
         {
             parentForm.Enabled = true;
             parentForm.BringToFront();
+        }
+
+        private Boolean verifyCabinetInput() // checks input, outlines in red the violating input, returns a true if all input can be processed
+        {
+            bool ok = true;
+
+            if(Regex.IsMatch(qtyTextBox.Text , @"[^0-9]"))
+            {
+                ok = false;
+                //outline qtyBox in red
+            }
+
+
+
+            return ok;
+        }
+
+        private String getCabinetType()
+        {
+
         }
     }
 }

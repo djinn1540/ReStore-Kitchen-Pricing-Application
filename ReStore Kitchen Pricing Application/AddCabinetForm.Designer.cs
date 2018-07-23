@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.qtyTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.widthListBox = new System.Windows.Forms.ListBox();
             this.typeGroupBox = new System.Windows.Forms.GroupBox();
@@ -65,6 +64,7 @@
             this.finishAddingCabinetButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.SampleDescParaLabel = new System.Windows.Forms.Label();
+            this.qtyNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.typeGroupBox.SuspendLayout();
             this.dimensionGroupBox.SuspendLayout();
             this.accessoryGroupBox.SuspendLayout();
@@ -72,16 +72,8 @@
             this.hingeGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doorsNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DrawersNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qtyNumericUpDown)).BeginInit();
             this.SuspendLayout();
-            // 
-            // qtyTextBox
-            // 
-            this.qtyTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.qtyTextBox.Location = new System.Drawing.Point(68, 22);
-            this.qtyTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.qtyTextBox.Name = "qtyTextBox";
-            this.qtyTextBox.Size = new System.Drawing.Size(40, 30);
-            this.qtyTextBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -374,7 +366,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(124, 25);
+            this.label5.Location = new System.Drawing.Point(169, 25);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(107, 25);
             this.label5.TabIndex = 14;
@@ -414,9 +406,9 @@
             // 
             // doorsNumericUpDown
             // 
-            this.doorsNumericUpDown.Location = new System.Drawing.Point(228, 23);
+            this.doorsNumericUpDown.Location = new System.Drawing.Point(282, 23);
             this.doorsNumericUpDown.Name = "doorsNumericUpDown";
-            this.doorsNumericUpDown.Size = new System.Drawing.Size(120, 30);
+            this.doorsNumericUpDown.Size = new System.Drawing.Size(66, 30);
             this.doorsNumericUpDown.TabIndex = 1;
             this.doorsNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -426,15 +418,15 @@
             // 
             // DrawersNumericUpDown
             // 
-            this.DrawersNumericUpDown.Location = new System.Drawing.Point(491, 23);
+            this.DrawersNumericUpDown.Location = new System.Drawing.Point(546, 23);
             this.DrawersNumericUpDown.Name = "DrawersNumericUpDown";
-            this.DrawersNumericUpDown.Size = new System.Drawing.Size(120, 30);
+            this.DrawersNumericUpDown.Size = new System.Drawing.Size(65, 30);
             this.DrawersNumericUpDown.TabIndex = 2;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(368, 25);
+            this.label6.Location = new System.Drawing.Point(411, 25);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(127, 25);
             this.label6.TabIndex = 17;
@@ -468,11 +460,24 @@
             this.SampleDescParaLabel.Size = new System.Drawing.Size(434, 78);
             this.SampleDescParaLabel.TabIndex = 21;
             // 
+            // qtyNumericUpDown
+            // 
+            this.qtyNumericUpDown.Location = new System.Drawing.Point(75, 23);
+            this.qtyNumericUpDown.Name = "qtyNumericUpDown";
+            this.qtyNumericUpDown.Size = new System.Drawing.Size(60, 30);
+            this.qtyNumericUpDown.TabIndex = 0;
+            this.qtyNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // AddCabinetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 508);
+            this.Controls.Add(this.qtyNumericUpDown);
             this.Controls.Add(this.SampleDescParaLabel);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.finishAddingCabinetButton);
@@ -486,7 +491,6 @@
             this.Controls.Add(this.dimensionGroupBox);
             this.Controls.Add(this.typeGroupBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.qtyTextBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AddCabinetForm";
@@ -505,14 +509,13 @@
             this.hingeGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doorsNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DrawersNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qtyNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox qtyTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox widthListBox;
         private System.Windows.Forms.GroupBox typeGroupBox;
@@ -549,5 +552,6 @@
         private System.Windows.Forms.Button finishAddingCabinetButton;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label SampleDescParaLabel;
+        private System.Windows.Forms.NumericUpDown qtyNumericUpDown;
     }
 }
