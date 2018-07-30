@@ -41,12 +41,17 @@ namespace ReStore_Kitchen_Pricing_Application
             //verify proper input
             if (!verifyCabinetInput())
             {
-                //TODO add popup box 
+                string messageBoxText = "Please fix the areas outlined in red.";
+                string caption = "Add Cabinet";
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Warning;
+                MessageBox.Show(messageBoxText, caption, button, icon);
+
                 return;
             }
 
             //process the cabinet info into DataRow
-            String dimensions = widthListBox.Text + "x" + heightTextBox.Text + "x" + depthTextBox.Text;
+            String dimensions = widthListBox.SelectedItem.ToString() + "x" + heightTextBox.Text + "x" + depthTextBox.Text;
             String type = getCabinetType();
             String accessories = getAccessoryList();
             String finished = getFinishedSides();
@@ -75,11 +80,19 @@ namespace ReStore_Kitchen_Pricing_Application
                 ok = false;
                 //outline qtyBox in red TODO
             }
+            else
+            {
+                //remove any red outlines TODO
+            }
 
             if (!kitchenForm.isOneCheckedIn(typeGroupBox))
             {
                 ok = false;
                 //outline typeBox in red TODO
+            }
+            else
+            {
+                //remove any red outlines TODO
             }
 
             if (Regex.IsMatch(heightTextBox.Text, @"[^0-9]"))
@@ -87,11 +100,19 @@ namespace ReStore_Kitchen_Pricing_Application
                 ok = false;
                 //outline heightTxtBox in red TODO
             }
+            else
+            {
+                //remove any red outlines TODO
+            }
 
             if (Regex.IsMatch(depthTextBox.Text, @"[^0-9]"))
             {
                 ok = false;
                 //outline depthTxtBox in red TODO
+            }
+            else
+            {
+                //remove any red outlines TODO
             }
 
             //should not be "drawers to floor" if there is a door in the cabinet
@@ -101,6 +122,15 @@ namespace ReStore_Kitchen_Pricing_Application
                 //outline both  in red TODO
 
                 //Dialogbox to let user no there cant be any doors with drawer2floor
+                string messageBoxText = "A cabinet with 'drawers to floor' cannot have any doors.";
+                string caption = "Add Cabinet";
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Warning;
+                MessageBox.Show(messageBoxText, caption, button, icon);
+            }
+            else
+            {
+                //remove any red outlines TODO
             }
 
             return ok;

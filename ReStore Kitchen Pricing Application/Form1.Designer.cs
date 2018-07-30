@@ -303,7 +303,7 @@
             this.distinctiveCharTextBox.Multiline = true;
             this.distinctiveCharTextBox.Name = "distinctiveCharTextBox";
             this.distinctiveCharTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.distinctiveCharTextBox.Size = new System.Drawing.Size(581, 164);
+            this.distinctiveCharTextBox.Size = new System.Drawing.Size(848, 164);
             this.distinctiveCharTextBox.TabIndex = 6;
             // 
             // label2
@@ -324,7 +324,7 @@
             this.otherInfoTextBox.Multiline = true;
             this.otherInfoTextBox.Name = "otherInfoTextBox";
             this.otherInfoTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.otherInfoTextBox.Size = new System.Drawing.Size(484, 77);
+            this.otherInfoTextBox.Size = new System.Drawing.Size(775, 77);
             this.otherInfoTextBox.TabIndex = 9;
             // 
             // label3
@@ -352,7 +352,7 @@
             this.CabinetDataGrid.Location = new System.Drawing.Point(13, 32);
             this.CabinetDataGrid.Name = "CabinetDataGrid";
             this.CabinetDataGrid.RowTemplate.Height = 24;
-            this.CabinetDataGrid.Size = new System.Drawing.Size(744, 291);
+            this.CabinetDataGrid.Size = new System.Drawing.Size(1023, 291);
             this.CabinetDataGrid.TabIndex = 10;
             this.CabinetDataGrid.TabStop = false;
             // 
@@ -365,7 +365,7 @@
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.groupBox5.Location = new System.Drawing.Point(261, 221);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(775, 380);
+            this.groupBox5.Size = new System.Drawing.Size(1042, 380);
             this.groupBox5.TabIndex = 8;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Cabinets:";
@@ -373,7 +373,7 @@
             // addCabinetButton
             // 
             this.addCabinetButton.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.addCabinetButton.Location = new System.Drawing.Point(621, 329);
+            this.addCabinetButton.Location = new System.Drawing.Point(900, 329);
             this.addCabinetButton.Name = "addCabinetButton";
             this.addCabinetButton.Size = new System.Drawing.Size(136, 32);
             this.addCabinetButton.TabIndex = 0;
@@ -404,7 +404,7 @@
             this.printButton.BackColor = System.Drawing.Color.ForestGreen;
             this.printButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.printButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.printButton.Location = new System.Drawing.Point(907, 630);
+            this.printButton.Location = new System.Drawing.Point(1174, 632);
             this.printButton.Name = "printButton";
             this.printButton.Size = new System.Drawing.Size(129, 77);
             this.printButton.TabIndex = 10;
@@ -419,7 +419,7 @@
             this.groupBox6.Controls.Add(this.bRatingRadioButton);
             this.groupBox6.Controls.Add(this.aRatingRadioButton);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBox6.Location = new System.Drawing.Point(856, 13);
+            this.groupBox6.Location = new System.Drawing.Point(1123, 13);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(180, 190);
             this.groupBox6.TabIndex = 7;
@@ -539,7 +539,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 719);
+            this.ClientSize = new System.Drawing.Size(1315, 719);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.groupBox5);
