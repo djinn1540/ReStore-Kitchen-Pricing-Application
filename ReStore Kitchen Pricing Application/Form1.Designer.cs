@@ -53,14 +53,6 @@
             this.otherInfoTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.CabinetDataGrid = new System.Windows.Forms.DataGridView();
-            this.QtyCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DimCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FeatCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FinCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DoorsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DrawerCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hinges = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.addCabinetButton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -73,6 +65,14 @@
             this.bRatingRadioButton = new System.Windows.Forms.RadioButton();
             this.aRatingRadioButton = new System.Windows.Forms.RadioButton();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.QtyCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DimCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FeatCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FinCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DoorsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hinges = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DrawerCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -347,54 +347,14 @@
             this.FeatCol,
             this.FinCol,
             this.DoorsCol,
-            this.DrawerCol,
-            this.Hinges});
+            this.Hinges,
+            this.DrawerCol});
             this.CabinetDataGrid.Location = new System.Drawing.Point(13, 32);
             this.CabinetDataGrid.Name = "CabinetDataGrid";
             this.CabinetDataGrid.RowTemplate.Height = 24;
             this.CabinetDataGrid.Size = new System.Drawing.Size(744, 291);
             this.CabinetDataGrid.TabIndex = 10;
             this.CabinetDataGrid.TabStop = false;
-            // 
-            // QtyCol
-            // 
-            this.QtyCol.HeaderText = "Quantity";
-            this.QtyCol.Name = "QtyCol";
-            // 
-            // DimCol
-            // 
-            this.DimCol.HeaderText = "Dimensions (WxHxD)";
-            this.DimCol.Name = "DimCol";
-            // 
-            // TypeCol
-            // 
-            this.TypeCol.HeaderText = "Type";
-            this.TypeCol.Name = "TypeCol";
-            // 
-            // FeatCol
-            // 
-            this.FeatCol.HeaderText = "Features";
-            this.FeatCol.Name = "FeatCol";
-            // 
-            // FinCol
-            // 
-            this.FinCol.HeaderText = "Finished Sides";
-            this.FinCol.Name = "FinCol";
-            // 
-            // DoorsCol
-            // 
-            this.DoorsCol.HeaderText = "# of Doors";
-            this.DoorsCol.Name = "DoorsCol";
-            // 
-            // DrawerCol
-            // 
-            this.DrawerCol.HeaderText = "# of Drawers";
-            this.DrawerCol.Name = "DrawerCol";
-            // 
-            // Hinges
-            // 
-            this.Hinges.HeaderText = "Column1";
-            this.Hinges.Name = "Hinges";
             // 
             // groupBox5
             // 
@@ -535,6 +495,46 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // QtyCol
+            // 
+            this.QtyCol.HeaderText = "Quantity";
+            this.QtyCol.Name = "QtyCol";
+            // 
+            // DimCol
+            // 
+            this.DimCol.HeaderText = "Dimensions (WxHxD)";
+            this.DimCol.Name = "DimCol";
+            // 
+            // TypeCol
+            // 
+            this.TypeCol.HeaderText = "Type";
+            this.TypeCol.Name = "TypeCol";
+            // 
+            // FeatCol
+            // 
+            this.FeatCol.HeaderText = "Features";
+            this.FeatCol.Name = "FeatCol";
+            // 
+            // FinCol
+            // 
+            this.FinCol.HeaderText = "Finished Sides";
+            this.FinCol.Name = "FinCol";
+            // 
+            // DoorsCol
+            // 
+            this.DoorsCol.HeaderText = "# of Doors";
+            this.DoorsCol.Name = "DoorsCol";
+            // 
+            // Hinges
+            // 
+            this.Hinges.HeaderText = "Hinges";
+            this.Hinges.Name = "Hinges";
+            // 
+            // DrawerCol
+            // 
+            this.DrawerCol.HeaderText = "# of Drawers";
+            this.DrawerCol.Name = "DrawerCol";
+            // 
             // kitchenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -598,13 +598,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox otherInfoTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QtyCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DimCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FeatCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FinCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DoorsCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DrawerCol;
         private System.Windows.Forms.Button addCabinetButton;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label4;
@@ -618,7 +611,14 @@
         public System.Windows.Forms.DataGridView CabinetDataGrid;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QtyCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DimCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FeatCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FinCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DoorsCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn Hinges;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DrawerCol;
     }
 }
 

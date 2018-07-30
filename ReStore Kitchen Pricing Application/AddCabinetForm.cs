@@ -46,7 +46,7 @@ namespace ReStore_Kitchen_Pricing_Application
             }
 
             //process the cabinet info into DataRow
-            String dimensions = widthListBox.Text + heightTextBox.Text + depthTextBox.Text;
+            String dimensions = widthListBox.Text + "x" + heightTextBox.Text + "x" + depthTextBox.Text;
             String type = getCabinetType();
             String accessories = getAccessoryList();
             String finished = getFinishedSides();
@@ -54,7 +54,7 @@ namespace ReStore_Kitchen_Pricing_Application
             
 
             //add DataRow to the DataTable in parentForm
-            parentForm.CabinetDataGrid.Rows.Add( qtyNumericUpDown.Value.ToString(), dimensions, type, accessories, finished, doorsNumericUpDown.Value.ToString(), drawersNumericUpDown.Value.ToString(), hinges);
+            parentForm.CabinetDataGrid.Rows.Add( qtyNumericUpDown.Value.ToString(), dimensions, type, accessories, finished, doorsNumericUpDown.Value.ToString(), hinges, drawersNumericUpDown.Value.ToString());
 
             //change back to the KitchenForm
             this.Close();
@@ -127,7 +127,7 @@ namespace ReStore_Kitchen_Pricing_Application
                     {
                         sentence.Append(", ");
                     }
-                    sentence.Append(check);
+                    sentence.Append(check.Text);
                     numOfAcc++;
                 }
             }
