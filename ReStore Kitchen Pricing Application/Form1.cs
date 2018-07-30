@@ -36,7 +36,7 @@ namespace ReStore_Kitchen_Pricing_Application
             
         }
 
-        public Boolean isOneCheckedIn(GroupBox box)
+        public static Boolean isOneCheckedIn(GroupBox box)
         {
             foreach (Control control in box.Controls)
             {
@@ -52,10 +52,10 @@ namespace ReStore_Kitchen_Pricing_Application
                     }
                 }
             }
-            return false;
+            return false; // error - there should have been one radio button checked
         }
 
-       public RadioButton getCheckedRadioFrom(GroupBox box)
+       public static RadioButton getCheckedRadioFrom(GroupBox box)
         {
             foreach (Control control in box.Controls)
             {

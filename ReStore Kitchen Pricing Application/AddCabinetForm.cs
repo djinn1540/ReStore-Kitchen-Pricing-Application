@@ -103,7 +103,8 @@ namespace ReStore_Kitchen_Pricing_Application
 
         private String getCabinetType()
         {
-            //make a generic get radio in groupbox?
+            if(kitchenForm.i
+
         }
     }
 }
