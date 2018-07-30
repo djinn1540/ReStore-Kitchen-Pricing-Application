@@ -60,6 +60,7 @@
             this.FinCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DoorsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DrawerCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hinges = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.addCabinetButton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -346,7 +347,8 @@
             this.FeatCol,
             this.FinCol,
             this.DoorsCol,
-            this.DrawerCol});
+            this.DrawerCol,
+            this.Hinges});
             this.CabinetDataGrid.Location = new System.Drawing.Point(13, 32);
             this.CabinetDataGrid.Name = "CabinetDataGrid";
             this.CabinetDataGrid.RowTemplate.Height = 24;
@@ -388,6 +390,11 @@
             // 
             this.DrawerCol.HeaderText = "# of Drawers";
             this.DrawerCol.Name = "DrawerCol";
+            // 
+            // Hinges
+            // 
+            this.Hinges.HeaderText = "Column1";
+            this.Hinges.Name = "Hinges";
             // 
             // groupBox5
             // 
@@ -611,6 +618,7 @@
         public System.Windows.Forms.DataGridView CabinetDataGrid;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hinges;
     }
 }
 

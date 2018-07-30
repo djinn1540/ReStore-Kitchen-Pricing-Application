@@ -48,10 +48,13 @@ namespace ReStore_Kitchen_Pricing_Application
             //process the cabinet info into DataRow
             String dimensions = widthListBox.Text + heightTextBox.Text + depthTextBox.Text;
             String type = getCabinetType();
-
+            String accessories = getAccessoryList();
+            String finished = getFinishedSides();
+            String hinges = getHingedSides();
+            
 
             //add DataRow to the DataTable in parentForm
-            DataRow cabinet = parentForm.CabinetDataGrid.Rows.Add(qtyTextBox.Text, dimensions, ,,);
+            parentForm.CabinetDataGrid.Rows.Add( qtyNumericUpDown.Value.ToString(), dimensions, type, accessories, finished, doorsNumericUpDown.Value.ToString(), drawersNumericUpDown.Value.ToString(), hinges);
 
             //change back to the KitchenForm
             this.Close();
@@ -73,7 +76,11 @@ namespace ReStore_Kitchen_Pricing_Application
                 //outline qtyBox in red TODO
             }
 
-            //check if no type is chosen
+            if (!kitchenForm.isOneCheckedIn(typeGroupBox))
+            {
+                ok = false;
+                //outline typeBox in red TODO
+            }
 
             if (Regex.IsMatch(heightTextBox.Text, @"[^0-9]"))
             {
@@ -99,12 +106,82 @@ namespace ReStore_Kitchen_Pricing_Application
             return ok;
         }
 
+        public static void displayDescriptionSentence() {
+            //TODO
+        }
+
+        private String getAccessoryList()
+        {
+            int numOfAcc = 0;
+            StringBuilder sentence = new StringBuilder();
+            foreach (CheckBox check in accessoryGroupBox.Controls)
+            {
+                if(check.Checked == true)
+                {
+                    if(numOfAcc == 0)
+                    {
+                       //do nothing
+                        
+                    }
+                    else
+                    {
+                        sentence.Append(", ");
+                    }
+                    sentence.Append(check);
+                    numOfAcc++;
+                }
+            }
+            return sentence.ToString();
+        }
         
 
         private String getCabinetType()
         {
-            if(kitchenForm.i
+            if (kitchenForm.isOneCheckedIn(typeGroupBox))
+            {
+                RadioButton selected = kitchenForm.getCheckedRadioFrom(typeGroupBox);
+                return selected.Text;
+            }
+            else
+            {
+                return null;
+            }
+        }
 
+        private String getFinishedSides()
+        {
+            if (finishedLeftCheckBox.Checked && finishedRightCheckBox.Checked)
+            {
+                return "Left/Right";
+            }
+            else if (finishedLeftCheckBox.Checked)
+            {
+                return "Left";
+            }
+            else if (finishedRightCheckBox.Checked)
+            {
+                return "Right";
+            }
+            else
+                return "";
+        }
+        
+        private String getHingedSides()
+        {
+            if (hingeLeftCheckBox.Checked && hingeRightCheckBox.Checked)
+            {
+                return "Left/Right";
+            }
+            else if (hingeLeftCheckBox.Checked)
+            {
+                return "Left";
+            }
+            else if (hingeRightCheckBox.Checked)
+            {
+                return "Right";
+            }
+            else
+                return "";
         }
     }
 }
