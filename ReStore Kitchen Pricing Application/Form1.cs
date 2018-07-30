@@ -36,6 +36,45 @@ namespace ReStore_Kitchen_Pricing_Application
             
         }
 
-       
+        public Boolean isOneCheckedIn(GroupBox box)
+        {
+            foreach (Control control in box.Controls)
+            {
+                if (control is RadioButton)
+                {
+                    RadioButton radio = control as RadioButton;
+                    if (radio is RadioButton) //safety if casting to Radio unexpectedly fails
+                    {
+                        if (radio.Checked == true)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+       public RadioButton getCheckedRadioFrom(GroupBox box)
+        {
+            foreach (Control control in box.Controls)
+            {
+                if (control is RadioButton)
+                {
+                    RadioButton radio = control as RadioButton;
+
+                    if (radio is RadioButton) //safety if casting to Radio unexpectedly fails
+                    {
+                        if(radio.Checked == true)
+                        {
+                            return radio;
+                        }
+                    }
+                } 
+
+            }
+            //Error -- there should have been one radioButton checked
+            return null;
+        }
     }
 }

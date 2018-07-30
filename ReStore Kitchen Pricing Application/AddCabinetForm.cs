@@ -87,7 +87,14 @@ namespace ReStore_Kitchen_Pricing_Application
                 //outline depthTxtBox in red TODO
             }
 
-            //check if "drawers to floor" is selected and doors > 0
+            //should not be "drawers to floor" if there is a door in the cabinet
+            if (drawers2FloorCheckBox.Checked && doorsNumericUpDown.Value > 1)
+            {
+                ok = false;
+                //outline both  in red TODO
+
+                //Dialogbox to let user no there cant be any doors with drawer2floor
+            }
 
             return ok;
         }
@@ -96,7 +103,7 @@ namespace ReStore_Kitchen_Pricing_Application
 
         private String getCabinetType()
         {
-
+            //make a generic get radio in groupbox?
         }
     }
 }
