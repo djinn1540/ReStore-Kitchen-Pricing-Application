@@ -41,7 +41,7 @@ namespace ReStore_Kitchen_Pricing_Application
             //verify proper input
             if (!verifyCabinetInput())
             {
-                string messageBoxText = "Please fix the areas outlined in red.";
+                string messageBoxText = "Please fix the areas highlighted in red.";
                 string caption = "Add Cabinet";
                 MessageBoxButtons button = MessageBoxButtons.OK;
                 MessageBoxIcon icon = MessageBoxIcon.Warning;
@@ -78,62 +78,121 @@ namespace ReStore_Kitchen_Pricing_Application
             if(qtyNumericUpDown.Value < 1)
             {
                 ok = false;
-                //outline qtyBox in red TODO
+                //outline qtyBox in red 
+                turnRed(qtyNumericUpDown);
             }
             else
             {
-                //remove any red outlines TODO
+                //remove any red outlines
+                turnToColor(qtyNumericUpDown, default(Color));
             }
 
             if (!kitchenForm.isOneCheckedIn(typeGroupBox))
             {
                 ok = false;
-                //outline typeBox in red TODO
+                //outline typeBox in red 
+                turnRed(typeGroupBox);
             }
             else
             {
-                //remove any red outlines TODO
+                //remove any red outlines
+                turnToColor(typeGroupBox, default(Color));
             }
 
-            if (Regex.IsMatch(heightTextBox.Text, @"[^0-9]"))
+            if(widthListBox.SelectedItem == null)
             {
                 ok = false;
-                //outline heightTxtBox in red TODO
+                //paint in red
+                turnRed(widthListBox);
             }
             else
             {
-                //remove any red outlines TODO
+                //remove red outline
+                turnToColor(widthListBox, default(Color));
             }
 
-            if (Regex.IsMatch(depthTextBox.Text, @"[^0-9]"))
+            if (heightTextBox.Text == "" || Regex.IsMatch(heightTextBox.Text, @"[^0-9]"))
             {
                 ok = false;
-                //outline depthTxtBox in red TODO
+                //outline heightTxtBox in red
+                turnRed(heightTextBox);
             }
             else
             {
-                //remove any red outlines TODO
+                //remove any red outlines
+                turnToColor(heightTextBox, default(Color));
+            }
+
+            if (depthTextBox.Text == "" || Regex.IsMatch(depthTextBox.Text, @"[^0-9]"))
+            {
+                ok = false;
+                //outline depthTxtBox in red
+                turnRed(depthTextBox);
+            }
+            else
+            {
+                //remove any red outlines
+                turnToColor(depthTextBox, default(Color));
             }
 
             //should not be "drawers to floor" if there is a door in the cabinet
-            if (drawers2FloorCheckBox.Checked && doorsNumericUpDown.Value > 1)
+            if (drawers2FloorCheckBox.Checked)
             {
-                ok = false;
-                //outline both  in red TODO
+                if(doorsNumericUpDown.Value > 0)
+                {
+                    ok = false;
+                    //outline both in red 
+                    turnRed(drawers2FloorCheckBox);
+                    turnRed(doorsNumericUpDown);
+                }
+                else {
+                    turnToColor(doorsNumericUpDown, default(Color));
+                }
 
-                //Dialogbox to let user no there cant be any doors with drawer2floor
-                string messageBoxText = "A cabinet with 'drawers to floor' cannot have any doors.";
-                string caption = "Add Cabinet";
-                MessageBoxButtons button = MessageBoxButtons.OK;
-                MessageBoxIcon icon = MessageBoxIcon.Warning;
-                MessageBox.Show(messageBoxText, caption, button, icon);
+                if (glassDoorsCheckBox.Checked)
+                {
+                    ok = false;
+                    //outline in red
+                    turnRed(drawers2FloorCheckBox);
+                    turnRed(glassDoorsCheckBox);
+                }
+                else
+                {
+                    turnToColor(glassDoorsCheckBox, default(Color));
+                }
+
+                if(glassDoorsCheckBox.Checked || doorsNumericUpDown.Value > 0)
+                {
+                    //Dialogbox to let user no there cant be any doors with drawer2floor
+                    string messageBoxText = "A cabinet with 'drawers to floor' cannot have any doors.";
+                    string caption = "Add Cabinet";
+                    MessageBoxButtons button = MessageBoxButtons.OK;
+                    MessageBoxIcon icon = MessageBoxIcon.Warning;
+                    MessageBox.Show(messageBoxText, caption, button, icon);
+                }
+                
             }
             else
             {
-                //remove any red outlines TODO
+                //remove any red outlines
+                turnToColor(drawers2FloorCheckBox, default(Color));
+                turnToColor(doorsNumericUpDown, default(Color));
+                turnToColor(glassDoorsCheckBox, default(Color));
             }
 
             return ok;
+        }
+        
+        private void turnRed(Control c)
+        {
+            if(c != null)
+                c.BackColor = Color.Red;
+        }
+
+        private void turnToColor(Control c, Color color)
+        {
+            if (c != null && color != null)
+                c.BackColor = color;
         }
 
         public static void displayDescriptionSentence() {

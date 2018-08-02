@@ -76,5 +76,36 @@ namespace ReStore_Kitchen_Pricing_Application
             //Error -- there should have been one radioButton checked
             return null;
         }
+
+        private void printButton_Click(object sender, EventArgs e)
+        {
+            if (!verifyKitchenInput())
+            {
+                string messageBoxText = "Please fix the areas highlighted in red.";
+                string caption = "Print Kitchen";
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Warning;
+                MessageBox.Show(messageBoxText, caption, button, icon);
+
+                return;
+            }
+
+
+            //process kitchen info
+
+            //put kitchen info into PDF/printable
+
+            //move on to next kitchen?
+        }
+
+        private Boolean verifyKitchenInput()
+        {
+            bool ok = true;
+
+            //TODO kitchen id regex check
+
+
+            if(!isOneCheckedIn())
+        }
     }
 }

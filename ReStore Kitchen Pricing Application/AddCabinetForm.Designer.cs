@@ -45,6 +45,9 @@
             this.heightTextBox = new System.Windows.Forms.TextBox();
             this.depthTextBox = new System.Windows.Forms.TextBox();
             this.dimensionGroupBox = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.lazySusanCheckBox = new System.Windows.Forms.CheckBox();
             this.accessoryGroupBox = new System.Windows.Forms.GroupBox();
             this.glassDoorsCheckBox = new System.Windows.Forms.CheckBox();
@@ -65,9 +68,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.SampleDescParaLabel = new System.Windows.Forms.Label();
             this.qtyNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.typeGroupBox.SuspendLayout();
             this.dimensionGroupBox.SuspendLayout();
             this.accessoryGroupBox.SuspendLayout();
@@ -239,6 +239,7 @@
             // 
             // heightTextBox
             // 
+            this.heightTextBox.ForeColor = System.Drawing.Color.Black;
             this.heightTextBox.Location = new System.Drawing.Point(77, 77);
             this.heightTextBox.Name = "heightTextBox";
             this.heightTextBox.Size = new System.Drawing.Size(97, 30);
@@ -268,6 +269,32 @@
             this.dimensionGroupBox.TabIndex = 5;
             this.dimensionGroupBox.TabStop = false;
             this.dimensionGroupBox.Text = "Cabinet Dimensions";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(178, 125);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(19, 25);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "\"";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(178, 80);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 25);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "\"";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(66, 125);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 25);
+            this.label9.TabIndex = 23;
             // 
             // lazySusanCheckBox
             // 
@@ -478,32 +505,6 @@
             0,
             0});
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(178, 80);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(19, 25);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "\"";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(66, 125);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 25);
-            this.label9.TabIndex = 23;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(178, 125);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(19, 25);
-            this.label10.TabIndex = 24;
-            this.label10.Text = "\"";
-            // 
             // AddCabinetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -526,7 +527,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AddCabinetForm";
-            this.Text = "AddCabinetForm";
+            this.Text = "Add a Cabinet";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddCabinetForm_FormClosing);
             this.Load += new System.EventHandler(this.AddCabinetForm_Load);
             this.typeGroupBox.ResumeLayout(false);

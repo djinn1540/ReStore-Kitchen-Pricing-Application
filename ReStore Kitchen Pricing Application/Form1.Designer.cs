@@ -31,20 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(kitchenForm));
             this.kitchenIdentifierTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.constructionGroupBox = new System.Windows.Forms.GroupBox();
             this.solidWoodRadioButton = new System.Windows.Forms.RadioButton();
             this.plywoodRadioButton = new System.Windows.Forms.RadioButton();
             this.particleBoardRadioButton = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cabStyleGroupBox = new System.Windows.Forms.GroupBox();
             this.insetRadioButton = new System.Windows.Forms.RadioButton();
             this.framelessRadioButton = new System.Windows.Forms.RadioButton();
             this.framedRadioButton = new System.Windows.Forms.RadioButton();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.doorStyleGroupBox = new System.Windows.Forms.GroupBox();
             this.squareRadioButton = new System.Windows.Forms.RadioButton();
             this.cathedralRadioButton = new System.Windows.Forms.RadioButton();
             this.archRadioButton = new System.Windows.Forms.RadioButton();
             this.fullOverlayCheckBox = new System.Windows.Forms.CheckBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.panelStyleGroupBox = new System.Windows.Forms.GroupBox();
             this.recessedRadioButton = new System.Windows.Forms.RadioButton();
             this.raisedRadioButton = new System.Windows.Forms.RadioButton();
             this.flatRadioButton = new System.Windows.Forms.RadioButton();
@@ -53,18 +53,6 @@
             this.otherInfoTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.CabinetDataGrid = new System.Windows.Forms.DataGridView();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.addCabinetButton = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.printButton = new System.Windows.Forms.Button();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.minusCheckBox = new System.Windows.Forms.CheckBox();
-            this.plusCheckBox = new System.Windows.Forms.CheckBox();
-            this.cRatingRadioButton = new System.Windows.Forms.RadioButton();
-            this.bRatingRadioButton = new System.Windows.Forms.RadioButton();
-            this.aRatingRadioButton = new System.Windows.Forms.RadioButton();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.QtyCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DimCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,13 +61,25 @@
             this.DoorsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hinges = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DrawerCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.addCabinetButton = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.printButton = new System.Windows.Forms.Button();
+            this.qualityRatingGroupBox = new System.Windows.Forms.GroupBox();
+            this.minusCheckBox = new System.Windows.Forms.CheckBox();
+            this.plusCheckBox = new System.Windows.Forms.CheckBox();
+            this.cRatingRadioButton = new System.Windows.Forms.RadioButton();
+            this.bRatingRadioButton = new System.Windows.Forms.RadioButton();
+            this.aRatingRadioButton = new System.Windows.Forms.RadioButton();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.constructionGroupBox.SuspendLayout();
+            this.cabStyleGroupBox.SuspendLayout();
+            this.doorStyleGroupBox.SuspendLayout();
+            this.panelStyleGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CabinetDataGrid)).BeginInit();
             this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
+            this.qualityRatingGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // kitchenIdentifierTextBox
@@ -100,18 +100,18 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Kitchen Identifier:";
             // 
-            // groupBox1
+            // constructionGroupBox
             // 
-            this.groupBox1.Controls.Add(this.solidWoodRadioButton);
-            this.groupBox1.Controls.Add(this.plywoodRadioButton);
-            this.groupBox1.Controls.Add(this.particleBoardRadioButton);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(16, 90);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(228, 139);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Construction";
+            this.constructionGroupBox.Controls.Add(this.solidWoodRadioButton);
+            this.constructionGroupBox.Controls.Add(this.plywoodRadioButton);
+            this.constructionGroupBox.Controls.Add(this.particleBoardRadioButton);
+            this.constructionGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.constructionGroupBox.Location = new System.Drawing.Point(16, 90);
+            this.constructionGroupBox.Name = "constructionGroupBox";
+            this.constructionGroupBox.Size = new System.Drawing.Size(228, 139);
+            this.constructionGroupBox.TabIndex = 1;
+            this.constructionGroupBox.TabStop = false;
+            this.constructionGroupBox.Text = "Construction";
             // 
             // solidWoodRadioButton
             // 
@@ -147,18 +147,18 @@
             this.particleBoardRadioButton.UseVisualStyleBackColor = true;
             this.particleBoardRadioButton.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // groupBox2
+            // cabStyleGroupBox
             // 
-            this.groupBox2.Controls.Add(this.insetRadioButton);
-            this.groupBox2.Controls.Add(this.framelessRadioButton);
-            this.groupBox2.Controls.Add(this.framedRadioButton);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBox2.Location = new System.Drawing.Point(18, 235);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(226, 141);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Cabinet Style";
+            this.cabStyleGroupBox.Controls.Add(this.insetRadioButton);
+            this.cabStyleGroupBox.Controls.Add(this.framelessRadioButton);
+            this.cabStyleGroupBox.Controls.Add(this.framedRadioButton);
+            this.cabStyleGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cabStyleGroupBox.Location = new System.Drawing.Point(18, 235);
+            this.cabStyleGroupBox.Name = "cabStyleGroupBox";
+            this.cabStyleGroupBox.Size = new System.Drawing.Size(226, 141);
+            this.cabStyleGroupBox.TabIndex = 2;
+            this.cabStyleGroupBox.TabStop = false;
+            this.cabStyleGroupBox.Text = "Cabinet Style";
             // 
             // insetRadioButton
             // 
@@ -193,19 +193,19 @@
             this.framedRadioButton.Text = "Framed";
             this.framedRadioButton.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // doorStyleGroupBox
             // 
-            this.groupBox3.Controls.Add(this.squareRadioButton);
-            this.groupBox3.Controls.Add(this.cathedralRadioButton);
-            this.groupBox3.Controls.Add(this.archRadioButton);
-            this.groupBox3.Controls.Add(this.fullOverlayCheckBox);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBox3.Location = new System.Drawing.Point(18, 382);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(226, 181);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Door Style";
+            this.doorStyleGroupBox.Controls.Add(this.squareRadioButton);
+            this.doorStyleGroupBox.Controls.Add(this.cathedralRadioButton);
+            this.doorStyleGroupBox.Controls.Add(this.archRadioButton);
+            this.doorStyleGroupBox.Controls.Add(this.fullOverlayCheckBox);
+            this.doorStyleGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.doorStyleGroupBox.Location = new System.Drawing.Point(18, 382);
+            this.doorStyleGroupBox.Name = "doorStyleGroupBox";
+            this.doorStyleGroupBox.Size = new System.Drawing.Size(226, 181);
+            this.doorStyleGroupBox.TabIndex = 3;
+            this.doorStyleGroupBox.TabStop = false;
+            this.doorStyleGroupBox.Text = "Door Style";
             // 
             // squareRadioButton
             // 
@@ -250,18 +250,18 @@
             this.fullOverlayCheckBox.Text = "Full Overlay";
             this.fullOverlayCheckBox.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // panelStyleGroupBox
             // 
-            this.groupBox4.Controls.Add(this.recessedRadioButton);
-            this.groupBox4.Controls.Add(this.raisedRadioButton);
-            this.groupBox4.Controls.Add(this.flatRadioButton);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBox4.Location = new System.Drawing.Point(18, 569);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(226, 140);
-            this.groupBox4.TabIndex = 5;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Panel Style";
+            this.panelStyleGroupBox.Controls.Add(this.recessedRadioButton);
+            this.panelStyleGroupBox.Controls.Add(this.raisedRadioButton);
+            this.panelStyleGroupBox.Controls.Add(this.flatRadioButton);
+            this.panelStyleGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.panelStyleGroupBox.Location = new System.Drawing.Point(18, 569);
+            this.panelStyleGroupBox.Name = "panelStyleGroupBox";
+            this.panelStyleGroupBox.Size = new System.Drawing.Size(226, 140);
+            this.panelStyleGroupBox.TabIndex = 5;
+            this.panelStyleGroupBox.TabStop = false;
+            this.panelStyleGroupBox.Text = "Panel Style";
             // 
             // recessedRadioButton
             // 
@@ -356,6 +356,46 @@
             this.CabinetDataGrid.TabIndex = 10;
             this.CabinetDataGrid.TabStop = false;
             // 
+            // QtyCol
+            // 
+            this.QtyCol.HeaderText = "Quantity";
+            this.QtyCol.Name = "QtyCol";
+            // 
+            // DimCol
+            // 
+            this.DimCol.HeaderText = "Dimensions (WxHxD)";
+            this.DimCol.Name = "DimCol";
+            // 
+            // TypeCol
+            // 
+            this.TypeCol.HeaderText = "Type";
+            this.TypeCol.Name = "TypeCol";
+            // 
+            // FeatCol
+            // 
+            this.FeatCol.HeaderText = "Features";
+            this.FeatCol.Name = "FeatCol";
+            // 
+            // FinCol
+            // 
+            this.FinCol.HeaderText = "Finished Sides";
+            this.FinCol.Name = "FinCol";
+            // 
+            // DoorsCol
+            // 
+            this.DoorsCol.HeaderText = "# of Doors";
+            this.DoorsCol.Name = "DoorsCol";
+            // 
+            // Hinges
+            // 
+            this.Hinges.HeaderText = "Hinges";
+            this.Hinges.Name = "Hinges";
+            // 
+            // DrawerCol
+            // 
+            this.DrawerCol.HeaderText = "# of Drawers";
+            this.DrawerCol.Name = "DrawerCol";
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.addCabinetButton);
@@ -410,21 +450,22 @@
             this.printButton.TabIndex = 10;
             this.printButton.Text = "Print";
             this.printButton.UseVisualStyleBackColor = false;
+            this.printButton.Click += new System.EventHandler(this.printButton_Click);
             // 
-            // groupBox6
+            // qualityRatingGroupBox
             // 
-            this.groupBox6.Controls.Add(this.minusCheckBox);
-            this.groupBox6.Controls.Add(this.plusCheckBox);
-            this.groupBox6.Controls.Add(this.cRatingRadioButton);
-            this.groupBox6.Controls.Add(this.bRatingRadioButton);
-            this.groupBox6.Controls.Add(this.aRatingRadioButton);
-            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBox6.Location = new System.Drawing.Point(1123, 13);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(180, 190);
-            this.groupBox6.TabIndex = 7;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Quality Rating";
+            this.qualityRatingGroupBox.Controls.Add(this.minusCheckBox);
+            this.qualityRatingGroupBox.Controls.Add(this.plusCheckBox);
+            this.qualityRatingGroupBox.Controls.Add(this.cRatingRadioButton);
+            this.qualityRatingGroupBox.Controls.Add(this.bRatingRadioButton);
+            this.qualityRatingGroupBox.Controls.Add(this.aRatingRadioButton);
+            this.qualityRatingGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.qualityRatingGroupBox.Location = new System.Drawing.Point(1123, 13);
+            this.qualityRatingGroupBox.Name = "qualityRatingGroupBox";
+            this.qualityRatingGroupBox.Size = new System.Drawing.Size(180, 190);
+            this.qualityRatingGroupBox.TabIndex = 7;
+            this.qualityRatingGroupBox.TabStop = false;
+            this.qualityRatingGroupBox.Text = "Quality Rating";
             // 
             // minusCheckBox
             // 
@@ -495,79 +536,39 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // QtyCol
-            // 
-            this.QtyCol.HeaderText = "Quantity";
-            this.QtyCol.Name = "QtyCol";
-            // 
-            // DimCol
-            // 
-            this.DimCol.HeaderText = "Dimensions (WxHxD)";
-            this.DimCol.Name = "DimCol";
-            // 
-            // TypeCol
-            // 
-            this.TypeCol.HeaderText = "Type";
-            this.TypeCol.Name = "TypeCol";
-            // 
-            // FeatCol
-            // 
-            this.FeatCol.HeaderText = "Features";
-            this.FeatCol.Name = "FeatCol";
-            // 
-            // FinCol
-            // 
-            this.FinCol.HeaderText = "Finished Sides";
-            this.FinCol.Name = "FinCol";
-            // 
-            // DoorsCol
-            // 
-            this.DoorsCol.HeaderText = "# of Doors";
-            this.DoorsCol.Name = "DoorsCol";
-            // 
-            // Hinges
-            // 
-            this.Hinges.HeaderText = "Hinges";
-            this.Hinges.Name = "Hinges";
-            // 
-            // DrawerCol
-            // 
-            this.DrawerCol.HeaderText = "# of Drawers";
-            this.DrawerCol.Name = "DrawerCol";
-            // 
             // kitchenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1315, 719);
-            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.qualityRatingGroupBox);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.otherInfoTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.distinctiveCharTextBox);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.panelStyleGroupBox);
+            this.Controls.Add(this.doorStyleGroupBox);
+            this.Controls.Add(this.cabStyleGroupBox);
+            this.Controls.Add(this.constructionGroupBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.kitchenIdentifierTextBox);
             this.Name = "kitchenForm";
             this.Text = "Kitchen Pricing";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.constructionGroupBox.ResumeLayout(false);
+            this.constructionGroupBox.PerformLayout();
+            this.cabStyleGroupBox.ResumeLayout(false);
+            this.cabStyleGroupBox.PerformLayout();
+            this.doorStyleGroupBox.ResumeLayout(false);
+            this.doorStyleGroupBox.PerformLayout();
+            this.panelStyleGroupBox.ResumeLayout(false);
+            this.panelStyleGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CabinetDataGrid)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
+            this.qualityRatingGroupBox.ResumeLayout(false);
+            this.qualityRatingGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -577,20 +578,20 @@
 
         private System.Windows.Forms.TextBox kitchenIdentifierTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox constructionGroupBox;
         private System.Windows.Forms.RadioButton plywoodRadioButton;
         private System.Windows.Forms.RadioButton particleBoardRadioButton;
         private System.Windows.Forms.RadioButton solidWoodRadioButton;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox cabStyleGroupBox;
         private System.Windows.Forms.RadioButton insetRadioButton;
         private System.Windows.Forms.RadioButton framelessRadioButton;
         private System.Windows.Forms.RadioButton framedRadioButton;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox doorStyleGroupBox;
         private System.Windows.Forms.RadioButton squareRadioButton;
         private System.Windows.Forms.RadioButton cathedralRadioButton;
         private System.Windows.Forms.RadioButton archRadioButton;
         private System.Windows.Forms.CheckBox fullOverlayCheckBox;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox panelStyleGroupBox;
         private System.Windows.Forms.RadioButton recessedRadioButton;
         private System.Windows.Forms.RadioButton raisedRadioButton;
         private System.Windows.Forms.RadioButton flatRadioButton;
@@ -602,7 +603,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button printButton;
-        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox qualityRatingGroupBox;
         private System.Windows.Forms.CheckBox minusCheckBox;
         private System.Windows.Forms.CheckBox plusCheckBox;
         private System.Windows.Forms.RadioButton cRatingRadioButton;
