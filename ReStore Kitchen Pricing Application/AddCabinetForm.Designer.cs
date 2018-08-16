@@ -65,8 +65,6 @@
             this.drawersNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.finishAddingCabinetButton = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.SampleDescParaLabel = new System.Windows.Forms.Label();
             this.qtyNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.typeGroupBox.SuspendLayout();
             this.dimensionGroupBox.SuspendLayout();
@@ -88,7 +86,6 @@
             this.label1.Size = new System.Drawing.Size(49, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Qty:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // widthListBox
             // 
@@ -103,7 +100,6 @@
             this.widthListBox.Name = "widthListBox";
             this.widthListBox.Size = new System.Drawing.Size(120, 29);
             this.widthListBox.TabIndex = 0;
-            this.widthListBox.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // typeGroupBox
             // 
@@ -198,6 +194,7 @@
             this.wallRadioButton.TabStop = true;
             this.wallRadioButton.Text = "Wall";
             this.wallRadioButton.UseVisualStyleBackColor = true;
+            this.wallRadioButton.CheckedChanged += new System.EventHandler(this.wallRadioButton_CheckedChanged);
             // 
             // baseRadioButton
             // 
@@ -209,6 +206,7 @@
             this.baseRadioButton.TabStop = true;
             this.baseRadioButton.Text = "Base";
             this.baseRadioButton.UseVisualStyleBackColor = true;
+            this.baseRadioButton.CheckedChanged += new System.EventHandler(this.baseRadioButton_CheckedChanged);
             // 
             // label2
             // 
@@ -313,7 +311,7 @@
             this.accessoryGroupBox.Controls.Add(this.drawers2FloorCheckBox);
             this.accessoryGroupBox.Controls.Add(this.shelvesCheckBox);
             this.accessoryGroupBox.Controls.Add(this.lazySusanCheckBox);
-            this.accessoryGroupBox.Location = new System.Drawing.Point(18, 242);
+            this.accessoryGroupBox.Location = new System.Drawing.Point(179, 251);
             this.accessoryGroupBox.Name = "accessoryGroupBox";
             this.accessoryGroupBox.Size = new System.Drawing.Size(437, 143);
             this.accessoryGroupBox.TabIndex = 4;
@@ -368,7 +366,7 @@
             // 
             this.finishedGroupBox.Controls.Add(this.finishedRightCheckBox);
             this.finishedGroupBox.Controls.Add(this.finishedLeftCheckBox);
-            this.finishedGroupBox.Location = new System.Drawing.Point(461, 242);
+            this.finishedGroupBox.Location = new System.Drawing.Point(18, 251);
             this.finishedGroupBox.Name = "finishedGroupBox";
             this.finishedGroupBox.Size = new System.Drawing.Size(155, 100);
             this.finishedGroupBox.TabIndex = 6;
@@ -409,7 +407,7 @@
             // 
             this.hingeGroupBox.Controls.Add(this.hingeRightCheckBox);
             this.hingeGroupBox.Controls.Add(this.hingeLeftCheckBox);
-            this.hingeGroupBox.Location = new System.Drawing.Point(461, 348);
+            this.hingeGroupBox.Location = new System.Drawing.Point(18, 357);
             this.hingeGroupBox.Name = "hingeGroupBox";
             this.hingeGroupBox.Size = new System.Drawing.Size(155, 100);
             this.hingeGroupBox.TabIndex = 7;
@@ -468,30 +466,13 @@
             // finishAddingCabinetButton
             // 
             this.finishAddingCabinetButton.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.finishAddingCabinetButton.Location = new System.Drawing.Point(478, 463);
+            this.finishAddingCabinetButton.Location = new System.Drawing.Point(478, 419);
             this.finishAddingCabinetButton.Name = "finishAddingCabinetButton";
             this.finishAddingCabinetButton.Size = new System.Drawing.Size(138, 38);
             this.finishAddingCabinetButton.TabIndex = 8;
             this.finishAddingCabinetButton.Text = "Add Cabinet";
             this.finishAddingCabinetButton.UseVisualStyleBackColor = false;
             this.finishAddingCabinetButton.Click += new System.EventHandler(this.finishAddingCabinetButton_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 388);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(187, 25);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Sample Description:";
-            // 
-            // SampleDescParaLabel
-            // 
-            this.SampleDescParaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.SampleDescParaLabel.Location = new System.Drawing.Point(19, 423);
-            this.SampleDescParaLabel.Name = "SampleDescParaLabel";
-            this.SampleDescParaLabel.Size = new System.Drawing.Size(434, 78);
-            this.SampleDescParaLabel.TabIndex = 21;
             // 
             // qtyNumericUpDown
             // 
@@ -509,10 +490,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(628, 508);
+            this.ClientSize = new System.Drawing.Size(628, 468);
             this.Controls.Add(this.qtyNumericUpDown);
-            this.Controls.Add(this.SampleDescParaLabel);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.finishAddingCabinetButton);
             this.Controls.Add(this.drawersNumericUpDown);
             this.Controls.Add(this.label6);
@@ -583,8 +562,6 @@
         private System.Windows.Forms.NumericUpDown drawersNumericUpDown;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button finishAddingCabinetButton;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label SampleDescParaLabel;
         private System.Windows.Forms.NumericUpDown qtyNumericUpDown;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;

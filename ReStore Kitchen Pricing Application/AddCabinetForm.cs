@@ -15,20 +15,15 @@ namespace ReStore_Kitchen_Pricing_Application
     {
         kitchenForm parentForm;
 
+        const string baseStandardHeight = "34.5"; // \
+        const string baseStandardDepth = "24"; //     \if you add more default values for types of cabinets, you will have to add to the conditions
+        const string wallStandardHeight = "30"; //    /   within the "...RadioButton_CheckedChanged" methods to maintain autofill capabilities when going between cabinet types
+        const string wallStandardDepth = "12"; //    /
+
         public AddCabinetForm(kitchenForm parentForm) //parentForm is the form that "birthed" the addCabinetForm, specifically it is the kitchenForm
         {
             InitializeComponent();
             this.parentForm = parentForm;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void AddCabinetForm_Load(object sender, EventArgs e)
@@ -50,19 +45,25 @@ namespace ReStore_Kitchen_Pricing_Application
                 return;
             }
 
-            //process the cabinet info into DataRow
-            String dimensions = widthListBox.SelectedItem.ToString() + "x" + heightTextBox.Text + "x" + depthTextBox.Text;
-            String type = getCabinetType();
-            String accessories = getAccessoryList();
-            String finished = getFinishedSides();
-            String hinges = getHingedSides();
-            
+            //TODO ask user if the cabinet sentence is good - use compileCabinetSentence
 
-            //add DataRow to the DataTable in parentForm
-            parentForm.CabinetDataGrid.Rows.Add( qtyNumericUpDown.Value.ToString(), dimensions, type, accessories, finished, doorsNumericUpDown.Value.ToString(), hinges, drawersNumericUpDown.Value.ToString());
+            {
+                //process the cabinet info into DataRow
+                String dimensions = widthListBox.SelectedItem.ToString() + "\"x" + heightTextBox.Text + "\"x" + depthTextBox.Text;
+                String type = getCabinetType();
+                String accessories = getAccessoryList();
+                String finished = getFinishedSides();
+                String hinges = getHingedSides();
 
-            //change back to the KitchenForm
-            this.Close();
+
+                //add DataRow to the DataTable in parentForm
+                parentForm.CabinetDataGrid.Rows.Add(qtyNumericUpDown.Value.ToString(), dimensions, type, accessories, finished, doorsNumericUpDown.Value.ToString(), hinges, drawersNumericUpDown.Value.ToString());
+
+                //TODO add the cabinet price to the price array in the parent form
+
+                //change back to the KitchenForm
+                this.Close();
+            }
         }
 
         private void AddCabinetForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -79,60 +80,60 @@ namespace ReStore_Kitchen_Pricing_Application
             {
                 ok = false;
                 //outline qtyBox in red 
-                turnRed(qtyNumericUpDown);
+                kitchenForm.turnRed(qtyNumericUpDown);
             }
             else
             {
                 //remove any red outlines
-                turnToColor(qtyNumericUpDown, default(Color));
+                kitchenForm.turnToColor(qtyNumericUpDown, default(Color));
             }
 
             if (!kitchenForm.isOneCheckedIn(typeGroupBox))
             {
                 ok = false;
                 //outline typeBox in red 
-                turnRed(typeGroupBox);
+                kitchenForm.turnRed(typeGroupBox);
             }
             else
             {
                 //remove any red outlines
-                turnToColor(typeGroupBox, default(Color));
+                kitchenForm.turnToColor(typeGroupBox, default(Color));
             }
 
             if(widthListBox.SelectedItem == null)
             {
                 ok = false;
                 //paint in red
-                turnRed(widthListBox);
+                kitchenForm.turnRed(widthListBox);
             }
             else
             {
                 //remove red outline
-                turnToColor(widthListBox, default(Color));
+                kitchenForm.turnToColor(widthListBox, default(Color));
             }
 
             if (heightTextBox.Text == "" || Regex.IsMatch(heightTextBox.Text, @"[^0-9]"))
             {
                 ok = false;
                 //outline heightTxtBox in red
-                turnRed(heightTextBox);
+                kitchenForm.turnRed(heightTextBox);
             }
             else
             {
                 //remove any red outlines
-                turnToColor(heightTextBox, default(Color));
+                kitchenForm.turnToColor(heightTextBox, default(Color));
             }
 
             if (depthTextBox.Text == "" || Regex.IsMatch(depthTextBox.Text, @"[^0-9]"))
             {
                 ok = false;
                 //outline depthTxtBox in red
-                turnRed(depthTextBox);
+                kitchenForm.turnRed(depthTextBox);
             }
             else
             {
                 //remove any red outlines
-                turnToColor(depthTextBox, default(Color));
+                kitchenForm.turnToColor(depthTextBox, default(Color));
             }
 
             //should not be "drawers to floor" if there is a door in the cabinet
@@ -142,23 +143,23 @@ namespace ReStore_Kitchen_Pricing_Application
                 {
                     ok = false;
                     //outline both in red 
-                    turnRed(drawers2FloorCheckBox);
-                    turnRed(doorsNumericUpDown);
+                    kitchenForm.turnRed(drawers2FloorCheckBox);
+                    kitchenForm.turnRed(doorsNumericUpDown);
                 }
                 else {
-                    turnToColor(doorsNumericUpDown, default(Color));
+                    kitchenForm.turnToColor(doorsNumericUpDown, default(Color));
                 }
 
                 if (glassDoorsCheckBox.Checked)
                 {
                     ok = false;
                     //outline in red
-                    turnRed(drawers2FloorCheckBox);
-                    turnRed(glassDoorsCheckBox);
+                    kitchenForm.turnRed(drawers2FloorCheckBox);
+                    kitchenForm.turnRed(glassDoorsCheckBox);
                 }
                 else
                 {
-                    turnToColor(glassDoorsCheckBox, default(Color));
+                    kitchenForm.turnToColor(glassDoorsCheckBox, default(Color));
                 }
 
                 if(glassDoorsCheckBox.Checked || doorsNumericUpDown.Value > 0)
@@ -175,27 +176,15 @@ namespace ReStore_Kitchen_Pricing_Application
             else
             {
                 //remove any red outlines
-                turnToColor(drawers2FloorCheckBox, default(Color));
-                turnToColor(doorsNumericUpDown, default(Color));
-                turnToColor(glassDoorsCheckBox, default(Color));
+                kitchenForm.turnToColor(drawers2FloorCheckBox, default(Color));
+                kitchenForm.turnToColor(doorsNumericUpDown, default(Color));
+                kitchenForm.turnToColor(glassDoorsCheckBox, default(Color));
             }
 
             return ok;
         }
-        
-        private void turnRed(Control c)
-        {
-            if(c != null)
-                c.BackColor = Color.Red;
-        }
 
-        private void turnToColor(Control c, Color color)
-        {
-            if (c != null && color != null)
-                c.BackColor = color;
-        }
-
-        public static void displayDescriptionSentence() {
+        private void compileDescriptionSentence() {
             //TODO
         }
 
@@ -272,5 +261,32 @@ namespace ReStore_Kitchen_Pricing_Application
             else
                 return "";
         }
+
+        private void baseRadioButton_CheckedChanged(object sender, EventArgs e) //fills the industry standard measurement into the width and height textboxes
+        {
+            if (heightTextBox.Text == "" || heightTextBox.Text.Equals(wallStandardHeight))//do not change the text if the user has already entered a custom number (ie not the standard height of a wall unit --> enables autofill if the user switches the cabinet type)
+            {
+                heightTextBox.Text = baseStandardHeight;
+            }
+
+            if (depthTextBox.Text == "" || depthTextBox.Text.Equals(wallStandardDepth))
+            {
+                depthTextBox.Text = baseStandardDepth;
+            }
+        }
+
+        private void wallRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if(heightTextBox.Text == "" || heightTextBox.Text.Equals(baseStandardHeight))
+            {
+                heightTextBox.Text = wallStandardHeight;
+            }
+
+            if(depthTextBox.Text == "" || depthTextBox.Text.Equals(baseStandardDepth))
+            {
+                depthTextBox.Text = wallStandardDepth;
+            }
+        }
+
     }
 }
