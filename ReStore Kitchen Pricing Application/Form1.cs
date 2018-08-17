@@ -203,30 +203,35 @@ namespace ReStore_Kitchen_Pricing_Application
             }
 
             {//checks for if the user has partly entered info for the End Panel
-                if (isOneCheckedIn(endPanelGroupBox))
+                //sets "attempt" flag if the user has entered any information for the end panel section
+                bool attempt = false;
+                if(isOneCheckedIn(endPanelGroupBox) || endPanelNumericUpDown.Value > 0 || endPanelWidthTextBox.Text != "" || endPanelHeightTextBox.Text != "")
                 {
-                    if (endPanelHeightTextBox.Text == "")
-                    {
-                        ok = false;
-                        turnRed(endPanelHeightTextBox);
-                    }
-                    else
-                    {
-                        turnToColor(endPanelHeightTextBox, default(Color));
-                    }
-
-                    if (endPanelWidthTextBox.Text == "")
-                    {
-                        ok = false;
-                        turnRed(endPanelWidthTextBox);
-                    }
-                    else
-                    {
-                        turnToColor(endPanelWidthTextBox, default(Color));
-                    }
+                    attempt = true;
                 }
 
-                if ((endPanelWidthTextBox.Text != "" || endPanelHeightTextBox.Text != "") && !flatEndPanelRadioButton.Checked && !pannelledEndPanelRadioButton.Checked) //if user entered some endPanel measurement info, but forgot to pick a panel type
+                if (attempt && endPanelHeightTextBox.Text == "")
+                {
+                    ok = false;
+                    turnRed(endPanelHeightTextBox);
+                }
+                else
+                {
+                    turnToColor(endPanelHeightTextBox, default(Color));
+                }
+
+                if (attempt && endPanelWidthTextBox.Text == "")
+                {
+                    ok = false;
+                    turnRed(endPanelWidthTextBox);
+                }
+                else
+                {
+                    turnToColor(endPanelWidthTextBox, default(Color));
+                }
+                
+
+                if (attempt && !isOneCheckedIn(endPanelGroupBox))
                 {
                     ok = false;
                     turnRed(endPanelGroupBox);
@@ -235,6 +240,17 @@ namespace ReStore_Kitchen_Pricing_Application
                 {
                     turnToColor(endPanelGroupBox, default(Color));
                 }
+
+                if(attempt && endPanelNumericUpDown.Value == 0)
+                {
+                    turnRed(endPanelNumericUpDown);
+                }
+                else
+                {
+                    turnToColor(endPanelNumericUpDown, default(Color));
+                }
+
+
             }
 
             
@@ -392,7 +408,14 @@ namespace ReStore_Kitchen_Pricing_Application
 
         private string makeKitchenDescription()
         {
-            
+            //construction, cabinetstyle, doorstyle, panelstyle, material,  (crown molding?), end panels
+
+            //This (material) kitchen has (total cabinets #) (cabinet style) cabinets with (?fulloverlay) 
+            //(doorstyle) doors with (panel style) panels.  
+            //The interior of the cabinets is constructed from (construction).  
+            //(?The kitchen also comes with (? feet of crown molding) (??and) (? # end panels) end panels )
+
+
         }
        
     }

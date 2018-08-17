@@ -84,6 +84,8 @@
             this.endPanelHeightTextBox = new System.Windows.Forms.TextBox();
             this.endPanelWidthTextBox = new System.Windows.Forms.TextBox();
             this.materialsComboBox = new System.Windows.Forms.ComboBox();
+            this.endPanelNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.endPanelQtyLabel = new System.Windows.Forms.Label();
             this.constructionGroupBox.SuspendLayout();
             this.cabStyleGroupBox.SuspendLayout();
             this.doorStyleGroupBox.SuspendLayout();
@@ -93,6 +95,7 @@
             this.qualityRatingGroupBox.SuspendLayout();
             this.endPanelGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.crownMoldingFeetNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endPanelNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // kitchenIdentifierTextBox
@@ -569,6 +572,8 @@
             // 
             // endPanelGroupBox
             // 
+            this.endPanelGroupBox.Controls.Add(this.endPanelQtyLabel);
+            this.endPanelGroupBox.Controls.Add(this.endPanelNumericUpDown);
             this.endPanelGroupBox.Controls.Add(this.endPanelWidthTextBox);
             this.endPanelGroupBox.Controls.Add(this.endPanelHeightTextBox);
             this.endPanelGroupBox.Controls.Add(this.endPanelWidthLabel);
@@ -578,7 +583,7 @@
             this.endPanelGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.endPanelGroupBox.Location = new System.Drawing.Point(612, 628);
             this.endPanelGroupBox.Name = "endPanelGroupBox";
-            this.endPanelGroupBox.Size = new System.Drawing.Size(334, 104);
+            this.endPanelGroupBox.Size = new System.Drawing.Size(424, 104);
             this.endPanelGroupBox.TabIndex = 14;
             this.endPanelGroupBox.TabStop = false;
             this.endPanelGroupBox.Text = "End Panels";
@@ -594,7 +599,7 @@
             // flatEndPanelRadioButton
             // 
             this.flatEndPanelRadioButton.AutoSize = true;
-            this.flatEndPanelRadioButton.Location = new System.Drawing.Point(6, 29);
+            this.flatEndPanelRadioButton.Location = new System.Drawing.Point(104, 29);
             this.flatEndPanelRadioButton.Name = "flatEndPanelRadioButton";
             this.flatEndPanelRadioButton.Size = new System.Drawing.Size(65, 29);
             this.flatEndPanelRadioButton.TabIndex = 0;
@@ -605,7 +610,7 @@
             // pannelledEndPanelRadioButton
             // 
             this.pannelledEndPanelRadioButton.AutoSize = true;
-            this.pannelledEndPanelRadioButton.Location = new System.Drawing.Point(6, 64);
+            this.pannelledEndPanelRadioButton.Location = new System.Drawing.Point(104, 64);
             this.pannelledEndPanelRadioButton.Name = "pannelledEndPanelRadioButton";
             this.pannelledEndPanelRadioButton.Size = new System.Drawing.Size(109, 29);
             this.pannelledEndPanelRadioButton.TabIndex = 1;
@@ -616,7 +621,7 @@
             // endPanelHeightLabel
             // 
             this.endPanelHeightLabel.AutoSize = true;
-            this.endPanelHeightLabel.Location = new System.Drawing.Point(136, 31);
+            this.endPanelHeightLabel.Location = new System.Drawing.Point(234, 31);
             this.endPanelHeightLabel.Name = "endPanelHeightLabel";
             this.endPanelHeightLabel.Size = new System.Drawing.Size(74, 25);
             this.endPanelHeightLabel.TabIndex = 2;
@@ -625,7 +630,7 @@
             // endPanelWidthLabel
             // 
             this.endPanelWidthLabel.AutoSize = true;
-            this.endPanelWidthLabel.Location = new System.Drawing.Point(136, 66);
+            this.endPanelWidthLabel.Location = new System.Drawing.Point(234, 66);
             this.endPanelWidthLabel.Name = "endPanelWidthLabel";
             this.endPanelWidthLabel.Size = new System.Drawing.Size(69, 25);
             this.endPanelWidthLabel.TabIndex = 3;
@@ -633,14 +638,14 @@
             // 
             // endPanelHeightTextBox
             // 
-            this.endPanelHeightTextBox.Location = new System.Drawing.Point(211, 28);
+            this.endPanelHeightTextBox.Location = new System.Drawing.Point(309, 28);
             this.endPanelHeightTextBox.Name = "endPanelHeightTextBox";
             this.endPanelHeightTextBox.Size = new System.Drawing.Size(100, 30);
             this.endPanelHeightTextBox.TabIndex = 4;
             // 
             // endPanelWidthTextBox
             // 
-            this.endPanelWidthTextBox.Location = new System.Drawing.Point(211, 63);
+            this.endPanelWidthTextBox.Location = new System.Drawing.Point(309, 63);
             this.endPanelWidthTextBox.Name = "endPanelWidthTextBox";
             this.endPanelWidthTextBox.Size = new System.Drawing.Size(100, 30);
             this.endPanelWidthTextBox.TabIndex = 5;
@@ -664,6 +669,22 @@
             this.materialsComboBox.Name = "materialsComboBox";
             this.materialsComboBox.Size = new System.Drawing.Size(121, 33);
             this.materialsComboBox.TabIndex = 16;
+            // 
+            // endPanelNumericUpDown
+            // 
+            this.endPanelNumericUpDown.Location = new System.Drawing.Point(22, 63);
+            this.endPanelNumericUpDown.Name = "endPanelNumericUpDown";
+            this.endPanelNumericUpDown.Size = new System.Drawing.Size(61, 30);
+            this.endPanelNumericUpDown.TabIndex = 6;
+            // 
+            // endPanelQtyLabel
+            // 
+            this.endPanelQtyLabel.AutoSize = true;
+            this.endPanelQtyLabel.Location = new System.Drawing.Point(19, 28);
+            this.endPanelQtyLabel.Name = "endPanelQtyLabel";
+            this.endPanelQtyLabel.Size = new System.Drawing.Size(49, 25);
+            this.endPanelQtyLabel.TabIndex = 7;
+            this.endPanelQtyLabel.Text = "Qty:";
             // 
             // kitchenForm
             // 
@@ -706,6 +727,7 @@
             this.endPanelGroupBox.ResumeLayout(false);
             this.endPanelGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.crownMoldingFeetNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endPanelNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -768,6 +790,8 @@
         private System.Windows.Forms.Label endPanelWidthLabel;
         private System.Windows.Forms.Label endPanelHeightLabel;
         private System.Windows.Forms.ComboBox materialsComboBox;
+        private System.Windows.Forms.Label endPanelQtyLabel;
+        private System.Windows.Forms.NumericUpDown endPanelNumericUpDown;
     }
 }
 
