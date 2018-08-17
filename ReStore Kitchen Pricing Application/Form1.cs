@@ -406,8 +406,8 @@ namespace ReStore_Kitchen_Pricing_Application
             }
         }
 
-        private string makeKitchenDescription()
-        {
+   //     private string makeKitchenDescription()
+     //   {
             //construction, cabinetstyle, doorstyle, panelstyle, material,  (crown molding?), end panels
 
             //This (material) kitchen has (total cabinets #) (cabinet style) cabinets with (?fulloverlay) 
@@ -416,7 +416,7 @@ namespace ReStore_Kitchen_Pricing_Application
             //(?The kitchen also comes with (? feet of crown molding) (??and) (? # end panels) end panels )
 
 
-        }
+       // }
        
     }
 }

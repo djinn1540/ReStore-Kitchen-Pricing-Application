@@ -652,9 +652,11 @@
             // 
             // materialsComboBox
             // 
+            this.materialsComboBox.BackColor = System.Drawing.SystemColors.Window;
             this.materialsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.materialsComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.materialsComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.materialsComboBox.FormattingEnabled = true;
+            this.materialsComboBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.materialsComboBox.Items.AddRange(new object[] {
             "Birch",
             "Cherry",

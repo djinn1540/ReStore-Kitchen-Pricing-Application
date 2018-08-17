@@ -475,6 +475,7 @@
             // widthComboBox
             // 
             this.widthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.widthComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.widthComboBox.FormattingEnabled = true;
             this.widthComboBox.Items.AddRange(new object[] {
             "12-15\"",
