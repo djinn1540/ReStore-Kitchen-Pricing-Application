@@ -192,6 +192,62 @@ namespace ReStore_Kitchen_Pricing_Application
                 turnToColor(gridGroupBox, default(Color));
             }
 
+            if (materialsComboBox.SelectedItem == null)
+            {
+                ok = false;
+                turnRed(materialsComboBox);
+            }
+            else
+            {
+                turnToColor(materialsComboBox, default(Color));
+            }
+
+            {//checks for if the user has partly entered info for the End Panel
+                if (isOneCheckedIn(endPanelGroupBox))
+                {
+                    if (endPanelHeightTextBox.Text == "")
+                    {
+                        ok = false;
+                        turnRed(endPanelHeightTextBox);
+                    }
+                    else
+                    {
+                        turnToColor(endPanelHeightTextBox, default(Color));
+                    }
+
+                    if (endPanelWidthTextBox.Text == "")
+                    {
+                        ok = false;
+                        turnRed(endPanelWidthTextBox);
+                    }
+                    else
+                    {
+                        turnToColor(endPanelWidthTextBox, default(Color));
+                    }
+                }
+
+                if ((endPanelWidthTextBox.Text != "" || endPanelHeightTextBox.Text != "") && !flatEndPanelRadioButton.Checked && !pannelledEndPanelRadioButton.Checked) //if user entered some endPanel measurement info, but forgot to pick a panel type
+                {
+                    ok = false;
+                    turnRed(endPanelGroupBox);
+                }
+                else
+                {
+                    turnToColor(endPanelGroupBox, default(Color));
+                }
+            }
+
+            
+            if(crownMoldingFeetNumericUpDown.Value < 0)
+            {
+                ok = false;
+                turnRed(crownMoldingFeetNumericUpDown);
+            }
+            else
+            {
+                turnToColor(crownMoldingFeetNumericUpDown, default(Color));
+            }
+
             return ok;
         }
 
@@ -338,10 +394,6 @@ namespace ReStore_Kitchen_Pricing_Application
         {
             
         }
-
-        
-
-        //TODO add material menu
        
     }
 }

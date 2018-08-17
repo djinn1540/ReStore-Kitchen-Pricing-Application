@@ -49,7 +49,7 @@ namespace ReStore_Kitchen_Pricing_Application
 
             {
                 //process the cabinet info into DataRow
-                String dimensions = widthListBox.SelectedItem.ToString() + "\"x" + heightTextBox.Text + "\"x" + depthTextBox.Text;
+                String dimensions = widthComboBox.SelectedItem.ToString() + "\"x" + heightTextBox.Text + "\"x" + depthTextBox.Text;
                 String type = getCabinetType();
                 String accessories = getAccessoryList();
                 String finished = getFinishedSides();
@@ -100,16 +100,16 @@ namespace ReStore_Kitchen_Pricing_Application
                 kitchenForm.turnToColor(typeGroupBox, default(Color));
             }
 
-            if(widthListBox.SelectedItem == null)
+            if(widthComboBox.SelectedItem == null)
             {
                 ok = false;
                 //paint in red
-                kitchenForm.turnRed(widthListBox);
+                kitchenForm.turnRed(widthComboBox);
             }
             else
             {
                 //remove red outline
-                kitchenForm.turnToColor(widthListBox, default(Color));
+                kitchenForm.turnToColor(widthComboBox, default(Color));
             }
 
             if (heightTextBox.Text == "" || Regex.IsMatch(heightTextBox.Text, @"[^0-9]"))

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.widthListBox = new System.Windows.Forms.ListBox();
             this.typeGroupBox = new System.Windows.Forms.GroupBox();
             this.deskRadioButton = new System.Windows.Forms.RadioButton();
             this.refrigeEnclosureRadioButton = new System.Windows.Forms.RadioButton();
@@ -66,6 +65,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.finishAddingCabinetButton = new System.Windows.Forms.Button();
             this.qtyNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.widthComboBox = new System.Windows.Forms.ComboBox();
             this.typeGroupBox.SuspendLayout();
             this.dimensionGroupBox.SuspendLayout();
             this.accessoryGroupBox.SuspendLayout();
@@ -86,20 +86,6 @@
             this.label1.Size = new System.Drawing.Size(49, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Qty:";
-            // 
-            // widthListBox
-            // 
-            this.widthListBox.FormattingEnabled = true;
-            this.widthListBox.ItemHeight = 25;
-            this.widthListBox.Items.AddRange(new object[] {
-            "12-15\"",
-            "18-21\"",
-            "23-30\"",
-            "33\"+"});
-            this.widthListBox.Location = new System.Drawing.Point(77, 35);
-            this.widthListBox.Name = "widthListBox";
-            this.widthListBox.Size = new System.Drawing.Size(120, 29);
-            this.widthListBox.TabIndex = 0;
             // 
             // typeGroupBox
             // 
@@ -252,12 +238,12 @@
             // 
             // dimensionGroupBox
             // 
+            this.dimensionGroupBox.Controls.Add(this.widthComboBox);
             this.dimensionGroupBox.Controls.Add(this.label10);
             this.dimensionGroupBox.Controls.Add(this.label8);
             this.dimensionGroupBox.Controls.Add(this.label9);
             this.dimensionGroupBox.Controls.Add(this.heightTextBox);
             this.dimensionGroupBox.Controls.Add(this.depthTextBox);
-            this.dimensionGroupBox.Controls.Add(this.widthListBox);
             this.dimensionGroupBox.Controls.Add(this.label2);
             this.dimensionGroupBox.Controls.Add(this.label4);
             this.dimensionGroupBox.Controls.Add(this.label3);
@@ -486,6 +472,20 @@
             0,
             0});
             // 
+            // widthComboBox
+            // 
+            this.widthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.widthComboBox.FormattingEnabled = true;
+            this.widthComboBox.Items.AddRange(new object[] {
+            "12-15\"",
+            "18-21\"",
+            "23-30\"",
+            "33\"+"});
+            this.widthComboBox.Location = new System.Drawing.Point(77, 35);
+            this.widthComboBox.Name = "widthComboBox";
+            this.widthComboBox.Size = new System.Drawing.Size(97, 33);
+            this.widthComboBox.TabIndex = 25;
+            // 
             // AddCabinetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -529,7 +529,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox widthListBox;
         private System.Windows.Forms.GroupBox typeGroupBox;
         private System.Windows.Forms.RadioButton overFridgeRadioButton;
         private System.Windows.Forms.RadioButton wallRadioButton;
@@ -566,5 +565,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox widthComboBox;
     }
 }
