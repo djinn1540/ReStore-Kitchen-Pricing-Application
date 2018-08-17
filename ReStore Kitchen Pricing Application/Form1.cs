@@ -336,7 +336,7 @@ namespace ReStore_Kitchen_Pricing_Application
             writer.Close();
         }
 
-        private string makeCabinetsInfo()
+        private string makeCabinetsInfo() //relies on verifyKitchen to have returned true
         {
             
             StringBuilder sb = new StringBuilder();
@@ -406,17 +406,65 @@ namespace ReStore_Kitchen_Pricing_Application
             }
         }
 
-   //     private string makeKitchenDescription()
-     //   {
-            //construction, cabinetstyle, doorstyle, panelstyle, material,  (crown molding?), end panels
-
+        private string makeKitchenDescription()  //relies on verifyKitchen to have returned true
+        {
             //This (material) kitchen has (total cabinets #) (cabinet style) cabinets with (?fulloverlay) 
             //(doorstyle) doors with (panel style) panels.  
             //The interior of the cabinets is constructed from (construction).  
             //(?The kitchen also comes with (? feet of crown molding) (??and) (? # end panels) end panels )
 
+            StringBuilder sb = new StringBuilder();
+            sb.Append("This ");
+            sb.Append(materialsComboBox.SelectedItem.ToString()); //kitchen material
+            sb.Append(" kitchen has ");
+            sb.Append(cabinetCountLabel.Text); //# of cabinets
+            sb.Append(" ");
+            sb.Append(getCheckedRadioFrom(cabStyleGroupBox).Text);//cabinet style
+            sb.Append(" cabinets with ");
+            
+            if (fullOverlayCheckBox.Checked)//? full overlay
+            {
+                sb.Append("full-overlay, ");
+            }
 
-       // }
+            sb.Append(getCheckedRadioFrom(doorStyleGroupBox).Text);//doorstyle
+            sb.Append(" doors with ");
+            sb.Append(getCheckedRadioFrom(panelStyleGroupBox));//panelstyle
+            sb.Append(" panels.  The interior of the cabinets is constructed from ");
+            sb.Append(getCheckedRadioFrom(constructionGroupBox).Text);//construction
+            sb.Append(".  ");
+
+            if(crownMoldingFeetNumericUpDown.Value > 0 || endPanelNumericUpDown.Value > 0)
+            {
+                bool needAnd = false;
+
+                sb.Append("The kitchen also comes with ");
+
+                if(crownMoldingFeetNumericUpDown.Value > 0)
+                {
+                    sb.Append(crownMoldingFeetNumericUpDown.Value.ToString());
+                    sb.Append(" feet of crown molding");
+                    needAnd = true;
+                }
+
+                if (endPanelNumericUpDown.Value > 0)
+                {
+                    if (needAnd)
+                    {
+                        sb.Append(" and ");
+                    }
+
+                    sb.Append(endPanelNumericUpDown.Value.ToString());
+                    sb.Append(" end panels");
+                }
+
+                sb.Append(".");
+            }
+
+            sb.Append("\n");
+
+            return sb.ToString();
+        }
        
     }
 }
