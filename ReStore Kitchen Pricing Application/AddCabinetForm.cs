@@ -49,7 +49,7 @@ namespace ReStore_Kitchen_Pricing_Application
 
             {
                 //process the cabinet info into DataRow
-                String dimensions = widthComboBox.SelectedItem.ToString() + "\"x" + heightTextBox.Text + "\"x" + depthTextBox.Text;
+                String dimensions = widthComboBox.SelectedItem.ToString() + "x" + heightTextBox.Text + "\"x" + depthTextBox.Text + "\"";
                 String type = getCabinetType();
                 String accessories = getAccessoryList();
                 String finished = getFinishedSides();
@@ -57,7 +57,7 @@ namespace ReStore_Kitchen_Pricing_Application
 
 
                 //add DataRow to the DataTable in parentForm
-                parentForm.CabinetDataGrid.Rows.Add(qtyNumericUpDown.Value.ToString(), dimensions, type, accessories, finished, doorsNumericUpDown.Value.ToString(), hinges, drawersNumericUpDown.Value.ToString());
+                parentForm.CabinetDataGrid.Rows.Add(qtyNumericUpDown.Value.ToString(), type, dimensions, accessories, finished, doorsNumericUpDown.Value.ToString(), hinges, drawersNumericUpDown.Value.ToString());
 
                 //TODO add the cabinet price to the price array in the parent form
 

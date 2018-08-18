@@ -88,10 +88,12 @@ namespace ReStore_Kitchen_Pricing_Application
 
             //process kitchen info into "pastable" variables
             string cabinetsInfo = makeCabinetsInfo();
+            string kitchDesc = makeKitchenDescription();
 
             //put kitchen info into HTML/printable
+            createPrintable(kitchenIdentifierTextBox.Text, distinctiveCharTextBox.Text, kitchDesc, cabinetsInfo, otherInfoTextBox.Text);
 
-            //move on to next kitchen?
+            //TODO reset the kitchen form
         }
 
         private Boolean verifyKitchenInput()
@@ -330,7 +332,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 bodyFile = bodyFile.Replace("<%CabinetsParagraph%>", cabinetDetails);
                 bodyFile = bodyFile.Replace("<%OtherInfo%>", otherInfo);
             }
-            System.IO.FileStream fs = System.IO.File.OpenWrite(System.IO.Directory.GetCurrentDirectory() + "\\" + id); //the filled out template will be saved in an HTML file named the kitchen's id
+            System.IO.FileStream fs = System.IO.File.OpenWrite(System.IO.Directory.GetCurrentDirectory() + "\\" + id + ".html"); //the filled out template will be saved in an HTML file named the kitchen's id
             System.IO.StreamWriter writer = new System.IO.StreamWriter(fs, Encoding.UTF8);
             writer.Write(bodyFile);
             writer.Close();
@@ -344,6 +346,13 @@ namespace ReStore_Kitchen_Pricing_Application
             foreach(DataGridViewRow row in CabinetDataGrid.Rows)
             {
                 DataGridViewCellCollection cells = row.Cells;
+
+                if(cells[0].Value == null)
+                {
+                    return sb.ToString();
+                }
+
+
                 sb.Append(cells[0].Value.ToString()); //quantity
                 sb.Append(" ");
 
@@ -381,16 +390,16 @@ namespace ReStore_Kitchen_Pricing_Application
                     sb.Append(" side(s).");
                 }
 
-                sb.Append("\n");
+                sb.Append("<br>");
                 
             }
 
-            return sb.ToString();
+            return "Error, the empty last row was not detected - it may have been skipped or the loop may have stopped before iterating to it.";  
         }
 
         private string makeEnglishAccessoriesList(string list)
         {
-            Regex expression = new Regex(@"^(?<beginningList>[A-Za-z, ]*), (?<lastListItem>[A-Za-z]*)$");
+            Regex expression = new Regex(@"^(?<beginningList>[A-Za-z, /\-]+), (?<lastListItem>[A-Za-z /\-]+)$");
             Match match = expression.Match(list);
 
             if (match.Success)
@@ -398,7 +407,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 string foreList = match.Groups["beginningList"].Value;
                 string lastAccessory = match.Groups["lastListItem"].Value;
 
-                return foreList + " and" + lastAccessory;
+                return foreList + " and " + lastAccessory;
             }
             else
             {
@@ -429,7 +438,7 @@ namespace ReStore_Kitchen_Pricing_Application
 
             sb.Append(getCheckedRadioFrom(doorStyleGroupBox).Text);//doorstyle
             sb.Append(" doors with ");
-            sb.Append(getCheckedRadioFrom(panelStyleGroupBox));//panelstyle
+            sb.Append(getCheckedRadioFrom(panelStyleGroupBox).Text  );//panelstyle
             sb.Append(" panels.  The interior of the cabinets is constructed from ");
             sb.Append(getCheckedRadioFrom(constructionGroupBox).Text);//construction
             sb.Append(".  ");
