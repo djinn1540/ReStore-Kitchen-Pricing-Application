@@ -20,14 +20,20 @@ namespace ReStore_Kitchen_Pricing_Application
         const string wallStandardHeight = "30"; //    /   within the "...RadioButton_CheckedChanged" methods to maintain autofill capabilities when going between cabinet types
         const string wallStandardDepth = "12"; //    /
 
-        public AddCabinetForm(kitchenForm parentForm) //parentForm is the form that "birthed" the addCabinetForm, specifically it is the kitchenForm
+        string kitchenRating;
+
+        const string anythingOtherThanNumbers = @"[^0-9.]";
+
+        public AddCabinetForm(kitchenForm parentForm, string rating) //parentForm is the form that "birthed" the addCabinetForm, specifically it is the kitchenForm
         {
             InitializeComponent();
             this.parentForm = parentForm;
+            kitchenRating = rating;
         }
 
         private void AddCabinetForm_Load(object sender, EventArgs e)
         {
+          
 
         }
 
@@ -112,7 +118,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 kitchenForm.turnToColor(widthComboBox, default(Color));
             }
 
-            if (heightTextBox.Text == "" || Regex.IsMatch(heightTextBox.Text, @"[^0-9]"))
+            if (heightTextBox.Text == "" || Regex.IsMatch(heightTextBox.Text, anythingOtherThanNumbers)) 
             {
                 ok = false;
                 //outline heightTxtBox in red
@@ -124,7 +130,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 kitchenForm.turnToColor(heightTextBox, default(Color));
             }
 
-            if (depthTextBox.Text == "" || Regex.IsMatch(depthTextBox.Text, @"[^0-9]"))
+            if (depthTextBox.Text == "" || Regex.IsMatch(depthTextBox.Text, anythingOtherThanNumbers)) 
             {
                 ok = false;
                 //outline depthTxtBox in red
@@ -287,6 +293,392 @@ namespace ReStore_Kitchen_Pricing_Application
                 depthTextBox.Text = wallStandardDepth;
             }
         }
+
+        private decimal computeIndividualCabinetPrice()
+        {
+            string checkedCabinetType = getCabinetType();
+            switch (checkedCabinetType)
+            {
+                case "Base":
+                    break;
+                case "Wall":
+                    break;
+                case "Pantry":
+                    break;
+                case "Wall Oven":
+                    break;
+                case "Refrigerator Enclosure":
+                    break;
+                case "Over Refrigerator":
+                    break;
+                case "Over Stove":
+                    break;
+                case "Desk":
+                    break;
+                default:
+                    //TODO throw an error and restart the ADDCabinetForm, let user know that an error was encountered -> robust
+                   
+            }
+        }
+
+        private decimal computeBaseCabinetPrice()
+        {
+            decimal price = 0M;
+
+
+            if (widthComboBox.SelectedText.Equals("12 - 15\""))
+            {
+                switch (kitchenRating)
+                {
+                    case "A":
+                        price = 95M;
+                        break;
+                    case "B":
+                        price = 80M;
+                        break;
+                    case "C":
+                        price = 65M;
+                        break;
+                    default:
+                        //TODO throw an error to start over, this should never be reached but lets be robust
+                }
+            }
+
+            if (widthComboBox.SelectedText.Equals("18 - 21\""))
+            {
+                switch (kitchenRating)
+                {
+                    case "A":
+                        price = 130M;
+                        break;
+                    case "B":
+                        price = 110M;
+                        break;
+                    case "C":
+                        price = 90M;
+                        break;
+                    default:
+                        //TODO throw an error to start over, this should never be reached but lets be robust
+                }
+            }
+
+            if (widthComboBox.SelectedText.Equals("23 - 30\""))
+            {
+                switch (kitchenRating)
+                {
+                    case "A":
+                        price = 145M;
+                        break;
+                    case "B":
+                        price = 120M;
+                        break;
+                    case "C":
+                        price = 95M;
+                        break;
+                    default:
+                        //TODO throw an error to start over, this should never be reached but lets be robust
+                }
+            }
+
+            if (widthComboBox.SelectedText.Equals("33\"+"))
+            {
+                switch (kitchenRating)
+                {
+                    case "A":
+                        price = 160M;
+                        break;
+                    case "B":
+                        price = 135M;
+                        break;
+                    case "C":
+                        price = 110M;
+                        break;
+                    default:
+                        //TODO throw an error to start over, this should never be reached but lets be robust
+                }
+            }
+
+            if (cornerCheckBox.Checked && lazySusanCheckBox.Checked)
+            {
+                switch (kitchenRating)
+                {
+                    case "A":
+                        price = 175M;
+                        break;
+                    case "B":
+                        price = 145M;
+                        break;
+                    case "C":
+                        price = 105M;
+                        break;
+                    default:
+                        //TODO throw an error to start over, this should never be reached but lets be robust
+                }
+            }
+
+            if (drawers2FloorCheckBox.Checked)
+            {
+                switch (kitchenRating)
+                {
+                    case "A":
+                        price = 175M;
+                        break;
+                    case "B":
+                        price = 150M;
+                        break;
+                    case "C":
+                        price = 125M;
+                        break;
+                    default:
+                        //TODO throw an error to start over, this should never be reached but lets be robust
+                }
+            }
+
+            if (selfExtendingCheckBox.Checked)
+            {
+                switch (kitchenRating)
+                {
+                    case "A":
+                        price += 10;
+                        break;
+                    case "B":
+                        price += 8;
+                        break;
+                    case "C":
+                        price += 5;
+                        break;
+                    default:
+                        //TODO throw an error to start over, this should never be reached but lets be robust
+                }
+            }
+
+            if (rollOutShelvesCheckBox.Checked)
+            {
+                switch (kitchenRating)
+                {
+                    case "A":
+                        price += 15;
+                        break;
+                    case "B":
+                        price += 12;
+                        break;
+                    case "C":
+                        price += 10;
+                        break;
+                    default:
+                        //TODO throw an error to start over, this should never be reached but lets be robust
+                }
+            }
+
+
+
+            return price;
+
+        }
+
+        private decimal computeWallCabinetPrice()
+        {
+            decimal price = 0.0M;
+
+            if (widthComboBox.SelectedText.Equals("12 - 15\""))
+            {
+                switch (kitchenRating)
+                {
+                    case "A":
+                        price = 70M;
+                        break;
+                    case "B":
+                        price = 60M;
+                        break;
+                    case "C":
+                        price = 45M;
+                        break;
+                    default:
+                        //TODO throw an error to restart, this should never be reached
+                }
+            }
+
+            if (widthComboBox.SelectedText.Equals("18 - 21\""))
+            {
+                switch (kitchenRating)
+                {
+                    case "A":
+                        price = 110M;
+                        break;
+                    case "B":
+                        price = 90M;
+                        break;
+                    case "C":
+                        price = 70M;
+                        break;
+                    default:
+                        //TODO throw an error to restart, this should never be reached
+                }
+            }
+
+            if (widthComboBox.SelectedText.Equals("23 - 30\""))
+            {
+                switch (kitchenRating)
+                {
+                    case "A":
+                        price = 135M;
+                        break;
+                    case "B":
+                        price = 110M;
+                        break;
+                    case "C":
+                        price = 85M;
+                        break;
+                    default:
+                        //TODO throw an error to restart, this should never be reached
+                }
+            }
+
+            if (widthComboBox.SelectedText.Equals("33\"+"))
+            {
+                switch (kitchenRating)
+                {
+                    case "A":
+                        price = 150;
+                        break;
+                    case "B":
+                        price = 125;
+                        break;
+                    case "C":
+                        price = 100;
+                        break;
+                    default:
+                        //TODO throw an error to restart, this should never be reached
+                }
+            }
+
+            if (cornerCheckBox.Checked && lazySusanCheckBox.Checked)
+            {
+                switch (kitchenRating)
+                {
+                    case "A":
+                        price = 175M;
+                        break;
+                    case "B":
+                        price = 145M;
+                        break;
+                    case "C":
+                        price = 105M;
+                        break;
+                    default:
+                        //TODO throw an error to restart, this should never be reached
+                }
+            }
+
+            if (glassDoorsCheckBox.Checked)
+            {
+                switch (kitchenRating)
+                {
+                    case "A":
+                        price += 20M;
+                        break;
+                    case "B":
+                        price += 15M;
+                        break;
+                    case "C":
+                        price += 10M;
+                        break;
+                    default:
+                        //TODO throw an error to restart, this should never be reached
+                }
+            }
+
+            if (Decimal.Parse(heightTextBox.Text) >= 42M)
+            {
+                price += 20M;
+            }
+            else if (Decimal.Parse(heightTextBox.Text) >= 36M)
+            {
+                price += 10M;
+            }
+
+
+            return price;
+        }
+
+        private decimal computePantryCabinetPrice()
+        {
+           
+            switch (kitchenRating)
+            {
+                    case "A":
+                        return 
+                    case "B":
+                        return
+                    case "C":
+                        return
+                    default:
+                        //TODO throw an error to restart, this should never be reached
+            }
+          
+        }
+
+        private decimal computeWallOvenCabinetPrice()
+        {
+            switch (kitchenRating)
+            {
+                case "A":
+                    return
+                case "B":
+                    return
+                case "C":
+                    return
+                default:
+                        //TODO throw an error to restart, this should never be reached
+            }
+        }
+
+        private decimal computeFridgeEnclosureCabinetPrice()
+        {
+            switch (kitchenRating)
+            {
+                case "A":
+                    return
+                case "B":
+                    return
+                case "C":
+                    return
+                default:
+                        //TODO throw an error to restart, this should never be reached
+            }
+        }
+
+        private decimal computeOverFridgeStoveCabinetPrice()
+        {
+            switch (kitchenRating)
+            {
+                case "A":
+                    return
+                case "B":
+                    return
+                case "C":
+                    return
+                default:
+                        //TODO throw an error to restart, this should never be reached
+            }
+        }
+
+        
+        private decimal computeOverDeskCabinetPrice()
+        {
+            switch (kitchenRating)
+            {
+                case "A":
+                    return
+                case "B":
+                    return
+                case "C":
+                    return
+                default:
+                        //TODO throw an error to restart, this should never be reached
+            }
+        }
+
 
     }
 }

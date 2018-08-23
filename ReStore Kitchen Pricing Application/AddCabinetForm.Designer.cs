@@ -44,6 +44,7 @@
             this.heightTextBox = new System.Windows.Forms.TextBox();
             this.depthTextBox = new System.Windows.Forms.TextBox();
             this.dimensionGroupBox = new System.Windows.Forms.GroupBox();
+            this.widthComboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -52,7 +53,7 @@
             this.glassDoorsCheckBox = new System.Windows.Forms.CheckBox();
             this.selfExtendingCheckBox = new System.Windows.Forms.CheckBox();
             this.drawers2FloorCheckBox = new System.Windows.Forms.CheckBox();
-            this.shelvesCheckBox = new System.Windows.Forms.CheckBox();
+            this.rollOutShelvesCheckBox = new System.Windows.Forms.CheckBox();
             this.finishedGroupBox = new System.Windows.Forms.GroupBox();
             this.finishedRightCheckBox = new System.Windows.Forms.CheckBox();
             this.finishedLeftCheckBox = new System.Windows.Forms.CheckBox();
@@ -65,7 +66,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.finishAddingCabinetButton = new System.Windows.Forms.Button();
             this.qtyNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.widthComboBox = new System.Windows.Forms.ComboBox();
+            this.cornerCheckBox = new System.Windows.Forms.CheckBox();
             this.typeGroupBox.SuspendLayout();
             this.dimensionGroupBox.SuspendLayout();
             this.accessoryGroupBox.SuspendLayout();
@@ -120,10 +121,10 @@
             this.refrigeEnclosureRadioButton.AutoSize = true;
             this.refrigeEnclosureRadioButton.Location = new System.Drawing.Point(136, 29);
             this.refrigeEnclosureRadioButton.Name = "refrigeEnclosureRadioButton";
-            this.refrigeEnclosureRadioButton.Size = new System.Drawing.Size(236, 29);
+            this.refrigeEnclosureRadioButton.Size = new System.Drawing.Size(225, 29);
             this.refrigeEnclosureRadioButton.TabIndex = 4;
             this.refrigeEnclosureRadioButton.TabStop = true;
-            this.refrigeEnclosureRadioButton.Text = "Referigerator Enclosure";
+            this.refrigeEnclosureRadioButton.Text = "Refrigerator Enclosure";
             this.refrigeEnclosureRadioButton.UseVisualStyleBackColor = true;
             // 
             // overStoveRadioButton
@@ -164,10 +165,10 @@
             this.overFridgeRadioButton.AutoSize = true;
             this.overFridgeRadioButton.Location = new System.Drawing.Point(136, 64);
             this.overFridgeRadioButton.Name = "overFridgeRadioButton";
-            this.overFridgeRadioButton.Size = new System.Drawing.Size(192, 29);
+            this.overFridgeRadioButton.Size = new System.Drawing.Size(181, 29);
             this.overFridgeRadioButton.TabIndex = 5;
             this.overFridgeRadioButton.TabStop = true;
-            this.overFridgeRadioButton.Text = "Over Referigerator";
+            this.overFridgeRadioButton.Text = "Over Refrigerator";
             this.overFridgeRadioButton.UseVisualStyleBackColor = true;
             // 
             // wallRadioButton
@@ -254,6 +255,21 @@
             this.dimensionGroupBox.TabStop = false;
             this.dimensionGroupBox.Text = "Cabinet Dimensions";
             // 
+            // widthComboBox
+            // 
+            this.widthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.widthComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.widthComboBox.FormattingEnabled = true;
+            this.widthComboBox.Items.AddRange(new object[] {
+            "12-15\"",
+            "18-21\"",
+            "23-30\"",
+            "33\"+"});
+            this.widthComboBox.Location = new System.Drawing.Point(77, 35);
+            this.widthComboBox.Name = "widthComboBox";
+            this.widthComboBox.Size = new System.Drawing.Size(97, 33);
+            this.widthComboBox.TabIndex = 25;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -295,7 +311,7 @@
             this.accessoryGroupBox.Controls.Add(this.glassDoorsCheckBox);
             this.accessoryGroupBox.Controls.Add(this.selfExtendingCheckBox);
             this.accessoryGroupBox.Controls.Add(this.drawers2FloorCheckBox);
-            this.accessoryGroupBox.Controls.Add(this.shelvesCheckBox);
+            this.accessoryGroupBox.Controls.Add(this.rollOutShelvesCheckBox);
             this.accessoryGroupBox.Controls.Add(this.lazySusanCheckBox);
             this.accessoryGroupBox.Location = new System.Drawing.Point(179, 251);
             this.accessoryGroupBox.Name = "accessoryGroupBox";
@@ -337,16 +353,16 @@
             this.drawers2FloorCheckBox.Text = "Drawers to Floor";
             this.drawers2FloorCheckBox.UseVisualStyleBackColor = true;
             // 
-            // shelvesCheckBox
+            // rollOutShelvesCheckBox
             // 
-            this.shelvesCheckBox.AutoSize = true;
-            this.shelvesCheckBox.Location = new System.Drawing.Point(6, 64);
-            this.shelvesCheckBox.Name = "shelvesCheckBox";
-            this.shelvesCheckBox.Size = new System.Drawing.Size(176, 29);
-            this.shelvesCheckBox.TabIndex = 1;
-            this.shelvesCheckBox.TabStop = false;
-            this.shelvesCheckBox.Text = "Roll-out Shelves";
-            this.shelvesCheckBox.UseVisualStyleBackColor = true;
+            this.rollOutShelvesCheckBox.AutoSize = true;
+            this.rollOutShelvesCheckBox.Location = new System.Drawing.Point(6, 64);
+            this.rollOutShelvesCheckBox.Name = "rollOutShelvesCheckBox";
+            this.rollOutShelvesCheckBox.Size = new System.Drawing.Size(176, 29);
+            this.rollOutShelvesCheckBox.TabIndex = 1;
+            this.rollOutShelvesCheckBox.TabStop = false;
+            this.rollOutShelvesCheckBox.Text = "Roll-out Shelves";
+            this.rollOutShelvesCheckBox.UseVisualStyleBackColor = true;
             // 
             // finishedGroupBox
             // 
@@ -472,26 +488,22 @@
             0,
             0});
             // 
-            // widthComboBox
+            // cornerCheckBox
             // 
-            this.widthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.widthComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.widthComboBox.FormattingEnabled = true;
-            this.widthComboBox.Items.AddRange(new object[] {
-            "12-15\"",
-            "18-21\"",
-            "23-30\"",
-            "33\"+"});
-            this.widthComboBox.Location = new System.Drawing.Point(77, 35);
-            this.widthComboBox.Name = "widthComboBox";
-            this.widthComboBox.Size = new System.Drawing.Size(97, 33);
-            this.widthComboBox.TabIndex = 25;
+            this.cornerCheckBox.AutoSize = true;
+            this.cornerCheckBox.Location = new System.Drawing.Point(185, 425);
+            this.cornerCheckBox.Name = "cornerCheckBox";
+            this.cornerCheckBox.Size = new System.Drawing.Size(178, 29);
+            this.cornerCheckBox.TabIndex = 18;
+            this.cornerCheckBox.Text = "Corner Cabinet?";
+            this.cornerCheckBox.UseVisualStyleBackColor = true;
             // 
             // AddCabinetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(628, 468);
+            this.Controls.Add(this.cornerCheckBox);
             this.Controls.Add(this.qtyNumericUpDown);
             this.Controls.Add(this.finishAddingCabinetButton);
             this.Controls.Add(this.drawersNumericUpDown);
@@ -550,7 +562,7 @@
         private System.Windows.Forms.CheckBox glassDoorsCheckBox;
         private System.Windows.Forms.CheckBox selfExtendingCheckBox;
         private System.Windows.Forms.CheckBox drawers2FloorCheckBox;
-        private System.Windows.Forms.CheckBox shelvesCheckBox;
+        private System.Windows.Forms.CheckBox rollOutShelvesCheckBox;
         private System.Windows.Forms.GroupBox finishedGroupBox;
         private System.Windows.Forms.CheckBox finishedRightCheckBox;
         private System.Windows.Forms.CheckBox finishedLeftCheckBox;
@@ -567,5 +579,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox widthComboBox;
+        private System.Windows.Forms.CheckBox cornerCheckBox;
     }
 }

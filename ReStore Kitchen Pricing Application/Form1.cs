@@ -25,7 +25,21 @@ namespace ReStore_Kitchen_Pricing_Application
         private void addCabinetButton_Click(object sender, EventArgs e)
         {
             
-            AddCabinetForm addCabForm = new AddCabinetForm(this);
+            if (!verifyQualityRating())
+            {
+                string messageBoxText = "Please give the kitchen a quality rating.";
+                string caption = "Add Cabinet";
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Warning;
+                MessageBox.Show(messageBoxText, caption, button, icon);
+
+                return;
+            }
+
+            string rating = getCheckedRadioFrom(qualityRatingGroupBox).Text;
+
+
+            AddCabinetForm addCabForm = new AddCabinetForm(this, rating);
             this.Enabled = false;
             addCabForm.Show();
             
@@ -151,14 +165,9 @@ namespace ReStore_Kitchen_Pricing_Application
                 turnToColor(panelStyleGroupBox, default(Color));
             }
 
-            if (!isOneCheckedIn(qualityRatingGroupBox))
+            if (!verifyQualityRating()) //the boolean function will turn the group box red on failure
             {
                 ok = false;
-                turnRed(qualityRatingGroupBox);
-            }
-            else
-            {
-                turnToColor(qualityRatingGroupBox, default(Color));
             }
 
             if(plusCheckBox.Checked && minusCheckBox.Checked)
@@ -306,6 +315,20 @@ namespace ReStore_Kitchen_Pricing_Application
             return false;
         }
 
+        private Boolean verifyQualityRating()
+        {
+            if (!isOneCheckedIn(qualityRatingGroupBox))
+            {
+                turnRed(qualityRatingGroupBox);
+                return false;
+            }
+            else
+            {
+                turnToColor(qualityRatingGroupBox, default(Color));
+                return true;
+            }
+        }
+
         public static void turnRed(Control c)
         {
             if (c != null)
@@ -371,6 +394,8 @@ namespace ReStore_Kitchen_Pricing_Application
                     sb.Append(cells[7].Value.ToString());
                     sb.Append("-drawer, ");
                 }
+
+                //TODO add a detail for corner peices
 
                 sb.Append(cells[1].Value.ToString()); //type
                 sb.Append(" cabinet(s) measuring ");
