@@ -76,16 +76,17 @@
             this.materialsLabel = new System.Windows.Forms.Label();
             this.crownMoldingLabel = new System.Windows.Forms.Label();
             this.endPanelGroupBox = new System.Windows.Forms.GroupBox();
-            this.crownMoldingFeetNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.flatEndPanelRadioButton = new System.Windows.Forms.RadioButton();
-            this.pannelledEndPanelRadioButton = new System.Windows.Forms.RadioButton();
-            this.endPanelHeightLabel = new System.Windows.Forms.Label();
-            this.endPanelWidthLabel = new System.Windows.Forms.Label();
-            this.endPanelHeightTextBox = new System.Windows.Forms.TextBox();
-            this.endPanelWidthTextBox = new System.Windows.Forms.TextBox();
-            this.materialsComboBox = new System.Windows.Forms.ComboBox();
-            this.endPanelNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.endPanelQtyLabel = new System.Windows.Forms.Label();
+            this.endPanelNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.endPanelWidthTextBox = new System.Windows.Forms.TextBox();
+            this.endPanelHeightTextBox = new System.Windows.Forms.TextBox();
+            this.endPanelWidthLabel = new System.Windows.Forms.Label();
+            this.endPanelHeightLabel = new System.Windows.Forms.Label();
+            this.pannelledEndPanelRadioButton = new System.Windows.Forms.RadioButton();
+            this.flatEndPanelRadioButton = new System.Windows.Forms.RadioButton();
+            this.crownMoldingFeetNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.materialsComboBox = new System.Windows.Forms.ComboBox();
+            this.cornerCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.constructionGroupBox.SuspendLayout();
             this.cabStyleGroupBox.SuspendLayout();
             this.doorStyleGroupBox.SuspendLayout();
@@ -94,8 +95,8 @@
             this.gridGroupBox.SuspendLayout();
             this.qualityRatingGroupBox.SuspendLayout();
             this.endPanelGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.crownMoldingFeetNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.endPanelNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.crownMoldingFeetNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // kitchenIdentifierTextBox
@@ -353,6 +354,8 @@
             // 
             // CabinetDataGrid
             // 
+            this.CabinetDataGrid.AllowUserToAddRows = false;
+            this.CabinetDataGrid.AllowUserToDeleteRows = false;
             this.CabinetDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CabinetDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.QtyCol,
@@ -362,9 +365,11 @@
             this.FinCol,
             this.DoorsCol,
             this.Hinges,
-            this.DrawerCol});
+            this.DrawerCol,
+            this.cornerCol});
             this.CabinetDataGrid.Location = new System.Drawing.Point(13, 32);
             this.CabinetDataGrid.Name = "CabinetDataGrid";
+            this.CabinetDataGrid.ReadOnly = true;
             this.CabinetDataGrid.RowTemplate.Height = 24;
             this.CabinetDataGrid.Size = new System.Drawing.Size(1023, 291);
             this.CabinetDataGrid.TabIndex = 10;
@@ -374,41 +379,49 @@
             // 
             this.QtyCol.HeaderText = "Quantity";
             this.QtyCol.Name = "QtyCol";
+            this.QtyCol.ReadOnly = true;
             // 
             // TypeCol
             // 
             this.TypeCol.HeaderText = "Type";
             this.TypeCol.Name = "TypeCol";
+            this.TypeCol.ReadOnly = true;
             // 
             // DimCol
             // 
             this.DimCol.HeaderText = "Dimensions (WxHxD)";
             this.DimCol.Name = "DimCol";
+            this.DimCol.ReadOnly = true;
             // 
             // FeatCol
             // 
             this.FeatCol.HeaderText = "Features";
             this.FeatCol.Name = "FeatCol";
+            this.FeatCol.ReadOnly = true;
             // 
             // FinCol
             // 
             this.FinCol.HeaderText = "Finished Sides";
             this.FinCol.Name = "FinCol";
+            this.FinCol.ReadOnly = true;
             // 
             // DoorsCol
             // 
             this.DoorsCol.HeaderText = "# of Doors";
             this.DoorsCol.Name = "DoorsCol";
+            this.DoorsCol.ReadOnly = true;
             // 
             // Hinges
             // 
             this.Hinges.HeaderText = "Hinges";
             this.Hinges.Name = "Hinges";
+            this.Hinges.ReadOnly = true;
             // 
             // DrawerCol
             // 
             this.DrawerCol.HeaderText = "# of Drawers";
             this.DrawerCol.Name = "DrawerCol";
+            this.DrawerCol.ReadOnly = true;
             // 
             // gridGroupBox
             // 
@@ -588,24 +601,53 @@
             this.endPanelGroupBox.TabStop = false;
             this.endPanelGroupBox.Text = "End Panels";
             // 
-            // crownMoldingFeetNumericUpDown
+            // endPanelQtyLabel
             // 
-            this.crownMoldingFeetNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.crownMoldingFeetNumericUpDown.Location = new System.Drawing.Point(1091, 592);
-            this.crownMoldingFeetNumericUpDown.Name = "crownMoldingFeetNumericUpDown";
-            this.crownMoldingFeetNumericUpDown.Size = new System.Drawing.Size(60, 30);
-            this.crownMoldingFeetNumericUpDown.TabIndex = 15;
+            this.endPanelQtyLabel.AutoSize = true;
+            this.endPanelQtyLabel.Location = new System.Drawing.Point(19, 28);
+            this.endPanelQtyLabel.Name = "endPanelQtyLabel";
+            this.endPanelQtyLabel.Size = new System.Drawing.Size(49, 25);
+            this.endPanelQtyLabel.TabIndex = 7;
+            this.endPanelQtyLabel.Text = "Qty:";
             // 
-            // flatEndPanelRadioButton
+            // endPanelNumericUpDown
             // 
-            this.flatEndPanelRadioButton.AutoSize = true;
-            this.flatEndPanelRadioButton.Location = new System.Drawing.Point(104, 29);
-            this.flatEndPanelRadioButton.Name = "flatEndPanelRadioButton";
-            this.flatEndPanelRadioButton.Size = new System.Drawing.Size(65, 29);
-            this.flatEndPanelRadioButton.TabIndex = 0;
-            this.flatEndPanelRadioButton.TabStop = true;
-            this.flatEndPanelRadioButton.Text = "Flat";
-            this.flatEndPanelRadioButton.UseVisualStyleBackColor = true;
+            this.endPanelNumericUpDown.Location = new System.Drawing.Point(22, 63);
+            this.endPanelNumericUpDown.Name = "endPanelNumericUpDown";
+            this.endPanelNumericUpDown.Size = new System.Drawing.Size(61, 30);
+            this.endPanelNumericUpDown.TabIndex = 6;
+            // 
+            // endPanelWidthTextBox
+            // 
+            this.endPanelWidthTextBox.Location = new System.Drawing.Point(309, 63);
+            this.endPanelWidthTextBox.Name = "endPanelWidthTextBox";
+            this.endPanelWidthTextBox.Size = new System.Drawing.Size(100, 30);
+            this.endPanelWidthTextBox.TabIndex = 5;
+            // 
+            // endPanelHeightTextBox
+            // 
+            this.endPanelHeightTextBox.Location = new System.Drawing.Point(309, 28);
+            this.endPanelHeightTextBox.Name = "endPanelHeightTextBox";
+            this.endPanelHeightTextBox.Size = new System.Drawing.Size(100, 30);
+            this.endPanelHeightTextBox.TabIndex = 4;
+            // 
+            // endPanelWidthLabel
+            // 
+            this.endPanelWidthLabel.AutoSize = true;
+            this.endPanelWidthLabel.Location = new System.Drawing.Point(234, 66);
+            this.endPanelWidthLabel.Name = "endPanelWidthLabel";
+            this.endPanelWidthLabel.Size = new System.Drawing.Size(69, 25);
+            this.endPanelWidthLabel.TabIndex = 3;
+            this.endPanelWidthLabel.Text = "Width:";
+            // 
+            // endPanelHeightLabel
+            // 
+            this.endPanelHeightLabel.AutoSize = true;
+            this.endPanelHeightLabel.Location = new System.Drawing.Point(234, 31);
+            this.endPanelHeightLabel.Name = "endPanelHeightLabel";
+            this.endPanelHeightLabel.Size = new System.Drawing.Size(74, 25);
+            this.endPanelHeightLabel.TabIndex = 2;
+            this.endPanelHeightLabel.Text = "Height:";
             // 
             // pannelledEndPanelRadioButton
             // 
@@ -618,37 +660,24 @@
             this.pannelledEndPanelRadioButton.Text = "Panelled";
             this.pannelledEndPanelRadioButton.UseVisualStyleBackColor = true;
             // 
-            // endPanelHeightLabel
+            // flatEndPanelRadioButton
             // 
-            this.endPanelHeightLabel.AutoSize = true;
-            this.endPanelHeightLabel.Location = new System.Drawing.Point(234, 31);
-            this.endPanelHeightLabel.Name = "endPanelHeightLabel";
-            this.endPanelHeightLabel.Size = new System.Drawing.Size(74, 25);
-            this.endPanelHeightLabel.TabIndex = 2;
-            this.endPanelHeightLabel.Text = "Height:";
+            this.flatEndPanelRadioButton.AutoSize = true;
+            this.flatEndPanelRadioButton.Location = new System.Drawing.Point(104, 29);
+            this.flatEndPanelRadioButton.Name = "flatEndPanelRadioButton";
+            this.flatEndPanelRadioButton.Size = new System.Drawing.Size(65, 29);
+            this.flatEndPanelRadioButton.TabIndex = 0;
+            this.flatEndPanelRadioButton.TabStop = true;
+            this.flatEndPanelRadioButton.Text = "Flat";
+            this.flatEndPanelRadioButton.UseVisualStyleBackColor = true;
             // 
-            // endPanelWidthLabel
+            // crownMoldingFeetNumericUpDown
             // 
-            this.endPanelWidthLabel.AutoSize = true;
-            this.endPanelWidthLabel.Location = new System.Drawing.Point(234, 66);
-            this.endPanelWidthLabel.Name = "endPanelWidthLabel";
-            this.endPanelWidthLabel.Size = new System.Drawing.Size(69, 25);
-            this.endPanelWidthLabel.TabIndex = 3;
-            this.endPanelWidthLabel.Text = "Width:";
-            // 
-            // endPanelHeightTextBox
-            // 
-            this.endPanelHeightTextBox.Location = new System.Drawing.Point(309, 28);
-            this.endPanelHeightTextBox.Name = "endPanelHeightTextBox";
-            this.endPanelHeightTextBox.Size = new System.Drawing.Size(100, 30);
-            this.endPanelHeightTextBox.TabIndex = 4;
-            // 
-            // endPanelWidthTextBox
-            // 
-            this.endPanelWidthTextBox.Location = new System.Drawing.Point(309, 63);
-            this.endPanelWidthTextBox.Name = "endPanelWidthTextBox";
-            this.endPanelWidthTextBox.Size = new System.Drawing.Size(100, 30);
-            this.endPanelWidthTextBox.TabIndex = 5;
+            this.crownMoldingFeetNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.crownMoldingFeetNumericUpDown.Location = new System.Drawing.Point(1091, 592);
+            this.crownMoldingFeetNumericUpDown.Name = "crownMoldingFeetNumericUpDown";
+            this.crownMoldingFeetNumericUpDown.Size = new System.Drawing.Size(60, 30);
+            this.crownMoldingFeetNumericUpDown.TabIndex = 15;
             // 
             // materialsComboBox
             // 
@@ -672,21 +701,11 @@
             this.materialsComboBox.Size = new System.Drawing.Size(121, 33);
             this.materialsComboBox.TabIndex = 16;
             // 
-            // endPanelNumericUpDown
+            // cornerCol
             // 
-            this.endPanelNumericUpDown.Location = new System.Drawing.Point(22, 63);
-            this.endPanelNumericUpDown.Name = "endPanelNumericUpDown";
-            this.endPanelNumericUpDown.Size = new System.Drawing.Size(61, 30);
-            this.endPanelNumericUpDown.TabIndex = 6;
-            // 
-            // endPanelQtyLabel
-            // 
-            this.endPanelQtyLabel.AutoSize = true;
-            this.endPanelQtyLabel.Location = new System.Drawing.Point(19, 28);
-            this.endPanelQtyLabel.Name = "endPanelQtyLabel";
-            this.endPanelQtyLabel.Size = new System.Drawing.Size(49, 25);
-            this.endPanelQtyLabel.TabIndex = 7;
-            this.endPanelQtyLabel.Text = "Qty:";
+            this.cornerCol.HeaderText = "Corner?";
+            this.cornerCol.Name = "cornerCol";
+            this.cornerCol.ReadOnly = true;
             // 
             // kitchenForm
             // 
@@ -728,8 +747,8 @@
             this.qualityRatingGroupBox.PerformLayout();
             this.endPanelGroupBox.ResumeLayout(false);
             this.endPanelGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.crownMoldingFeetNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.endPanelNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.crownMoldingFeetNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -794,6 +813,7 @@
         private System.Windows.Forms.ComboBox materialsComboBox;
         private System.Windows.Forms.Label endPanelQtyLabel;
         private System.Windows.Forms.NumericUpDown endPanelNumericUpDown;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cornerCol;
     }
 }
 

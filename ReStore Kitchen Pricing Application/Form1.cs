@@ -14,12 +14,12 @@ namespace ReStore_Kitchen_Pricing_Application
 {
     public partial class kitchenForm : Form
     {
-        public LinkedList<int> cabinetPrices;
+        public LinkedList<decimal> cabinetPrices;
 
         public kitchenForm()
         {
             InitializeComponent();
-            cabinetPrices = new LinkedList<int>();
+            cabinetPrices = new LinkedList<decimal>();
         }
 
         private void addCabinetButton_Click(object sender, EventArgs e)
@@ -193,7 +193,7 @@ namespace ReStore_Kitchen_Pricing_Application
             }
 
             //check if there are cabinets in the kitchen
-            if(CabinetDataGrid.RowCount < 2) // the row count must be 2 because there is always an empty row
+            if(CabinetDataGrid.RowCount < 1) 
             {
                 ok = false;
                 turnRed(gridGroupBox);
@@ -396,6 +396,11 @@ namespace ReStore_Kitchen_Pricing_Application
                 }
 
                 //TODO add a detail for corner peices
+
+                if (cells[8].Value.ToString().Equals("Yes"))
+                {
+                    sb.Append("corner");
+                }
 
                 sb.Append(cells[1].Value.ToString()); //type
                 sb.Append(" cabinet(s) measuring ");

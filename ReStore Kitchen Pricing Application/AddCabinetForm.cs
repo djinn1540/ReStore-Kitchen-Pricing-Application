@@ -51,25 +51,39 @@ namespace ReStore_Kitchen_Pricing_Application
                 return;
             }
 
-            //TODO ask user if the cabinet sentence is good - use compileCabinetSentence
-
-            {
+            
                 //process the cabinet info into DataRow
-                String dimensions = widthComboBox.SelectedItem.ToString() + "x" + heightTextBox.Text + "\"x" + depthTextBox.Text + "\"";
-                String type = getCabinetType();
-                String accessories = getAccessoryList();
-                String finished = getFinishedSides();
-                String hinges = getHingedSides();
+            String dimensions = widthComboBox.SelectedItem.ToString() + "x" + heightTextBox.Text + "\"x" + depthTextBox.Text + "\"";
+            String type = getCabinetType();
+            String accessories = getAccessoryList();
+            String finished = getFinishedSides();
+            String hinges = getHingedSides();
+            String corner = getCorner();
 
+            //TODO add the corner info to the table
+            //add DataRow to the DataTable in parentForm
+            parentForm.CabinetDataGrid.Rows.Add(qtyNumericUpDown.Value.ToString(), type, dimensions, accessories, finished, doorsNumericUpDown.Value.ToString(), hinges, drawersNumericUpDown.Value.ToString());
 
-                //add DataRow to the DataTable in parentForm
-                parentForm.CabinetDataGrid.Rows.Add(qtyNumericUpDown.Value.ToString(), type, dimensions, accessories, finished, doorsNumericUpDown.Value.ToString(), hinges, drawersNumericUpDown.Value.ToString());
-
-                //TODO add the cabinet price to the price array in the parent form
-
-                //change back to the KitchenForm
-                this.Close();
+                
+            try
+            {
+                decimal price = computeIndividualCabinetPrice();
+                parentForm.cabinetPrices.AddLast(price);
             }
+            catch(PriceComputationException f)
+            {
+                //we want to tell the user that there is an issue with the compuation and to contact me 
+                string messageBoxText = "There was an error while computing the price of the cabinet.  Please submit an issue to https://github.com/djinn1540/ReStore-Kitchen-Pricing-Application/issues";
+                string caption = "Add Cabinet";
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(messageBoxText, caption, button, icon);
+
+                return;
+            }
+ 
+            this.Close();
+            
         }
 
         private void AddCabinetForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -268,6 +282,18 @@ namespace ReStore_Kitchen_Pricing_Application
                 return "";
         }
 
+        private String getCorner()
+        {
+            if (cornerCheckBox.Checked)
+            {
+                return "Yes";
+            }
+            else
+            {
+                return "No";
+            }
+        }
+
         private void baseRadioButton_CheckedChanged(object sender, EventArgs e) //fills the industry standard measurement into the width and height textboxes
         {
             if (heightTextBox.Text == "" || heightTextBox.Text.Equals(wallStandardHeight))//do not change the text if the user has already entered a custom number (ie not the standard height of a wall unit --> enables autofill if the user switches the cabinet type)
@@ -300,23 +326,28 @@ namespace ReStore_Kitchen_Pricing_Application
             switch (checkedCabinetType)
             {
                 case "Base":
-                    break;
+                    return computeBaseCabinetPrice();
+                  
                 case "Wall":
-                    break;
+                    return computeWallCabinetPrice();
                 case "Pantry":
-                    break;
+                    return computePantryCabinetPrice();
+
                 case "Wall Oven":
-                    break;
+                    return computeWallOvenCabinetPrice();
+
                 case "Refrigerator Enclosure":
-                    break;
-                case "Over Refrigerator":
-                    break;
+                    return computeFridgeEnclosureCabinetPrice();
+
+                case "Over Refrigerator":   
                 case "Over Stove":
-                    break;
+                    return computeOverFridgeStoveCabinetPrice();
+
                 case "Desk":
-                    break;
+                    return computeDeskCabinetPrice();
                 default:
-                    //TODO throw an error and restart the ADDCabinetForm, let user know that an error was encountered -> robust
+                    throw new PriceComputationException("No case triggered in Individual Cabinet Price");
+                    
                    
             }
         }
@@ -340,7 +371,7 @@ namespace ReStore_Kitchen_Pricing_Application
                         price = 65M;
                         break;
                     default:
-                        //TODO throw an error to start over, this should never be reached but lets be robust
+                        throw new PriceComputationException("No rating case triggered in Base Cabinet Price 1");
                 }
             }
 
@@ -358,7 +389,7 @@ namespace ReStore_Kitchen_Pricing_Application
                         price = 90M;
                         break;
                     default:
-                        //TODO throw an error to start over, this should never be reached but lets be robust
+                        throw new PriceComputationException("No rating case triggered in Base Cabinet Price 2");
                 }
             }
 
@@ -376,7 +407,7 @@ namespace ReStore_Kitchen_Pricing_Application
                         price = 95M;
                         break;
                     default:
-                        //TODO throw an error to start over, this should never be reached but lets be robust
+                        throw new PriceComputationException("No rating case triggered in Base Cabinet Price 3");
                 }
             }
 
@@ -394,7 +425,7 @@ namespace ReStore_Kitchen_Pricing_Application
                         price = 110M;
                         break;
                     default:
-                        //TODO throw an error to start over, this should never be reached but lets be robust
+                        throw new PriceComputationException("No rating case triggered in Base Cabinet Price 4");
                 }
             }
 
@@ -412,7 +443,7 @@ namespace ReStore_Kitchen_Pricing_Application
                         price = 105M;
                         break;
                     default:
-                        //TODO throw an error to start over, this should never be reached but lets be robust
+                        throw new PriceComputationException("No rating case triggered in Base Cabinet Price 5");
                 }
             }
 
@@ -430,7 +461,7 @@ namespace ReStore_Kitchen_Pricing_Application
                         price = 125M;
                         break;
                     default:
-                        //TODO throw an error to start over, this should never be reached but lets be robust
+                        throw new PriceComputationException("No rating case triggered in Base Cabinet Price 6");
                 }
             }
 
@@ -448,7 +479,7 @@ namespace ReStore_Kitchen_Pricing_Application
                         price += 5;
                         break;
                     default:
-                        //TODO throw an error to start over, this should never be reached but lets be robust
+                        throw new PriceComputationException("No rating case triggered in Base Cabinet Price 7");
                 }
             }
 
@@ -466,7 +497,7 @@ namespace ReStore_Kitchen_Pricing_Application
                         price += 10;
                         break;
                     default:
-                        //TODO throw an error to start over, this should never be reached but lets be robust
+                        throw new PriceComputationException("No rating case triggered in Base Cabinet Price 8");
                 }
             }
 
@@ -494,7 +525,7 @@ namespace ReStore_Kitchen_Pricing_Application
                         price = 45M;
                         break;
                     default:
-                        //TODO throw an error to restart, this should never be reached
+                        throw new PriceComputationException("No rating case triggered in Wall Cabinet Price 1");
                 }
             }
 
@@ -512,7 +543,7 @@ namespace ReStore_Kitchen_Pricing_Application
                         price = 70M;
                         break;
                     default:
-                        //TODO throw an error to restart, this should never be reached
+                        throw new PriceComputationException("No rating case triggered in Wall Cabinet Price 2");
                 }
             }
 
@@ -530,7 +561,7 @@ namespace ReStore_Kitchen_Pricing_Application
                         price = 85M;
                         break;
                     default:
-                        //TODO throw an error to restart, this should never be reached
+                        throw new PriceComputationException("No rating case triggered in Wall Cabinet Price 3");
                 }
             }
 
@@ -548,7 +579,7 @@ namespace ReStore_Kitchen_Pricing_Application
                         price = 100;
                         break;
                     default:
-                        //TODO throw an error to restart, this should never be reached
+                        throw new PriceComputationException("No rating case triggered in Wall Cabinet Price 4");
                 }
             }
 
@@ -566,7 +597,7 @@ namespace ReStore_Kitchen_Pricing_Application
                         price = 105M;
                         break;
                     default:
-                        //TODO throw an error to restart, this should never be reached
+                        throw new PriceComputationException("No rating case triggered in Wall Cabinet Price 5");
                 }
             }
 
@@ -584,7 +615,7 @@ namespace ReStore_Kitchen_Pricing_Application
                         price += 10M;
                         break;
                     default:
-                        //TODO throw an error to restart, this should never be reached
+                        throw new PriceComputationException("No rating case triggered in Wall Cabinet Price 6");
                 }
             }
 
@@ -603,17 +634,33 @@ namespace ReStore_Kitchen_Pricing_Application
 
         private decimal computePantryCabinetPrice()
         {
-           
-            switch (kitchenRating)
+            if (rollOutShelvesCheckBox.Checked)
             {
+                switch (kitchenRating)
+                {
                     case "A":
-                        return 
+                        return 175M;
                     case "B":
-                        return
+                        return 160M;
                     case "C":
-                        return
+                        return 145M;
                     default:
-                        //TODO throw an error to restart, this should never be reached
+                        throw new PriceComputationException("No rating case triggered in Pantry Cabinet Price 1");
+                }
+            }
+            else
+            {
+                switch (kitchenRating)
+                {
+                    case "A":
+                        return 150M;
+                    case "B":
+                        return 135M;
+                    case "C":
+                        return 120M;
+                    default:
+                        throw new PriceComputationException("No rating case triggered in Pantry Cabinet Price 2");
+                }
             }
           
         }
@@ -623,29 +670,19 @@ namespace ReStore_Kitchen_Pricing_Application
             switch (kitchenRating)
             {
                 case "A":
-                    return
+                    return 125M;
                 case "B":
-                    return
+                    return 110M;
                 case "C":
-                    return
+                    return 95M;
                 default:
-                        //TODO throw an error to restart, this should never be reached
+                    throw new PriceComputationException("No rating case triggered in Wall Oven Cabinet Price");
             }
         }
 
-        private decimal computeFridgeEnclosureCabinetPrice()
+        private decimal computeFridgeEnclosureCabinetPrice()  //the method is here in case the pricing changes for it specifically
         {
-            switch (kitchenRating)
-            {
-                case "A":
-                    return
-                case "B":
-                    return
-                case "C":
-                    return
-                default:
-                        //TODO throw an error to restart, this should never be reached
-            }
+            return computeWallCabinetPrice();
         }
 
         private decimal computeOverFridgeStoveCabinetPrice()
@@ -653,32 +690,45 @@ namespace ReStore_Kitchen_Pricing_Application
             switch (kitchenRating)
             {
                 case "A":
-                    return
+                    return 100M;
                 case "B":
-                    return
+                    return 75M;
                 case "C":
-                    return
+                    return 50M;
                 default:
-                        //TODO throw an error to restart, this should never be reached
+                    throw new PriceComputationException("No rating case triggered in Over Fridge/Stove Cabinet Price");
             }
         }
 
         
-        private decimal computeOverDeskCabinetPrice()
+        private decimal computeDeskCabinetPrice()
         {
             switch (kitchenRating)
             {
                 case "A":
-                    return
+                    return 125M;
                 case "B":
-                    return
+                    return 110M;
                 case "C":
-                    return
+                    return 95M;
                 default:
-                        //TODO throw an error to restart, this should never be reached
+                    throw new PriceComputationException("No rating case triggered in Desk Cabinet Price");
             }
         }
 
 
+    }
+
+    public class PriceComputationException : Exception
+    {
+
+        public PriceComputationException()
+        {
+
+        }
+        public PriceComputationException(string message)
+            : base(message)
+        {
+        }
     }
 }
