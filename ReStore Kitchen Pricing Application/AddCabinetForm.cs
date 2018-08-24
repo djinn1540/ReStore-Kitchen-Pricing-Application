@@ -62,7 +62,7 @@ namespace ReStore_Kitchen_Pricing_Application
 
             //TODO add the corner info to the table
             //add DataRow to the DataTable in parentForm
-            parentForm.CabinetDataGrid.Rows.Add(qtyNumericUpDown.Value.ToString(), type, dimensions, accessories, finished, doorsNumericUpDown.Value.ToString(), hinges, drawersNumericUpDown.Value.ToString());
+            parentForm.CabinetDataGrid.Rows.Add(qtyNumericUpDown.Value.ToString(), type, dimensions, accessories, finished, doorsNumericUpDown.Value.ToString(), hinges, drawersNumericUpDown.Value.ToString(), corner);
 
                 
             try
@@ -199,6 +199,15 @@ namespace ReStore_Kitchen_Pricing_Application
                 kitchenForm.turnToColor(drawers2FloorCheckBox, default(Color));
                 kitchenForm.turnToColor(doorsNumericUpDown, default(Color));
                 kitchenForm.turnToColor(glassDoorsCheckBox, default(Color));
+            }
+
+            if(doorsNumericUpDown.Value > 0  && !(hingeLeftCheckBox.Checked || hingeRightCheckBox.Checked))
+            {
+                kitchenForm.turnRed(hingeGroupBox);
+            }
+            else
+            {
+                kitchenForm.turnToColor(hingeGroupBox, default(Color));
             }
 
             return ok;
