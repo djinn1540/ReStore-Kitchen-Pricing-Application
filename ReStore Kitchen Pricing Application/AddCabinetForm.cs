@@ -60,10 +60,10 @@ namespace ReStore_Kitchen_Pricing_Application
             String hinges = getHingedSides();
             String corner = getCorner();
 
-            //TODO add the corner info to the table
+         
             //add DataRow to the DataTable in parentForm
             parentForm.CabinetDataGrid.Rows.Add(qtyNumericUpDown.Value.ToString(), type, dimensions, accessories, finished, doorsNumericUpDown.Value.ToString(), hinges, drawersNumericUpDown.Value.ToString(), corner);
-
+            parentForm.incrementCabinetNumberLabel(Decimal.ToInt32(qtyNumericUpDown.Value));
                 
             try
             {
@@ -191,6 +191,10 @@ namespace ReStore_Kitchen_Pricing_Application
                     MessageBoxIcon icon = MessageBoxIcon.Warning;
                     MessageBox.Show(messageBoxText, caption, button, icon);
                 }
+                else
+                {
+                    kitchenForm.turnToColor(drawers2FloorCheckBox, default(Color));
+                }
                 
             }
             else
@@ -203,6 +207,7 @@ namespace ReStore_Kitchen_Pricing_Application
 
             if(doorsNumericUpDown.Value > 0  && !(hingeLeftCheckBox.Checked || hingeRightCheckBox.Checked))
             {
+                ok = false;
                 kitchenForm.turnRed(hingeGroupBox);
             }
             else
@@ -366,11 +371,13 @@ namespace ReStore_Kitchen_Pricing_Application
             decimal price = 0M;
 
 
-            if (widthComboBox.SelectedText.Equals("12 - 15\""))
+            if (widthComboBox.SelectedItem.ToString().Equals("12-15\""))
             {
+                Console.WriteLine("no we didnt skip it");
                 switch (kitchenRating)
                 {
                     case "A":
+                        Console.WriteLine("yes, should be 95");
                         price = 95M;
                         break;
                     case "B":
@@ -380,11 +387,14 @@ namespace ReStore_Kitchen_Pricing_Application
                         price = 65M;
                         break;
                     default:
+                        Console.WriteLine("did not match case?");
                         throw new PriceComputationException("No rating case triggered in Base Cabinet Price 1");
                 }
             }
 
-            if (widthComboBox.SelectedText.Equals("18 - 21\""))
+            Console.WriteLine("did we skip it?");
+
+            if (widthComboBox.SelectedItem.ToString().Equals("18-21\""))
             {
                 switch (kitchenRating)
                 {
@@ -402,7 +412,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 }
             }
 
-            if (widthComboBox.SelectedText.Equals("23 - 30\""))
+            if (widthComboBox.SelectedItem.ToString().Equals("23-30\""))
             {
                 switch (kitchenRating)
                 {
@@ -420,7 +430,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 }
             }
 
-            if (widthComboBox.SelectedText.Equals("33\"+"))
+            if (widthComboBox.SelectedItem.ToString().Equals("33\"+"))
             {
                 switch (kitchenRating)
                 {
@@ -520,7 +530,7 @@ namespace ReStore_Kitchen_Pricing_Application
         {
             decimal price = 0.0M;
 
-            if (widthComboBox.SelectedText.Equals("12 - 15\""))
+            if (widthComboBox.SelectedItem.ToString().Equals("12-15\""))
             {
                 switch (kitchenRating)
                 {
@@ -538,7 +548,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 }
             }
 
-            if (widthComboBox.SelectedText.Equals("18 - 21\""))
+            if (widthComboBox.SelectedItem.ToString().Equals("18-21\""))
             {
                 switch (kitchenRating)
                 {
@@ -556,7 +566,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 }
             }
 
-            if (widthComboBox.SelectedText.Equals("23 - 30\""))
+            if (widthComboBox.SelectedItem.ToString().Equals("23-30\""))
             {
                 switch (kitchenRating)
                 {
@@ -574,7 +584,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 }
             }
 
-            if (widthComboBox.SelectedText.Equals("33\"+"))
+            if (widthComboBox.SelectedItem.ToString().Equals("33\"+"))
             {
                 switch (kitchenRating)
                 {

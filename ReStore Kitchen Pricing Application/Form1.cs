@@ -101,13 +101,16 @@ namespace ReStore_Kitchen_Pricing_Application
 
 
             //process kitchen info into "pastable" variables
-            string cabinetsInfo = makeCabinetsInfo();
+            string cabinetsInfo = makeCabinetsInfo(false);
+            string cabinetsInfoWithPricing = makeCabinetsInfo(true);
             string kitchDesc = makeKitchenDescription();
 
             //put kitchen info into HTML/printable
             createPrintable(kitchenIdentifierTextBox.Text, distinctiveCharTextBox.Text, kitchDesc, cabinetsInfo, otherInfoTextBox.Text);
+            createPrintable(kitchenIdentifierTextBox.Text + " with Pricing Info", distinctiveCharTextBox.Text, kitchDesc, cabinetsInfoWithPricing, otherInfoTextBox.Text);
 
-            //TODO reset the kitchen form
+
+            resetKitchen();
         }
 
         private Boolean verifyKitchenInput()
@@ -359,9 +362,10 @@ namespace ReStore_Kitchen_Pricing_Application
             System.IO.StreamWriter writer = new System.IO.StreamWriter(fs, Encoding.UTF8);
             writer.Write(bodyFile);
             writer.Close();
+            fs.Close();
         }
 
-        private string makeCabinetsInfo() //relies on verifyKitchen to have returned true
+        private string makeCabinetsInfo(bool pricingFlag) //relies on verifyKitchen to have returned true
         {
             
             StringBuilder sb = new StringBuilder();
@@ -369,11 +373,6 @@ namespace ReStore_Kitchen_Pricing_Application
             foreach(DataGridViewRow row in CabinetDataGrid.Rows)
             {
                 DataGridViewCellCollection cells = row.Cells;
-
-                if(cells[0].Value == null)
-                {
-                    return sb.ToString();
-                }
 
 
                 sb.Append(cells[0].Value.ToString()); //quantity
@@ -420,11 +419,18 @@ namespace ReStore_Kitchen_Pricing_Application
                     sb.Append(" side(s).");
                 }
 
+                if (pricingFlag)
+                {
+                    sb.Append("<span style=\"color: Tomato;\">  $");
+                    sb.Append(Decimal.Round(cabinetPrices.ElementAt(row.Index), 2).ToString());
+                    sb.Append("</span>");
+                }
+
                 sb.Append("<br>");
                 
             }
 
-            return "Error, the empty last row was not detected - it may have been skipped or the loop may have stopped before iterating to it.";  
+            return sb.ToString();  
         }
 
         private string makeEnglishAccessoriesList(string list)
@@ -505,5 +511,195 @@ namespace ReStore_Kitchen_Pricing_Application
             return sb.ToString();
         }
        
+
+        private decimal calculateKitchenPrice()
+        {
+            decimal cabinetsTotal = getCabinetsTotal();
+
+            cabinetsTotal += getEndPanelPrice();
+
+            decimal adjustedPrice = adjustedPriceForPlusMinus(cabinetsTotal);
+
+            adjustedPrice = adjustedPriceForMaterial(cabinetsTotal, adjustedPrice);
+            adjustedPrice = adjustedPriceForParticleBoard(cabinetsTotal, adjustedPrice);
+
+            return adjustedPrice;
+        }
+
+        private decimal getCabinetsTotal()
+        {
+            decimal total = 0.0M;
+            foreach (decimal cabinetPrice in cabinetPrices)
+            {
+                total += cabinetPrice;
+            }
+
+            return total;
+        }
+
+        private decimal getEndPanelPrice() //depends on verify kitchen returning true bc of computeSQFootage and quality rating
+        {
+            if(endPanelNumericUpDown.Value > 0)
+            {
+                decimal footage = computeSquareFootage();
+
+                if (flatEndPanelRadioButton.Checked) {
+                    if (aRatingRadioButton.Checked)
+                    {
+                        return 8M * footage; 
+                    }
+                    else if (bRatingRadioButton.Checked)
+                    {
+                        return 7M * footage;
+                    }
+                    else if (cRatingRadioButton.Checked)
+                    {
+                        return 6M * footage;
+                    }
+                    else
+                    {
+                        throw new PriceComputationException("No rating button checked in EndPanelPrice");
+                    }
+                }
+                else if (pannelledEndPanelRadioButton.Checked)
+                {
+                    if (aRatingRadioButton.Checked)
+                    {
+                        return 10M * footage;
+                    }
+                    else if (bRatingRadioButton.Checked)
+                    {
+                        return 9M * footage;
+                    }
+                    else if (cRatingRadioButton.Checked)
+                    {
+                        return 8M * footage;
+                    }
+                    else
+                    {
+                        throw new PriceComputationException("No rating button checked in EndPanelPrice");
+                    }
+                }
+
+                else
+                { 
+                    throw new PriceComputationException("No end panel type button checked in EndPanelPrice");
+                }
+
+            }
+            else
+            {
+                return 0.0M;
+            }
+        }
+
+        private decimal computeSquareFootage() //depends on verifyKitchen returning true
+        {
+
+            decimal height = Decimal.Parse(endPanelHeightTextBox.Text);
+            decimal width = Decimal.Parse(endPanelWidthTextBox.Text);
+
+            return height * width;
+        }
+
+        private decimal adjustedPriceForPlusMinus(decimal total)
+        {
+            if (minusCheckBox.Checked)
+            {
+                return total * 0.95M;
+            }
+            else if(plusCheckBox.Checked)
+            {
+                return total * 1.05M;
+            }
+            else
+            {
+                return total;
+            }
+        }//depends on verify kitchen returning true
+
+        private decimal adjustedPriceForMaterial(decimal total, decimal currentPrice)
+        {
+            switch (materialsComboBox.SelectedItem.ToString())
+            {
+                case "Birch":
+                    return (total * .1M) + currentPrice;
+                case "Cherry":
+                    return (total * .1M) + currentPrice;
+                case "Dark Oak":
+                    return currentPrice;
+                case "Formica":
+                    return (total * -.1M) + currentPrice;
+                case "Light Oak":
+                    return (total * .05M) + currentPrice;
+                case "Maple":
+                    return (total * .1M) + currentPrice;
+                case "Metal":
+                    return (total * -.1M) + currentPrice;
+                case "Pine":
+                    return currentPrice;
+                case "Thermofoil(PVC)":
+                    return (total * -.05M) + currentPrice;
+                default:
+                    throw new PriceComputationException("No material-selected matched in adjusting price for material");
+            }
+        } //depends on verifyKitchen returning true
+
+        private decimal adjustedPriceForParticleBoard(decimal total, decimal currentPrice)// depends on verifyKitchen returning true
+        {
+            if (particleBoardRadioButton.Checked)
+            {
+                return currentPrice - (total * .05M);
+            }
+            else
+            {
+                return currentPrice;
+            }
+        }
+        
+        public void incrementCabinetNumberLabel(int newCabinets)
+        {
+            int sum = int.Parse(cabinetCountLabel.Text);
+            cabinetCountLabel.Text = (sum + newCabinets).ToString();
+        }
+        
+        private void resetKitchen()
+        {
+            kitchenIdentifierTextBox.Text = "";
+            distinctiveCharTextBox.Text = "";
+            otherInfoTextBox.Text = "";
+            endPanelHeightTextBox.Text = "";
+            endPanelWidthTextBox.Text = "";
+
+            fullOverlayCheckBox.Checked = false;
+            minusCheckBox.Checked = false;
+            plusCheckBox.Checked = false;
+
+            getCheckedRadioFrom(constructionGroupBox).Checked = false;
+            getCheckedRadioFrom(cabStyleGroupBox).Checked = false;
+            getCheckedRadioFrom(doorStyleGroupBox).Checked = false;
+            getCheckedRadioFrom(panelStyleGroupBox).Checked = false;
+            getCheckedRadioFrom(qualityRatingGroupBox).Checked = false;
+            if (isOneCheckedIn(endPanelGroupBox))
+            {
+                getCheckedRadioFrom(endPanelGroupBox).Checked = false;
+            }
+
+            cabinetCountLabel.Text = "0";
+            endPanelNumericUpDown.Value = 0M;
+            crownMoldingFeetNumericUpDown.Value = 0M;
+
+            removeAllRowsFromDataGrid();
+
+            materialsComboBox.Refresh();
+        }
+
+        private void removeAllRowsFromDataGrid()
+        {
+            while(CabinetDataGrid.RowCount > 0)
+            {
+                CabinetDataGrid.Rows.RemoveAt(0);//remove the first row until there are no more
+            }
+        }
     }
 }
