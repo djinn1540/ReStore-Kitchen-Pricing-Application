@@ -15,6 +15,8 @@ namespace ReStore_Kitchen_Pricing_Application
     public partial class kitchenForm : Form
     {
         public LinkedList<decimal> cabinetPrices;
+        public string initials = null;
+        public String yearAlpha; //the last letter in a kitchen code represents the year the kitchen was evaluated: "F" = 2017
 
         public kitchenForm()
         {
@@ -101,15 +103,12 @@ namespace ReStore_Kitchen_Pricing_Application
 
 
             //process kitchen info into "pastable" variables
-            string cabinetsInfo = makeCabinetsInfo(false);
-            string cabinetsInfoWithPricing = makeCabinetsInfo(true);
+            
             string kitchDesc = makeKitchenDescription();
 
             //put kitchen info into HTML/printable
-            createPrintable(kitchenIdentifierTextBox.Text, distinctiveCharTextBox.Text, kitchDesc, cabinetsInfo, otherInfoTextBox.Text);
-            createPrintable(kitchenIdentifierTextBox.Text + " with Pricing Info", distinctiveCharTextBox.Text, kitchDesc, cabinetsInfoWithPricing, otherInfoTextBox.Text);
-
-
+            createPrintable(kitchenIdentifierTextBox.Text, distinctiveCharTextBox.Text, kitchDesc, otherInfoTextBox.Text);
+            
             resetKitchen();
         }
 
@@ -287,7 +286,7 @@ namespace ReStore_Kitchen_Pricing_Application
             
             if (!kitchenIdentifierTextBox.Text.Equals(""))
             {
-                String yearAlpha; //the last letter in a kitchen code represents the year the kitchen was evaluated: "F" = 2017
+                
                 String kitchenPattern = "K-[0-9]+(?<yearCode>[F-Z]$)"; //by choosing "F-Z" we are limiting the date range to 2017 to 2037
                 bool success = Regex.IsMatch(kitchenIdentifierTextBox.Text, kitchenPattern);
                 if (success)
@@ -344,7 +343,33 @@ namespace ReStore_Kitchen_Pricing_Application
                 c.BackColor = color;
         }
 
-        private static void createPrintable(string id, string distChar, string desc, string cabinetDetails, string otherInfo)
+        private void createPrintable(string id, string distChar, string desc,  string otherInfo)
+        {
+
+            string cabinetsInfo = makeCabinetsInfo(false);
+            string cabinetsInfoWithPricing = makeCabinetsInfo(true);
+
+            string price = "$" + Decimal.Round(getCabinetsTotal()).ToString();
+
+            try
+            {
+                createCabinetListing(id, distChar, desc, cabinetsInfo, otherInfo); 
+                createCabinetListing(id + " with Pricing Info", distChar, desc, cabinetsInfoWithPricing, otherInfo);
+                createPriceListing(id, distChar, price, initials, getMonthCode());
+            }
+            catch(System.IO.FileNotFoundException e)
+            {
+                string messageBoxText = "There was an error in operation, an expected file in the local directory of the application was not found.  Please make sure you did not rename any template files and refer to the documentation for the original names if you did.";
+                string caption = "Print Kitchen";
+                MessageBoxButtons button = MessageBoxButtons.OK;
+                MessageBoxIcon icon = MessageBoxIcon.Error;
+                MessageBox.Show(messageBoxText, caption, button, icon);
+                Application.Exit();
+            }
+
+        }
+
+        private static void createCabinetListing(string id, string distChar, string desc, string cabinetDetails, string otherInfo)
         {
             string bodyFile;
             string template = System.IO.Directory.GetCurrentDirectory() + "\\template.html";
@@ -359,6 +384,27 @@ namespace ReStore_Kitchen_Pricing_Application
                 bodyFile = bodyFile.Replace("<%OtherInfo%>", otherInfo);
             }
             System.IO.FileStream fs = System.IO.File.OpenWrite(System.IO.Directory.GetCurrentDirectory() + "\\" + id + ".html"); //the filled out template will be saved in an HTML file named the kitchen's id
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(fs, Encoding.UTF8);
+            writer.Write(bodyFile);
+            writer.Close();
+            fs.Close();
+        }
+
+        private static void createPriceListing(string id, string distChar, string price, string initials, string monthCode)
+        {
+            string bodyFile;
+            string template = System.IO.Directory.GetCurrentDirectory() + "\\priceTemplate.html";
+
+            using (System.IO.StreamReader reader = new System.IO.StreamReader(template))
+            {
+                bodyFile = reader.ReadToEnd();
+                bodyFile = bodyFile.Replace("<%KitchenID%>", id);
+                bodyFile = bodyFile.Replace("<%DistinctiveCharacteristics%>", distChar);
+                bodyFile = bodyFile.Replace("<%KitchenPrice%>", price);
+                bodyFile = bodyFile.Replace("<%VolunteerInitials%>", initials);
+                bodyFile = bodyFile.Replace("<%MonthCode%>", monthCode);
+            }
+            System.IO.FileStream fs = System.IO.File.OpenWrite(System.IO.Directory.GetCurrentDirectory() + "\\" + id + " price listing.html"); //the filled out template will be saved in an HTML file named the kitchen's id
             System.IO.StreamWriter writer = new System.IO.StreamWriter(fs, Encoding.UTF8);
             writer.Write(bodyFile);
             writer.Close();
@@ -392,9 +438,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 {
                     sb.Append(cells[7].Value.ToString());
                     sb.Append("-drawer, ");
-                }
-
-                //TODO add a detail for corner peices
+                }       
 
                 if (cells[8].Value.ToString().Equals("Yes"))
                 {
@@ -443,11 +487,11 @@ namespace ReStore_Kitchen_Pricing_Application
                 string foreList = match.Groups["beginningList"].Value;
                 string lastAccessory = match.Groups["lastListItem"].Value;
 
-                return foreList + " and " + lastAccessory;
+                return foreList + ", and " + lastAccessory;
             }
             else
             {
-                return "Error: accessory list did not match the regular expression";
+                return list;//this is the case where there is only one accessory
             }
         }
 
@@ -700,6 +744,20 @@ namespace ReStore_Kitchen_Pricing_Application
             {
                 CabinetDataGrid.Rows.RemoveAt(0);//remove the first row until there are no more
             }
+        }
+
+        private string getMonthCode()
+        {
+            return DateTime.Now.Month.ToString() + yearAlpha;
+        }
+
+        private void kitchenForm_Shown(object sender, EventArgs e)
+        {
+            initialsForm initForm = new initialsForm(this);
+
+
+            this.Hide();
+            initForm.getInitials(); //kitchenForm will be deactivated until it is reactivated from the initialsForm
         }
     }
 }

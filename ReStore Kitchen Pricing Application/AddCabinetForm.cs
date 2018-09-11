@@ -218,10 +218,6 @@ namespace ReStore_Kitchen_Pricing_Application
             return ok;
         }
 
-        private void compileDescriptionSentence() {
-            //TODO
-        }
-
         private String getAccessoryList()
         {
             int numOfAcc = 0;
@@ -340,25 +336,25 @@ namespace ReStore_Kitchen_Pricing_Application
             switch (checkedCabinetType)
             {
                 case "Base":
-                    return computeBaseCabinetPrice();
+                    return computeBaseCabinetPrice() * qtyNumericUpDown.Value;
                   
                 case "Wall":
-                    return computeWallCabinetPrice();
+                    return computeWallCabinetPrice() * qtyNumericUpDown.Value;
                 case "Pantry":
-                    return computePantryCabinetPrice();
+                    return computePantryCabinetPrice() * qtyNumericUpDown.Value;
 
                 case "Wall Oven":
-                    return computeWallOvenCabinetPrice();
+                    return computeWallOvenCabinetPrice() * qtyNumericUpDown.Value;
 
                 case "Refrigerator Enclosure":
-                    return computeFridgeEnclosureCabinetPrice();
+                    return computeFridgeEnclosureCabinetPrice() * qtyNumericUpDown.Value;
 
                 case "Over Refrigerator":   
                 case "Over Stove":
-                    return computeOverFridgeStoveCabinetPrice();
+                    return computeOverFridgeStoveCabinetPrice() * qtyNumericUpDown.Value;
 
                 case "Desk":
-                    return computeDeskCabinetPrice();
+                    return computeDeskCabinetPrice() * qtyNumericUpDown.Value;
                 default:
                     throw new PriceComputationException("No case triggered in Individual Cabinet Price");
                     

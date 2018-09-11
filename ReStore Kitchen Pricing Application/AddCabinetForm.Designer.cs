@@ -268,7 +268,7 @@
             this.widthComboBox.Location = new System.Drawing.Point(77, 35);
             this.widthComboBox.Name = "widthComboBox";
             this.widthComboBox.Size = new System.Drawing.Size(97, 33);
-            this.widthComboBox.TabIndex = 25;
+            this.widthComboBox.TabIndex = 0;
             // 
             // label10
             // 
@@ -316,7 +316,7 @@
             this.accessoryGroupBox.Location = new System.Drawing.Point(179, 251);
             this.accessoryGroupBox.Name = "accessoryGroupBox";
             this.accessoryGroupBox.Size = new System.Drawing.Size(437, 143);
-            this.accessoryGroupBox.TabIndex = 4;
+            this.accessoryGroupBox.TabIndex = 8;
             this.accessoryGroupBox.TabStop = false;
             this.accessoryGroupBox.Text = "Accessories";
             // 
@@ -471,7 +471,7 @@
             this.finishAddingCabinetButton.Location = new System.Drawing.Point(478, 419);
             this.finishAddingCabinetButton.Name = "finishAddingCabinetButton";
             this.finishAddingCabinetButton.Size = new System.Drawing.Size(138, 38);
-            this.finishAddingCabinetButton.TabIndex = 8;
+            this.finishAddingCabinetButton.TabIndex = 10;
             this.finishAddingCabinetButton.Text = "Add Cabinet";
             this.finishAddingCabinetButton.UseVisualStyleBackColor = false;
             this.finishAddingCabinetButton.Click += new System.EventHandler(this.finishAddingCabinetButton_Click);
@@ -494,7 +494,7 @@
             this.cornerCheckBox.Location = new System.Drawing.Point(185, 425);
             this.cornerCheckBox.Name = "cornerCheckBox";
             this.cornerCheckBox.Size = new System.Drawing.Size(178, 29);
-            this.cornerCheckBox.TabIndex = 18;
+            this.cornerCheckBox.TabIndex = 9;
             this.cornerCheckBox.Text = "Corner Cabinet?";
             this.cornerCheckBox.UseVisualStyleBackColor = true;
             // 

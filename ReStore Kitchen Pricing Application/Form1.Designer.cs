@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(kitchenForm));
             this.kitchenIdentifierTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.constructionGroupBox = new System.Windows.Forms.GroupBox();
@@ -61,6 +60,7 @@
             this.DoorsCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hinges = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DrawerCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cornerCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gridGroupBox = new System.Windows.Forms.GroupBox();
             this.addCabinetButton = new System.Windows.Forms.Button();
             this.cabinetCountLabel = new System.Windows.Forms.Label();
@@ -72,7 +72,6 @@
             this.cRatingRadioButton = new System.Windows.Forms.RadioButton();
             this.bRatingRadioButton = new System.Windows.Forms.RadioButton();
             this.aRatingRadioButton = new System.Windows.Forms.RadioButton();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.materialsLabel = new System.Windows.Forms.Label();
             this.crownMoldingLabel = new System.Windows.Forms.Label();
             this.endPanelGroupBox = new System.Windows.Forms.GroupBox();
@@ -86,7 +85,6 @@
             this.flatEndPanelRadioButton = new System.Windows.Forms.RadioButton();
             this.crownMoldingFeetNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.materialsComboBox = new System.Windows.Forms.ComboBox();
-            this.cornerCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.constructionGroupBox.SuspendLayout();
             this.cabStyleGroupBox.SuspendLayout();
             this.doorStyleGroupBox.SuspendLayout();
@@ -275,7 +273,7 @@
             this.panelStyleGroupBox.Location = new System.Drawing.Point(16, 558);
             this.panelStyleGroupBox.Name = "panelStyleGroupBox";
             this.panelStyleGroupBox.Size = new System.Drawing.Size(228, 140);
-            this.panelStyleGroupBox.TabIndex = 5;
+            this.panelStyleGroupBox.TabIndex = 4;
             this.panelStyleGroupBox.TabStop = false;
             this.panelStyleGroupBox.Text = "Panel Style";
             // 
@@ -320,7 +318,7 @@
             this.distinctiveCharTextBox.Name = "distinctiveCharTextBox";
             this.distinctiveCharTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.distinctiveCharTextBox.Size = new System.Drawing.Size(848, 164);
-            this.distinctiveCharTextBox.TabIndex = 6;
+            this.distinctiveCharTextBox.TabIndex = 5;
             // 
             // label2
             // 
@@ -340,7 +338,7 @@
             this.otherInfoTextBox.Name = "otherInfoTextBox";
             this.otherInfoTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.otherInfoTextBox.Size = new System.Drawing.Size(332, 77);
-            this.otherInfoTextBox.TabIndex = 9;
+            this.otherInfoTextBox.TabIndex = 8;
             // 
             // label3
             // 
@@ -423,6 +421,12 @@
             this.DrawerCol.Name = "DrawerCol";
             this.DrawerCol.ReadOnly = true;
             // 
+            // cornerCol
+            // 
+            this.cornerCol.HeaderText = "Corner?";
+            this.cornerCol.Name = "cornerCol";
+            this.cornerCol.ReadOnly = true;
+            // 
             // gridGroupBox
             // 
             this.gridGroupBox.Controls.Add(this.addCabinetButton);
@@ -433,7 +437,7 @@
             this.gridGroupBox.Location = new System.Drawing.Point(261, 221);
             this.gridGroupBox.Name = "gridGroupBox";
             this.gridGroupBox.Size = new System.Drawing.Size(1042, 366);
-            this.gridGroupBox.TabIndex = 8;
+            this.gridGroupBox.TabIndex = 7;
             this.gridGroupBox.TabStop = false;
             this.gridGroupBox.Text = "Cabinets:";
             // 
@@ -474,7 +478,7 @@
             this.printButton.Location = new System.Drawing.Point(1174, 621);
             this.printButton.Name = "printButton";
             this.printButton.Size = new System.Drawing.Size(129, 77);
-            this.printButton.TabIndex = 10;
+            this.printButton.TabIndex = 12;
             this.printButton.Text = "Print";
             this.printButton.UseVisualStyleBackColor = false;
             this.printButton.Click += new System.EventHandler(this.printButton_Click);
@@ -490,7 +494,7 @@
             this.qualityRatingGroupBox.Location = new System.Drawing.Point(1123, 33);
             this.qualityRatingGroupBox.Name = "qualityRatingGroupBox";
             this.qualityRatingGroupBox.Size = new System.Drawing.Size(180, 173);
-            this.qualityRatingGroupBox.TabIndex = 7;
+            this.qualityRatingGroupBox.TabIndex = 6;
             this.qualityRatingGroupBox.TabStop = false;
             this.qualityRatingGroupBox.Text = "Quality Rating";
             // 
@@ -553,16 +557,6 @@
             this.aRatingRadioButton.Text = "A";
             this.aRatingRadioButton.UseVisualStyleBackColor = true;
             // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
             // materialsLabel
             // 
             this.materialsLabel.AutoSize = true;
@@ -597,7 +591,7 @@
             this.endPanelGroupBox.Location = new System.Drawing.Point(612, 628);
             this.endPanelGroupBox.Name = "endPanelGroupBox";
             this.endPanelGroupBox.Size = new System.Drawing.Size(424, 104);
-            this.endPanelGroupBox.TabIndex = 14;
+            this.endPanelGroupBox.TabIndex = 11;
             this.endPanelGroupBox.TabStop = false;
             this.endPanelGroupBox.Text = "End Panels";
             // 
@@ -615,21 +609,21 @@
             this.endPanelNumericUpDown.Location = new System.Drawing.Point(22, 63);
             this.endPanelNumericUpDown.Name = "endPanelNumericUpDown";
             this.endPanelNumericUpDown.Size = new System.Drawing.Size(61, 30);
-            this.endPanelNumericUpDown.TabIndex = 6;
+            this.endPanelNumericUpDown.TabIndex = 0;
             // 
             // endPanelWidthTextBox
             // 
             this.endPanelWidthTextBox.Location = new System.Drawing.Point(309, 63);
             this.endPanelWidthTextBox.Name = "endPanelWidthTextBox";
             this.endPanelWidthTextBox.Size = new System.Drawing.Size(100, 30);
-            this.endPanelWidthTextBox.TabIndex = 5;
+            this.endPanelWidthTextBox.TabIndex = 4;
             // 
             // endPanelHeightTextBox
             // 
             this.endPanelHeightTextBox.Location = new System.Drawing.Point(309, 28);
             this.endPanelHeightTextBox.Name = "endPanelHeightTextBox";
             this.endPanelHeightTextBox.Size = new System.Drawing.Size(100, 30);
-            this.endPanelHeightTextBox.TabIndex = 4;
+            this.endPanelHeightTextBox.TabIndex = 3;
             // 
             // endPanelWidthLabel
             // 
@@ -655,7 +649,7 @@
             this.pannelledEndPanelRadioButton.Location = new System.Drawing.Point(104, 64);
             this.pannelledEndPanelRadioButton.Name = "pannelledEndPanelRadioButton";
             this.pannelledEndPanelRadioButton.Size = new System.Drawing.Size(109, 29);
-            this.pannelledEndPanelRadioButton.TabIndex = 1;
+            this.pannelledEndPanelRadioButton.TabIndex = 2;
             this.pannelledEndPanelRadioButton.TabStop = true;
             this.pannelledEndPanelRadioButton.Text = "Panelled";
             this.pannelledEndPanelRadioButton.UseVisualStyleBackColor = true;
@@ -666,7 +660,7 @@
             this.flatEndPanelRadioButton.Location = new System.Drawing.Point(104, 29);
             this.flatEndPanelRadioButton.Name = "flatEndPanelRadioButton";
             this.flatEndPanelRadioButton.Size = new System.Drawing.Size(65, 29);
-            this.flatEndPanelRadioButton.TabIndex = 0;
+            this.flatEndPanelRadioButton.TabIndex = 1;
             this.flatEndPanelRadioButton.TabStop = true;
             this.flatEndPanelRadioButton.Text = "Flat";
             this.flatEndPanelRadioButton.UseVisualStyleBackColor = true;
@@ -677,7 +671,7 @@
             this.crownMoldingFeetNumericUpDown.Location = new System.Drawing.Point(1091, 592);
             this.crownMoldingFeetNumericUpDown.Name = "crownMoldingFeetNumericUpDown";
             this.crownMoldingFeetNumericUpDown.Size = new System.Drawing.Size(60, 30);
-            this.crownMoldingFeetNumericUpDown.TabIndex = 15;
+            this.crownMoldingFeetNumericUpDown.TabIndex = 10;
             // 
             // materialsComboBox
             // 
@@ -699,13 +693,7 @@
             this.materialsComboBox.Location = new System.Drawing.Point(696, 591);
             this.materialsComboBox.Name = "materialsComboBox";
             this.materialsComboBox.Size = new System.Drawing.Size(121, 33);
-            this.materialsComboBox.TabIndex = 16;
-            // 
-            // cornerCol
-            // 
-            this.cornerCol.HeaderText = "Corner?";
-            this.cornerCol.Name = "cornerCol";
-            this.cornerCol.ReadOnly = true;
+            this.materialsComboBox.TabIndex = 9;
             // 
             // kitchenForm
             // 
@@ -732,6 +720,7 @@
             this.Controls.Add(this.kitchenIdentifierTextBox);
             this.Name = "kitchenForm";
             this.Text = "Kitchen Pricing";
+            this.Shown += new System.EventHandler(this.kitchenForm_Shown);
             this.constructionGroupBox.ResumeLayout(false);
             this.constructionGroupBox.PerformLayout();
             this.cabStyleGroupBox.ResumeLayout(false);
@@ -791,7 +780,6 @@
         private System.Windows.Forms.RadioButton aRatingRadioButton;
         public System.Windows.Forms.DataGridView CabinetDataGrid;
         private System.Windows.Forms.GroupBox gridGroupBox;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn QtyCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn DimCol;
