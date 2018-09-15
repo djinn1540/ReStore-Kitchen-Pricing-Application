@@ -19,6 +19,11 @@ namespace ReStore_Kitchen_Pricing_Application
         const string baseStandardDepth = "24"; //     \if you add more default values for types of cabinets, you will have to add to the conditions
         const string wallStandardHeight = "30"; //    /   within the "...RadioButton_CheckedChanged" methods to maintain autofill capabilities when going between cabinet types
         const string wallStandardDepth = "12"; //    /
+        const string wallOvenFridgeEnclosureHeight = "0"; //this is 54 + the height of the wall cabinets, but that would introduce a prereq for wall cabinet height to be entered first
+        const string wallOvenFridgeEnclosureDepth = "24";
+        const string pantryCabinetHeight = "0";
+        const string pantryCabinetDepth = "0";
+
 
         string kitchenRating;
 
@@ -306,25 +311,24 @@ namespace ReStore_Kitchen_Pricing_Application
 
         private void baseRadioButton_CheckedChanged(object sender, EventArgs e) //fills the industry standard measurement into the width and height textboxes
         {
-            if (heightTextBox.Text == "" || heightTextBox.Text.Equals(wallStandardHeight))//do not change the text if the user has already entered a custom number (ie not the standard height of a wall unit --> enables autofill if the user switches the cabinet type)
+            if (! baseStandardHeight.Equals("0"))
             {
                 heightTextBox.Text = baseStandardHeight;
             }
-
-            if (depthTextBox.Text == "" || depthTextBox.Text.Equals(wallStandardDepth))
+            if (! baseStandardDepth.Equals("0"))
             {
                 depthTextBox.Text = baseStandardDepth;
+
             }
         }
 
         private void wallRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if(heightTextBox.Text == "" || heightTextBox.Text.Equals(baseStandardHeight))
+            if (!wallStandardHeight.Equals("0"))
             {
                 heightTextBox.Text = wallStandardHeight;
             }
-
-            if(depthTextBox.Text == "" || depthTextBox.Text.Equals(baseStandardDepth))
+            if (!wallStandardDepth.Equals("0"))
             {
                 depthTextBox.Text = wallStandardDepth;
             }
@@ -338,7 +342,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 case "Base":
                     return computeBaseCabinetPrice() * qtyNumericUpDown.Value;
                   
-                case "Wall":
+                case "Wall": 
                     return computeWallCabinetPrice() * qtyNumericUpDown.Value;
                 case "Pantry":
                     return computePantryCabinetPrice() * qtyNumericUpDown.Value;
@@ -369,11 +373,11 @@ namespace ReStore_Kitchen_Pricing_Application
 
             if (widthComboBox.SelectedItem.ToString().Equals("12-15\""))
             {
-                Console.WriteLine("no we didnt skip it");
+                
                 switch (kitchenRating)
                 {
                     case "A":
-                        Console.WriteLine("yes, should be 95");
+                        
                         price = 95M;
                         break;
                     case "B":
@@ -383,12 +387,12 @@ namespace ReStore_Kitchen_Pricing_Application
                         price = 65M;
                         break;
                     default:
-                        Console.WriteLine("did not match case?");
+                        
                         throw new PriceComputationException("No rating case triggered in Base Cabinet Price 1");
                 }
             }
 
-            Console.WriteLine("did we skip it?");
+            
 
             if (widthComboBox.SelectedItem.ToString().Equals("18-21\""))
             {
@@ -531,7 +535,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 switch (kitchenRating)
                 {
                     case "A":
-                        price = 70M;
+                        price = 75M;
                         break;
                     case "B":
                         price = 60M;
@@ -697,7 +701,7 @@ namespace ReStore_Kitchen_Pricing_Application
 
         private decimal computeFridgeEnclosureCabinetPrice()  //the method is here in case the pricing changes for it specifically
         {
-            return computeWallCabinetPrice();
+            return computeWallOvenCabinetPrice();
         }
 
         private decimal computeOverFridgeStoveCabinetPrice()
@@ -731,7 +735,40 @@ namespace ReStore_Kitchen_Pricing_Application
             }
         }
 
+        private void refrigeEnclosureRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!wallOvenFridgeEnclosureHeight.Equals("0")) {
+                heightTextBox.Text = wallOvenFridgeEnclosureHeight;
+            }
+            if (!wallOvenFridgeEnclosureDepth.Equals("0"))
+            {
+                depthTextBox.Text = wallOvenFridgeEnclosureDepth;
+            }
+        }
 
+        private void wallOvenRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!wallOvenFridgeEnclosureHeight.Equals("0"))
+            {
+                heightTextBox.Text = wallOvenFridgeEnclosureHeight;
+            }
+            if (!wallOvenFridgeEnclosureDepth.Equals("0"))
+            {
+                depthTextBox.Text = wallOvenFridgeEnclosureDepth;
+            }
+        }
+
+        private void pantryRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!pantryCabinetHeight.Equals("0"))
+            {
+                heightTextBox.Text = pantryCabinetHeight;
+            }
+            if (!pantryCabinetDepth.Equals("0"))
+            {
+                depthTextBox.Text = pantryCabinetDepth;
+            }
+        }
     }
 
     public class PriceComputationException : Exception

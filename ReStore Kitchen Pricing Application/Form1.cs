@@ -18,6 +18,16 @@ namespace ReStore_Kitchen_Pricing_Application
         public string initials = null;
         public String yearAlpha; //the last letter in a kitchen code represents the year the kitchen was evaluated: "F" = 2017
 
+        private int qtyIndex = 0;
+        private int typeIndex = 1;
+        private int dimensionsIndex = 2;
+        private int featuresIndex = 3;
+        private int finishedSidesIndex = 4;
+        private int numDoorsIndex = 5;
+        private int hingesIndex = 6;
+        private int numDrawersIndex = 7;
+        private int cornerIndex = 8;
+
         public kitchenForm()
         {
             InitializeComponent();
@@ -26,7 +36,7 @@ namespace ReStore_Kitchen_Pricing_Application
 
         private void addCabinetButton_Click(object sender, EventArgs e)
         {
-            
+
             if (!verifyQualityRating())
             {
                 string messageBoxText = "Please give the kitchen a quality rating.";
@@ -44,7 +54,7 @@ namespace ReStore_Kitchen_Pricing_Application
             AddCabinetForm addCabForm = new AddCabinetForm(this, rating);
             this.Enabled = false;
             addCabForm.Show();
-            
+
         }
 
         public static Boolean isOneCheckedIn(GroupBox box)
@@ -66,7 +76,7 @@ namespace ReStore_Kitchen_Pricing_Application
             return false; // error - there should have been one radio button checked
         }
 
-       public static RadioButton getCheckedRadioFrom(GroupBox box)
+        public static RadioButton getCheckedRadioFrom(GroupBox box)
         {
             foreach (Control control in box.Controls)
             {
@@ -76,12 +86,12 @@ namespace ReStore_Kitchen_Pricing_Application
 
                     if (radio is RadioButton) //safety if casting to Radio unexpectedly fails
                     {
-                        if(radio.Checked == true)
+                        if (radio.Checked == true)
                         {
                             return radio;
                         }
                     }
-                } 
+                }
 
             }
             //Error -- there should have been one radioButton checked
@@ -103,12 +113,21 @@ namespace ReStore_Kitchen_Pricing_Application
 
 
             //process kitchen info into "pastable" variables
-            
+
             string kitchDesc = makeKitchenDescription();
+            string otherInfo;
+            if(otherInfoTextBox.Text == null)
+            {
+                otherInfo = " ";
+            }
+            else
+            {
+                otherInfo = otherInfoTextBox.Text;
+            }
 
             //put kitchen info into HTML/printable
-            createPrintable(kitchenIdentifierTextBox.Text, distinctiveCharTextBox.Text, kitchDesc, otherInfoTextBox.Text);
-            
+            createPrintable(kitchenIdentifierTextBox.Text, distinctiveCharTextBox.Text, kitchDesc, otherInfo);
+
             resetKitchen();
         }
 
@@ -172,7 +191,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 ok = false;
             }
 
-            if(plusCheckBox.Checked && minusCheckBox.Checked)
+            if (plusCheckBox.Checked && minusCheckBox.Checked)
             {
                 ok = false;
                 turnRed(plusCheckBox);
@@ -184,7 +203,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 turnToColor(minusCheckBox, default(Color));
             }
 
-            if(distinctiveCharTextBox.Text == null)
+            if (distinctiveCharTextBox.Text == null)
             {
                 ok = false;
                 turnRed(distinctiveCharTextBox);
@@ -195,7 +214,7 @@ namespace ReStore_Kitchen_Pricing_Application
             }
 
             //check if there are cabinets in the kitchen
-            if(CabinetDataGrid.RowCount < 1) 
+            if (CabinetDataGrid.RowCount < 1)
             {
                 ok = false;
                 turnRed(gridGroupBox);
@@ -218,7 +237,7 @@ namespace ReStore_Kitchen_Pricing_Application
             {//checks for if the user has partly entered info for the End Panel
                 //sets "attempt" flag if the user has entered any information for the end panel section
                 bool attempt = false;
-                if(isOneCheckedIn(endPanelGroupBox) || endPanelNumericUpDown.Value > 0 || endPanelWidthTextBox.Text != "" || endPanelHeightTextBox.Text != "")
+                if (isOneCheckedIn(endPanelGroupBox) || endPanelNumericUpDown.Value > 0 || endPanelWidthTextBox.Text != "" || endPanelHeightTextBox.Text != "")
                 {
                     attempt = true;
                 }
@@ -242,7 +261,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 {
                     turnToColor(endPanelWidthTextBox, default(Color));
                 }
-                
+
 
                 if (attempt && !isOneCheckedIn(endPanelGroupBox))
                 {
@@ -254,7 +273,7 @@ namespace ReStore_Kitchen_Pricing_Application
                     turnToColor(endPanelGroupBox, default(Color));
                 }
 
-                if(attempt && endPanelNumericUpDown.Value == 0)
+                if (attempt && endPanelNumericUpDown.Value == 0)
                 {
                     turnRed(endPanelNumericUpDown);
                 }
@@ -266,8 +285,8 @@ namespace ReStore_Kitchen_Pricing_Application
 
             }
 
-            
-            if(crownMoldingFeetNumericUpDown.Value < 0)
+
+            if (crownMoldingFeetNumericUpDown.Value < 0)
             {
                 ok = false;
                 turnRed(crownMoldingFeetNumericUpDown);
@@ -282,11 +301,11 @@ namespace ReStore_Kitchen_Pricing_Application
 
         private Boolean validKitchenIdentifier()
         {
-            
-            
+
+
             if (!kitchenIdentifierTextBox.Text.Equals(""))
             {
-                
+
                 String kitchenPattern = "K-[0-9]+(?<yearCode>[F-Z]$)"; //by choosing "F-Z" we are limiting the date range to 2017 to 2037
                 bool success = Regex.IsMatch(kitchenIdentifierTextBox.Text, kitchenPattern);
                 if (success)
@@ -310,7 +329,7 @@ namespace ReStore_Kitchen_Pricing_Application
                     {
                         return true;
                     }
-                    
+
                 }
             }
 
@@ -343,21 +362,21 @@ namespace ReStore_Kitchen_Pricing_Application
                 c.BackColor = color;
         }
 
-        private void createPrintable(string id, string distChar, string desc,  string otherInfo)
+        private void createPrintable(string id, string distChar, string desc, string otherInfo)
         {
 
             string cabinetsInfo = makeCabinetsInfo(false);
             string cabinetsInfoWithPricing = makeCabinetsInfo(true);
 
-            string price = "$" + Decimal.Round(getCabinetsTotal()).ToString();
+            string price = "$" + Decimal.Round(calculateKitchenPrice()).ToString();
 
             try
             {
-                createCabinetListing(id, distChar, desc, cabinetsInfo, otherInfo); 
+                createCabinetListing(id, distChar, desc, cabinetsInfo, otherInfo);
                 createCabinetListing(id + " with Pricing Info", distChar, desc, cabinetsInfoWithPricing, otherInfo);
                 createPriceListing(id, distChar, price, initials, getMonthCode());
             }
-            catch(System.IO.FileNotFoundException e)
+            catch (System.IO.FileNotFoundException e)
             {
                 string messageBoxText = "There was an error in operation, an expected file in the local directory of the application was not found.  Please make sure you did not rename any template files and refer to the documentation for the original names if you did.";
                 string caption = "Print Kitchen";
@@ -413,53 +432,53 @@ namespace ReStore_Kitchen_Pricing_Application
 
         private string makeCabinetsInfo(bool pricingFlag) //relies on verifyKitchen to have returned true
         {
-            
+
             StringBuilder sb = new StringBuilder();
-            
-            foreach(DataGridViewRow row in CabinetDataGrid.Rows)
+
+            foreach (DataGridViewRow row in CabinetDataGrid.Rows)
             {
                 DataGridViewCellCollection cells = row.Cells;
 
 
-                sb.Append(cells[0].Value.ToString()); //quantity
+                sb.Append(cells[qtyIndex].Value.ToString()); //quantity
                 sb.Append(" ");
 
-                //TODO, change all literal indicies to meaningful variables
 
-                if (!cells[5].Value.ToString().Equals("0")) // number of doors
+                if (!cells[numDoorsIndex].Value.ToString().Equals("0")) // number of doors
                 {
-                    sb.Append(cells[5].Value.ToString());
+                    sb.Append(cells[numDoorsIndex].Value.ToString());
                     sb.Append("-door (");
-                    sb.Append(cells[6].Value.ToString());
+                    sb.Append(cells[hingesIndex].Value.ToString());
                     sb.Append(" side hinges), ");
                 }
 
-                if (!cells[7].Value.ToString().Equals("0"))
+                if (!cells[numDrawersIndex].Value.ToString().Equals("0"))
                 {
-                    sb.Append(cells[7].Value.ToString());
+                    sb.Append(cells[numDrawersIndex].Value.ToString());
                     sb.Append("-drawer, ");
-                }       
-
-                if (cells[8].Value.ToString().Equals("Yes"))
-                {
-                    sb.Append("corner");
                 }
 
-                sb.Append(cells[1].Value.ToString()); //type
-                sb.Append(" cabinet(s) measuring ");
-                sb.Append(cells[2].Value.ToString());// dimensions
+                if (cells[cornerIndex].Value.ToString().Equals("Yes"))
+                {
+                    sb.Append("corner ");
+                }
 
-                if (cells[3].Value.ToString() != "") { //features
+                sb.Append(cells[typeIndex].Value.ToString()); //type
+                sb.Append(" cabinet(s) measuring ");
+                sb.Append(cells[dimensionsIndex].Value.ToString());// dimensions
+
+                if (cells[featuresIndex].Value.ToString() != "")
+                { //features
                     sb.Append(" with ");
-                    sb.Append(makeEnglishAccessoriesList(cells[3].Value.ToString()));
+                    sb.Append(makeEnglishAccessoriesList(cells[featuresIndex].Value.ToString()));
                 }
 
                 sb.Append(".  ");
-                
-                if (cells[4].Value.ToString() != "")//finished sides
+
+                if (cells[finishedSidesIndex].Value.ToString() != "")//finished sides
                 {
                     sb.Append("Finished on ");
-                    sb.Append(cells[4].Value.ToString());
+                    sb.Append(cells[finishedSidesIndex].Value.ToString());
                     sb.Append(" side(s).");
                 }
 
@@ -471,10 +490,10 @@ namespace ReStore_Kitchen_Pricing_Application
                 }
 
                 sb.Append("<br>");
-                
+
             }
 
-            return sb.ToString();  
+            return sb.ToString();
         }
 
         private string makeEnglishAccessoriesList(string list)
@@ -510,7 +529,7 @@ namespace ReStore_Kitchen_Pricing_Application
             sb.Append(" ");
             sb.Append(getCheckedRadioFrom(cabStyleGroupBox).Text);//cabinet style
             sb.Append(" cabinets with ");
-            
+
             if (fullOverlayCheckBox.Checked)//? full overlay
             {
                 sb.Append("full-overlay, ");
@@ -518,18 +537,18 @@ namespace ReStore_Kitchen_Pricing_Application
 
             sb.Append(getCheckedRadioFrom(doorStyleGroupBox).Text);//doorstyle
             sb.Append(" doors with ");
-            sb.Append(getCheckedRadioFrom(panelStyleGroupBox).Text  );//panelstyle
+            sb.Append(getCheckedRadioFrom(panelStyleGroupBox).Text);//panelstyle
             sb.Append(" panels.  The interior of the cabinets is constructed from ");
             sb.Append(getCheckedRadioFrom(constructionGroupBox).Text);//construction
             sb.Append(".  ");
 
-            if(crownMoldingFeetNumericUpDown.Value > 0 || endPanelNumericUpDown.Value > 0)
+            if (crownMoldingFeetNumericUpDown.Value > 0 || endPanelNumericUpDown.Value > 0)
             {
                 bool needAnd = false;
 
                 sb.Append("The kitchen also comes with ");
 
-                if(crownMoldingFeetNumericUpDown.Value > 0)
+                if (crownMoldingFeetNumericUpDown.Value > 0)
                 {
                     sb.Append(crownMoldingFeetNumericUpDown.Value.ToString());
                     sb.Append(" feet of crown molding");
@@ -554,13 +573,14 @@ namespace ReStore_Kitchen_Pricing_Application
 
             return sb.ToString();
         }
-       
+
 
         private decimal calculateKitchenPrice()
         {
             decimal cabinetsTotal = getCabinetsTotal();
 
             cabinetsTotal += getEndPanelPrice();
+            cabinetsTotal += computeCrownMoldingPrice();
 
             decimal adjustedPrice = adjustedPriceForPlusMinus(cabinetsTotal);
 
@@ -583,14 +603,15 @@ namespace ReStore_Kitchen_Pricing_Application
 
         private decimal getEndPanelPrice() //depends on verify kitchen returning true bc of computeSQFootage and quality rating
         {
-            if(endPanelNumericUpDown.Value > 0)
+            if (endPanelNumericUpDown.Value > 0)
             {
                 decimal footage = computeSquareFootage();
 
-                if (flatEndPanelRadioButton.Checked) {
+                if (flatEndPanelRadioButton.Checked)
+                {
                     if (aRatingRadioButton.Checked)
                     {
-                        return 8M * footage; 
+                        return 8M * footage;
                     }
                     else if (bRatingRadioButton.Checked)
                     {
@@ -626,7 +647,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 }
 
                 else
-                { 
+                {
                     throw new PriceComputationException("No end panel type button checked in EndPanelPrice");
                 }
 
@@ -643,7 +664,12 @@ namespace ReStore_Kitchen_Pricing_Application
             decimal height = Decimal.Parse(endPanelHeightTextBox.Text);
             decimal width = Decimal.Parse(endPanelWidthTextBox.Text);
 
-            return height * width;
+            return height * width * endPanelNumericUpDown.Value;
+        }
+
+        private decimal computeCrownMoldingPrice()
+        {
+            return crownMoldingFeetNumericUpDown.Value;
         }
 
         private decimal adjustedPriceForPlusMinus(decimal total)
@@ -652,7 +678,7 @@ namespace ReStore_Kitchen_Pricing_Application
             {
                 return total * 0.95M;
             }
-            else if(plusCheckBox.Checked)
+            else if (plusCheckBox.Checked)
             {
                 return total * 1.05M;
             }
@@ -682,7 +708,7 @@ namespace ReStore_Kitchen_Pricing_Application
                     return (total * -.1M) + currentPrice;
                 case "Pine":
                     return currentPrice;
-                case "Thermofoil(PVC)":
+                case "Thermofoil (PVC)":
                     return (total * -.05M) + currentPrice;
                 default:
                     throw new PriceComputationException("No material-selected matched in adjusting price for material");
@@ -700,15 +726,17 @@ namespace ReStore_Kitchen_Pricing_Application
                 return currentPrice;
             }
         }
-        
+
         public void incrementCabinetNumberLabel(int newCabinets)
         {
             int sum = int.Parse(cabinetCountLabel.Text);
             cabinetCountLabel.Text = (sum + newCabinets).ToString();
         }
-        
+
         private void resetKitchen()
         {
+
+            cabinetPrices = new LinkedList<decimal>();
             kitchenIdentifierTextBox.Text = "";
             distinctiveCharTextBox.Text = "";
             otherInfoTextBox.Text = "";
@@ -724,6 +752,8 @@ namespace ReStore_Kitchen_Pricing_Application
             getCheckedRadioFrom(doorStyleGroupBox).Checked = false;
             getCheckedRadioFrom(panelStyleGroupBox).Checked = false;
             getCheckedRadioFrom(qualityRatingGroupBox).Checked = false;
+            setEnableRatings(true);//must come after setting checked in quality rating to false
+
             if (isOneCheckedIn(endPanelGroupBox))
             {
                 getCheckedRadioFrom(endPanelGroupBox).Checked = false;
@@ -735,12 +765,13 @@ namespace ReStore_Kitchen_Pricing_Application
 
             removeAllRowsFromDataGrid();
 
-            materialsComboBox.Refresh();
+            materialsComboBox.SelectedItem = null;
+            
         }
 
         private void removeAllRowsFromDataGrid()
         {
-            while(CabinetDataGrid.RowCount > 0)
+            while (CabinetDataGrid.RowCount > 0)
             {
                 CabinetDataGrid.Rows.RemoveAt(0);//remove the first row until there are no more
             }
@@ -759,5 +790,33 @@ namespace ReStore_Kitchen_Pricing_Application
             this.Hide();
             initForm.getInitials(); //kitchenForm will be deactivated until it is reactivated from the initialsForm
         }
+
+        private void setEnableRatings(bool val)
+        {
+            foreach (Control c in qualityRatingGroupBox.Controls)
+            {
+                if (c is RadioButton)
+                {
+                    RadioButton radio = c as RadioButton;
+                    radio.Enabled = val;
+                }
+            }
+        }
+
+        private void aRatingRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            setEnableRatings(false);
+        }
+
+        private void bRatingRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            setEnableRatings(false);
+        }
+
+        private void cRatingRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            setEnableRatings(false);
+        }
     }
 }
+    

@@ -104,6 +104,7 @@
             this.kitchenIdentifierTextBox.Name = "kitchenIdentifierTextBox";
             this.kitchenIdentifierTextBox.Size = new System.Drawing.Size(228, 38);
             this.kitchenIdentifierTextBox.TabIndex = 0;
+            this.kitchenIdentifierTextBox.Text = "K-";
             // 
             // label1
             // 
@@ -314,6 +315,7 @@
             // 
             this.distinctiveCharTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.distinctiveCharTextBox.Location = new System.Drawing.Point(261, 42);
+            this.distinctiveCharTextBox.MaxLength = 500;
             this.distinctiveCharTextBox.Multiline = true;
             this.distinctiveCharTextBox.Name = "distinctiveCharTextBox";
             this.distinctiveCharTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -532,6 +534,7 @@
             this.cRatingRadioButton.TabStop = true;
             this.cRatingRadioButton.Text = "C";
             this.cRatingRadioButton.UseVisualStyleBackColor = true;
+            this.cRatingRadioButton.CheckedChanged += new System.EventHandler(this.cRatingRadioButton_CheckedChanged);
             // 
             // bRatingRadioButton
             // 
@@ -544,6 +547,7 @@
             this.bRatingRadioButton.TabStop = true;
             this.bRatingRadioButton.Text = "B";
             this.bRatingRadioButton.UseVisualStyleBackColor = true;
+            this.bRatingRadioButton.CheckedChanged += new System.EventHandler(this.bRatingRadioButton_CheckedChanged);
             // 
             // aRatingRadioButton
             // 
@@ -556,6 +560,7 @@
             this.aRatingRadioButton.TabStop = true;
             this.aRatingRadioButton.Text = "A";
             this.aRatingRadioButton.UseVisualStyleBackColor = true;
+            this.aRatingRadioButton.CheckedChanged += new System.EventHandler(this.aRatingRadioButton_CheckedChanged);
             // 
             // materialsLabel
             // 
@@ -692,7 +697,7 @@
             "Thermofoil (PVC)"});
             this.materialsComboBox.Location = new System.Drawing.Point(696, 591);
             this.materialsComboBox.Name = "materialsComboBox";
-            this.materialsComboBox.Size = new System.Drawing.Size(121, 33);
+            this.materialsComboBox.Size = new System.Drawing.Size(150, 33);
             this.materialsComboBox.TabIndex = 9;
             // 
             // kitchenForm

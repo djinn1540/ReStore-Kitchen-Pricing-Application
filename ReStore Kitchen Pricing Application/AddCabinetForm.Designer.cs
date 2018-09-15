@@ -126,6 +126,7 @@
             this.refrigeEnclosureRadioButton.TabStop = true;
             this.refrigeEnclosureRadioButton.Text = "Refrigerator Enclosure";
             this.refrigeEnclosureRadioButton.UseVisualStyleBackColor = true;
+            this.refrigeEnclosureRadioButton.CheckedChanged += new System.EventHandler(this.refrigeEnclosureRadioButton_CheckedChanged);
             // 
             // overStoveRadioButton
             // 
@@ -148,6 +149,7 @@
             this.pantryRadioButton.TabStop = true;
             this.pantryRadioButton.Text = "Pantry";
             this.pantryRadioButton.UseVisualStyleBackColor = true;
+            this.pantryRadioButton.CheckedChanged += new System.EventHandler(this.pantryRadioButton_CheckedChanged);
             // 
             // wallOvenRadioButton
             // 
@@ -159,6 +161,7 @@
             this.wallOvenRadioButton.TabStop = true;
             this.wallOvenRadioButton.Text = "Wall Oven";
             this.wallOvenRadioButton.UseVisualStyleBackColor = true;
+            this.wallOvenRadioButton.CheckedChanged += new System.EventHandler(this.wallOvenRadioButton_CheckedChanged);
             // 
             // overFridgeRadioButton
             // 
