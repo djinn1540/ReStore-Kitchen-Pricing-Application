@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kitchen Pricing</title>
+	<link rel="stylesheet" href="styles.css">
+	<style>
+	@media print {
+		@page {size: A4 landscape;}
+	}
+	h1 {text-align:center;}
+	h3 {text-align:center;}
+	h2 {text-align:center;}
+	p {position:fixed;
+			 bottom: 0;
+			 right: 0;
+			 }
+</style>
+
+  </head>
+  <body>
+		<h1 style="font-size:1000%;color:DodgerBlue;">
+			<b><%KitchenID%></b>
+		</h1>
+		<h3 style="font-size:300%;color:DodgerBlue;">
+			<%DistinctiveCharacteristics%>
+		</h3>
+		<h2 style="font-size:800%;">
+			<b><%KitchenPrice%></b>
+		</h2>
+		<br>
+		<p style="font-size:100%;">
+			<%MonthCode%> <%VolunteerInitials%>
+		</p>
+  </body>
+</html>
+  

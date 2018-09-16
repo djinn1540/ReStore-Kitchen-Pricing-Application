@@ -242,7 +242,9 @@ namespace ReStore_Kitchen_Pricing_Application
                     attempt = true;
                 }
 
-                if (attempt && endPanelHeightTextBox.Text == "")
+                decimal u; // this is just a placeholder so try parse can be called
+
+                if (attempt && (endPanelHeightTextBox.Text == "" || !Decimal.TryParse(endPanelHeightTextBox.Text, out u)))
                 {
                     ok = false;
                     turnRed(endPanelHeightTextBox);
@@ -252,7 +254,7 @@ namespace ReStore_Kitchen_Pricing_Application
                     turnToColor(endPanelHeightTextBox, default(Color));
                 }
 
-                if (attempt && endPanelWidthTextBox.Text == "")
+                if (attempt && (endPanelWidthTextBox.Text == "" || !Decimal.TryParse(endPanelWidthTextBox.Text, out u)))
                 {
                     ok = false;
                     turnRed(endPanelWidthTextBox);
