@@ -63,6 +63,8 @@ Each kitchen attribute (Construction, Cabinet Style , Door Style, Panel Style, a
 
 In the lower-left there are points of entry for Material, End Panels, and Crown Molding.  Material is a dropdown menu of materials found in common kitchens.
 
+The End Panels Height and Width text boxes accept measurements in inches, but only input the number.
+
 ##### Add a Cabinet Screen
 The "Cabinets" section is table that displays all the entered cabinets and their properties.  
 To add a cabinet, the user will click the "Add Cabinet" button, this will cause a popup of the "Cabinet Form".  **Note:** The Quality Rating must be chosen before a cabinet can be added.
