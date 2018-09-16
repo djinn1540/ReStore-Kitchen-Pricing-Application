@@ -1,4 +1,4 @@
-#Kitchen Pricing Application
+# Kitchen Pricing Application
 ##### Preface
 This application is made for quickly assessing the value of a secondhand kitchen.  The pricing is based on the size of the individual cabinets, features of the cabinets, material used in construction, and the condition of the kitchen as a whole.  A detailed breakdown of the pricing is provided in the Pricing section.
 My hope is that the application provides a fluid kitchen pricing experience, albeit with jarring safeguards, that relieves the computing workload.
@@ -7,7 +7,7 @@ This software, as it is currently released, is free to use.  I hope that it will
 This application is a Windows Forms Application that has an interface that can be utilized via mouse or keyboard controls (Tab, Shift, Arrow Keys, Space, and Enter).
 
 
-##Installation
+## Installation
 Requirements: Windows OS, 7 or later.
 			  Printer - connnected to the Windows OS or the location that you save the files from the Windows OS.
 1. Download the "Ready to Launch" folder from this GitHub repository and save it to some location on the computer that will be used for kitchen pricing.  This location will be where all the kitchen pricing files will be saved.
@@ -18,11 +18,11 @@ Requirements: Windows OS, 7 or later.
 
 	OR
 	
-	1. Go to the Desktop
-	2. Right-click on the Desktop
-	3. Left-click on "New", then left-click on "Shortcut"
-	4. Left-click the "Browse" button in the pop-up window and navigate to the "Ready to Launch" folder
-	5. Left-click on "Kitchen Pricing Application", it may look like "Kitchen Pricing Application.exe" (if you see both, choose the one that has Type "Application"), and left-click "OK"
+	1. Go to the Desktop.
+	2. Right-click on the Desktop.
+	3. Left-click on "New", then left-click on "Shortcut".
+	4. Left-click the "Browse" button in the pop-up window and navigate to the "Ready to Launch" folder.
+	5. Left-click on "Kitchen Pricing Application", it may look like "Kitchen Pricing Application.exe" (if you see both, choose the one that has Type "Application"), and left-click "OK".
 	6. Left-click on the "Next" button in the bottom right of the pop-up window.
 	7. Enter a name for the shortcut.
 	8. Left-click the "Finish" button.
@@ -31,7 +31,7 @@ Requirements: Windows OS, 7 or later.
 
 Now we should be ready to use!
 
-##Functionality
+## Functionality
 ##### Opening the Application
 
 Upon double-left-clicking on the application or application shortcut, the user (you) will be prompted to enter your initials.  Your initials will be displayed on the pricing sheet associated with the kitchens.
@@ -50,6 +50,7 @@ Each kitchen attribute (Construction, Cabinet Style , Door Style, Panel Style, a
 	- white circle buttons: only one per group can be selected.  Thay are officailly called radio buttons.
 		(./radiobutton)
 	- white square buttons: any number of these can be selected per group.  They are officailly called check boxes.
+		(./checkbox)
 
 "Distinctive Characteristics" and "Other Information" are sections where the user can enter appropriate text.  Distinctive Characteristics has a character limit of 200 characters for the sake of the kitchen price listing template.  Other Information has a sufficiently high upper limit on number of characters.
 
@@ -66,7 +67,7 @@ The user can click the "Print" button when all relevant information has been ent
 On clicking the print button, the application will generate a Cabinet Specifics Sheet, a Cabinet Specifics Sheet with cabinet pricing breakdown, and a kitchen price listing.  These documents will be saved as HTML files in the "Ready to Launch" folder. The kitchen price listing includes the adjustment for material, particle board construction, end panels, crown molding, and rating (+) or (-), however, the Cabinet Spec Sheet with pricing does not include this breakdown.  
 
 The HTML files can be printed by opening them in a web browser:
-	1. Navigate to the "Ready to Launch" folder
+	1. Navigate to the "Ready to Launch" folder.
 	2. Double-left-click on the file to be printed.  This should open the file in an Internet Browser (firefox, chrome, IE, etc.).  If it does not: right-click the file, left-click "Open with", and then left-click on an internet browser from the list of applications.
 	3. Use Ctrl+P to bring up the print screen.  Alternatively, use the browser menus to navigate to the print screen.
 	4. Ensure that the print settings specify the correct printer and that 8.5"x11" paper will be used.
@@ -77,6 +78,6 @@ The Cabinet Spec Sheet with cabinet pricing information is for the records of th
 The kitchen price listing should be posted on the kitchen to advertize its price.  The price listing includes distinctive characteristics to guard against dishonest customers switching kitchen price listings.
 
 
-##Pricing
+## Pricing
 
 The pricing of the kitchens is based off the quality of the kitchen, the function of the cabinets, size of the cabinets, the material of the cabinet fronts, the material of the cabinet interior,  presence of end panels, and presence of crown molding.
