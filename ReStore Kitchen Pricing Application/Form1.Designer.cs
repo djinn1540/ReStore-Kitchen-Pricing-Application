@@ -315,7 +315,7 @@
             // 
             this.distinctiveCharTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.distinctiveCharTextBox.Location = new System.Drawing.Point(261, 42);
-            this.distinctiveCharTextBox.MaxLength = 500;
+            this.distinctiveCharTextBox.MaxLength = 200;
             this.distinctiveCharTextBox.Multiline = true;
             this.distinctiveCharTextBox.Name = "distinctiveCharTextBox";
             this.distinctiveCharTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;

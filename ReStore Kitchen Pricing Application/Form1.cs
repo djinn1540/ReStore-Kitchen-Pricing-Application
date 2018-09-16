@@ -402,7 +402,7 @@ namespace ReStore_Kitchen_Pricing_Application
                 bodyFile = bodyFile.Replace("<%CabinetsParagraph%>", cabinetDetails);
                 bodyFile = bodyFile.Replace("<%OtherInfo%>", otherInfo);
             }
-            System.IO.FileStream fs = System.IO.File.OpenWrite(System.IO.Directory.GetCurrentDirectory() + "\\" + id + ".html"); //the filled out template will be saved in an HTML file named the kitchen's id
+            System.IO.FileStream fs = System.IO.File.OpenWrite(System.IO.Directory.GetCurrentDirectory() + "\\" + id + " Cabinet Spec Sheet.html"); //the filled out template will be saved in an HTML file named the kitchen's id
             System.IO.StreamWriter writer = new System.IO.StreamWriter(fs, Encoding.UTF8);
             writer.Write(bodyFile);
             writer.Close();
