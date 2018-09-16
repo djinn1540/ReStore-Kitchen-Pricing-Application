@@ -124,7 +124,7 @@
             this.constructionGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.constructionGroupBox.Location = new System.Drawing.Point(16, 90);
             this.constructionGroupBox.Name = "constructionGroupBox";
-            this.constructionGroupBox.Size = new System.Drawing.Size(228, 139);
+            this.constructionGroupBox.Size = new System.Drawing.Size(239, 139);
             this.constructionGroupBox.TabIndex = 1;
             this.constructionGroupBox.TabStop = false;
             this.constructionGroupBox.Text = "Construction";
@@ -170,7 +170,7 @@
             this.cabStyleGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cabStyleGroupBox.Location = new System.Drawing.Point(16, 235);
             this.cabStyleGroupBox.Name = "cabStyleGroupBox";
-            this.cabStyleGroupBox.Size = new System.Drawing.Size(228, 141);
+            this.cabStyleGroupBox.Size = new System.Drawing.Size(239, 141);
             this.cabStyleGroupBox.TabIndex = 2;
             this.cabStyleGroupBox.TabStop = false;
             this.cabStyleGroupBox.Text = "Cabinet Style";
@@ -217,7 +217,7 @@
             this.doorStyleGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.doorStyleGroupBox.Location = new System.Drawing.Point(16, 382);
             this.doorStyleGroupBox.Name = "doorStyleGroupBox";
-            this.doorStyleGroupBox.Size = new System.Drawing.Size(228, 170);
+            this.doorStyleGroupBox.Size = new System.Drawing.Size(239, 170);
             this.doorStyleGroupBox.TabIndex = 3;
             this.doorStyleGroupBox.TabStop = false;
             this.doorStyleGroupBox.Text = "Door Style";
@@ -273,7 +273,7 @@
             this.panelStyleGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.panelStyleGroupBox.Location = new System.Drawing.Point(16, 558);
             this.panelStyleGroupBox.Name = "panelStyleGroupBox";
-            this.panelStyleGroupBox.Size = new System.Drawing.Size(228, 140);
+            this.panelStyleGroupBox.Size = new System.Drawing.Size(239, 140);
             this.panelStyleGroupBox.TabIndex = 4;
             this.panelStyleGroupBox.TabStop = false;
             this.panelStyleGroupBox.Text = "Panel Style";
@@ -314,12 +314,12 @@
             // distinctiveCharTextBox
             // 
             this.distinctiveCharTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.distinctiveCharTextBox.Location = new System.Drawing.Point(261, 42);
+            this.distinctiveCharTextBox.Location = new System.Drawing.Point(274, 42);
             this.distinctiveCharTextBox.MaxLength = 200;
             this.distinctiveCharTextBox.Multiline = true;
             this.distinctiveCharTextBox.Name = "distinctiveCharTextBox";
             this.distinctiveCharTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.distinctiveCharTextBox.Size = new System.Drawing.Size(848, 164);
+            this.distinctiveCharTextBox.Size = new System.Drawing.Size(835, 152);
             this.distinctiveCharTextBox.TabIndex = 5;
             // 
             // label2
@@ -335,18 +335,18 @@
             // otherInfoTextBox
             // 
             this.otherInfoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.otherInfoTextBox.Location = new System.Drawing.Point(261, 621);
+            this.otherInfoTextBox.Location = new System.Drawing.Point(274, 614);
             this.otherInfoTextBox.Multiline = true;
             this.otherInfoTextBox.Name = "otherInfoTextBox";
             this.otherInfoTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.otherInfoTextBox.Size = new System.Drawing.Size(332, 77);
+            this.otherInfoTextBox.Size = new System.Drawing.Size(332, 84);
             this.otherInfoTextBox.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(256, 594);
+            this.label3.Location = new System.Drawing.Point(269, 587);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(168, 25);
             this.label3.TabIndex = 9;
@@ -371,7 +371,7 @@
             this.CabinetDataGrid.Name = "CabinetDataGrid";
             this.CabinetDataGrid.ReadOnly = true;
             this.CabinetDataGrid.RowTemplate.Height = 24;
-            this.CabinetDataGrid.Size = new System.Drawing.Size(1023, 291);
+            this.CabinetDataGrid.Size = new System.Drawing.Size(1010, 291);
             this.CabinetDataGrid.TabIndex = 10;
             this.CabinetDataGrid.TabStop = false;
             // 
@@ -436,9 +436,9 @@
             this.gridGroupBox.Controls.Add(this.label4);
             this.gridGroupBox.Controls.Add(this.CabinetDataGrid);
             this.gridGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.gridGroupBox.Location = new System.Drawing.Point(261, 221);
+            this.gridGroupBox.Location = new System.Drawing.Point(274, 210);
             this.gridGroupBox.Name = "gridGroupBox";
-            this.gridGroupBox.Size = new System.Drawing.Size(1042, 366);
+            this.gridGroupBox.Size = new System.Drawing.Size(1029, 366);
             this.gridGroupBox.TabIndex = 7;
             this.gridGroupBox.TabStop = false;
             this.gridGroupBox.Text = "Cabinets:";
@@ -446,7 +446,7 @@
             // addCabinetButton
             // 
             this.addCabinetButton.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.addCabinetButton.Location = new System.Drawing.Point(900, 329);
+            this.addCabinetButton.Location = new System.Drawing.Point(887, 328);
             this.addCabinetButton.Name = "addCabinetButton";
             this.addCabinetButton.Size = new System.Drawing.Size(136, 32);
             this.addCabinetButton.TabIndex = 0;
@@ -477,7 +477,7 @@
             this.printButton.BackColor = System.Drawing.Color.ForestGreen;
             this.printButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.printButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.printButton.Location = new System.Drawing.Point(1174, 621);
+            this.printButton.Location = new System.Drawing.Point(1174, 646);
             this.printButton.Name = "printButton";
             this.printButton.Size = new System.Drawing.Size(129, 77);
             this.printButton.TabIndex = 12;
@@ -495,7 +495,7 @@
             this.qualityRatingGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.qualityRatingGroupBox.Location = new System.Drawing.Point(1123, 33);
             this.qualityRatingGroupBox.Name = "qualityRatingGroupBox";
-            this.qualityRatingGroupBox.Size = new System.Drawing.Size(180, 173);
+            this.qualityRatingGroupBox.Size = new System.Drawing.Size(180, 161);
             this.qualityRatingGroupBox.TabIndex = 6;
             this.qualityRatingGroupBox.TabStop = false;
             this.qualityRatingGroupBox.Text = "Quality Rating";
@@ -566,7 +566,7 @@
             // 
             this.materialsLabel.AutoSize = true;
             this.materialsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.materialsLabel.Location = new System.Drawing.Point(608, 594);
+            this.materialsLabel.Location = new System.Drawing.Point(636, 587);
             this.materialsLabel.Name = "materialsLabel";
             this.materialsLabel.Size = new System.Drawing.Size(87, 25);
             this.materialsLabel.TabIndex = 12;
@@ -576,7 +576,7 @@
             // 
             this.crownMoldingLabel.AutoSize = true;
             this.crownMoldingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.crownMoldingLabel.Location = new System.Drawing.Point(871, 594);
+            this.crownMoldingLabel.Location = new System.Drawing.Point(893, 587);
             this.crownMoldingLabel.Name = "crownMoldingLabel";
             this.crownMoldingLabel.Size = new System.Drawing.Size(214, 25);
             this.crownMoldingLabel.TabIndex = 13;
@@ -593,7 +593,7 @@
             this.endPanelGroupBox.Controls.Add(this.pannelledEndPanelRadioButton);
             this.endPanelGroupBox.Controls.Add(this.flatEndPanelRadioButton);
             this.endPanelGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.endPanelGroupBox.Location = new System.Drawing.Point(612, 628);
+            this.endPanelGroupBox.Location = new System.Drawing.Point(631, 619);
             this.endPanelGroupBox.Name = "endPanelGroupBox";
             this.endPanelGroupBox.Size = new System.Drawing.Size(424, 104);
             this.endPanelGroupBox.TabIndex = 11;
@@ -673,7 +673,7 @@
             // crownMoldingFeetNumericUpDown
             // 
             this.crownMoldingFeetNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.crownMoldingFeetNumericUpDown.Location = new System.Drawing.Point(1091, 592);
+            this.crownMoldingFeetNumericUpDown.Location = new System.Drawing.Point(1113, 585);
             this.crownMoldingFeetNumericUpDown.Name = "crownMoldingFeetNumericUpDown";
             this.crownMoldingFeetNumericUpDown.Size = new System.Drawing.Size(60, 30);
             this.crownMoldingFeetNumericUpDown.TabIndex = 10;
@@ -695,7 +695,7 @@
             "Metal",
             "Pine",
             "Thermofoil (PVC)"});
-            this.materialsComboBox.Location = new System.Drawing.Point(696, 591);
+            this.materialsComboBox.Location = new System.Drawing.Point(724, 584);
             this.materialsComboBox.Name = "materialsComboBox";
             this.materialsComboBox.Size = new System.Drawing.Size(150, 33);
             this.materialsComboBox.TabIndex = 9;
@@ -704,7 +704,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1315, 768);
+            this.ClientSize = new System.Drawing.Size(1315, 729);
             this.Controls.Add(this.materialsComboBox);
             this.Controls.Add(this.crownMoldingFeetNumericUpDown);
             this.Controls.Add(this.endPanelGroupBox);
