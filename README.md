@@ -35,6 +35,7 @@ Now we should be ready to use!
 ##### Opening the Application
 
 Upon double-left-clicking on the application or application shortcut, the user (you) will be prompted to enter your initials.  Your initials will be displayed on the pricing sheet associated with the kitchens.
+
 ![Initials Entry Form](./readme_images/initials.PNG)
 
 The subsequent screen is the Kitchen Pricing Main Screen.  
