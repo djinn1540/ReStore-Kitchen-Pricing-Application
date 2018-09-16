@@ -27,7 +27,7 @@ Requirements: Windows OS, 7 or later.
 	7. Enter a name for the shortcut.
 	8. Left-click the "Finish" button.
 
-3. Replace the "logo.png" file with the logo of your organization.  **Note:** Your logo must be in a PNG file format and be named "logo".  The logo should also span up to 65% of paper you will print on.
+3. Replace the "logo.png" file with the logo of your organization.  **Note:** Your logo must be in a PNG file format and be named "logo".  The logo should also span only up to 65% of paper you will print on.
 
 Now we should be ready to use!
 
@@ -44,7 +44,12 @@ This screen has selections of characteristics that apply to the kitchen as a who
 
 (./mainscreen)
 
-The Kitchen Identifier has the format "K-##Y" where Y is a year code letter following the pattern: 2018=G, 2019=H, 2020=I, 2021=J, etc.
+The Kitchen Identifier has the format "K-##...#Y" where Y is a year code letter following the pattern: 2018=G, 2019=H, 2020=I, 2021=J, etc.
+Each kitchen should have a different identifier distinguished by the numeral places of the kitchen identifier.
+	Example: K-0G would be the first kitchen priced in 2018
+		 K-1000G would be the 1001st kitchen priced in 2018
+
+**Note:** If there is already a kitchen with the same identifier, the old kitchen will be overwritten with a new one.
 
 Each kitchen attribute (Construction, Cabinet Style , Door Style, Panel Style, and Quality Rating) is outlined by a gray box.  The boxes contain the options for each attribute.
 	- white circle buttons: only one per group can be selected.  Thay are officailly called radio buttons.
@@ -52,18 +57,27 @@ Each kitchen attribute (Construction, Cabinet Style , Door Style, Panel Style, a
 	- white square buttons: any number of these can be selected per group.  They are officailly called check boxes.
 		(./checkbox)
 
+**Note:** The kitchen Quality Rating can only be selected once per kitchen and the options will be disabled.  The Quality Rating must be chosen before any cabinets can be added.
+
 "Distinctive Characteristics" and "Other Information" are sections where the user can enter appropriate text.  Distinctive Characteristics has a character limit of 200 characters for the sake of the kitchen price listing template.  Other Information has a sufficiently high upper limit on number of characters.
+
+In the lower-left there are points of entry for Material, End Panels, and Crown Molding.  Material is a dropdown menu of materials found in common kitchens.
 
 The "Cabinets" section is table that displays all the entered cabinets and their properties.  
 To add a cabinet, the user will click the "Add Cabinet" button, this will cause a popup of the "Cabinet Form".  **Note:** The Quality Rating must be chosen before a cabinet can be added.
 (./addcabinet)
-The user will then make the appropriate selections and enter the measurements, finally clicking "Add Cabinet" when finished.  The cabinet will then be entered in the table in the main screen.
 
-Material is a dropdown menu of materials found in common kitchens.
+Special Considerations for the Add Cabinet sections:
+	- Qty - the number of identical cabinets in the kitchen that the cabinet entry concerns
+	- Width - dropdown menu of ranges, choose the range that includes the width of the cabinet in question
+	- Height - this field autofills if there is an industry standard measurement 
+	- Depth - this field autofills if there is an industry standard measurement
+	- Drawers to Floor - check this box if the cabinets drawers make up almost all of the the front of the cabinet.
+	- **Add Cabinet** - on click: the cabinet information is checked for completeness and contradiction.  When no error is found, the cabinet and its information will be entered into the table in the main screen.  If an error is found, the user will have to correct if before the cabinet can be accepted.
 
-There are points of entry for End Panels and Crown Molding.
 
-The user can click the "Print" button when all relevant information has been entered.  If there is essential missing information, the lacking sections will be highlighted in red and no files will be generated.
+The user can click the "Print" button when all relevant information has been entered.  If there is essential missing information or contradiction, the lacking sections will be highlighted in red and no files will be generated.  The user should correct the information before clicking "Print" again.
+(./redhighlight)
 On clicking the print button, the application will generate a Cabinet Specifics Sheet, a Cabinet Specifics Sheet with cabinet pricing breakdown, and a kitchen price listing.  These documents will be saved as HTML files in the "Ready to Launch" folder. The kitchen price listing includes the adjustment for material, particle board construction, end panels, crown molding, and rating (+) or (-), however, the Cabinet Spec Sheet with pricing does not include this breakdown.  
 
 The HTML files can be printed by opening them in a web browser:
