@@ -18,11 +18,11 @@ Requirements: Windows OS, 7 or later.
 
 	OR
 	
-	1. Go to the Desktop
-	2. Right-click on the Desktop
-	3. Left-click on "New", then left-click on "Shortcut"
-	4. Left-click the "Browse" button in the pop-up window and navigate to the "Ready to Launch" folder
-	5. Left-click on "Kitchen Pricing Application", it may look like "Kitchen Pricing Application.exe" (if you see both, choose the one that has Type "Application"), and left-click "OK"
+	1. Go to the Desktop.
+	2. Right-click on the Desktop.
+	3. Left-click on "New", then left-click on "Shortcut".
+	4. Left-click the "Browse" button in the pop-up window and navigate to the "Ready to Launch" folder.
+	5. Left-click on "Kitchen Pricing Application", it may look like "Kitchen Pricing Application.exe" (if you see both, choose the one that has Type "Application"), and left-click "OK".
 	6. Left-click on the "Next" button in the bottom right of the pop-up window.
 	7. Enter a name for the shortcut.
 	8. Left-click the "Finish" button.
@@ -67,7 +67,7 @@ The user can click the "Print" button when all relevant information has been ent
 On clicking the print button, the application will generate a Cabinet Specifics Sheet, a Cabinet Specifics Sheet with cabinet pricing breakdown, and a kitchen price listing.  These documents will be saved as HTML files in the "Ready to Launch" folder. The kitchen price listing includes the adjustment for material, particle board construction, end panels, crown molding, and rating (+) or (-), however, the Cabinet Spec Sheet with pricing does not include this breakdown.  
 
 The HTML files can be printed by opening them in a web browser:
-	1. Navigate to the "Ready to Launch" folder
+	1. Navigate to the "Ready to Launch" folder.
 	2. Double-left-click on the file to be printed.  This should open the file in an Internet Browser (firefox, chrome, IE, etc.).  If it does not: right-click the file, left-click "Open with", and then left-click on an internet browser from the list of applications.
 	3. Use Ctrl+P to bring up the print screen.  Alternatively, use the browser menus to navigate to the print screen.
 	4. Ensure that the print settings specify the correct printer and that 8.5"x11" paper will be used.
