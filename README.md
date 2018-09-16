@@ -35,14 +35,14 @@ Now we should be ready to use!
 ##### Opening the Application
 
 Upon double-left-clicking on the application or application shortcut, the user (you) will be prompted to enter your initials.  Your initials will be displayed on the pricing sheet associated with the kitchens.
-![Initials Entry Form](./initials.PNG)
+![Initials Entry Form](./readme images/initials.PNG)
 
 The subsequent screen is the Kitchen Pricing Main Screen.  
 
 ##### Kitchen Pricing Main Screen
 This screen has selections of characteristics that apply to the kitchen as a whole.  
 
-![Kithcen Pricing Main Screen](./mainscreen.PNG)
+![Kithcen Pricing Main Screen](./readme images/mainscreen.PNG)
 
 The Kitchen Identifier has the format "K-##...#Y" where Y is a year code letter following the pattern: 2018=G, 2019=H, 2020=I, 2021=J, etc.
 Each kitchen should have a different identifier distinguished by the numeral places of the kitchen identifier.
@@ -53,9 +53,9 @@ Each kitchen should have a different identifier distinguished by the numeral pla
 
 Each kitchen attribute (Construction, Cabinet Style , Door Style, Panel Style, and Quality Rating) is outlined by a gray box.  The boxes contain the options for each attribute.
 - white circle buttons: only one per group can be selected.  Thay are officailly called radio buttons.
-		![radio button](./radiobutton.PNG)
+		![radio button](./readme images/radiobutton.PNG)
 - white square buttons: any number of these can be selected per group.  They are officailly called check boxes.
-		![check box](./checkbox.PNG)
+		![check box](./readme images/checkbox.PNG)
 
 **Note:** The kitchen Quality Rating can only be selected once per kitchen and the options will be disabled.  The Quality Rating must be chosen before any cabinets can be added.
 
@@ -68,7 +68,7 @@ The End Panels Height and Width text boxes accept measurements in inches, but on
 ##### Add a Cabinet Screen
 The "Cabinets" section is table that displays all the entered cabinets and their properties.  
 To add a cabinet, the user will click the "Add Cabinet" button, this will cause a popup of the "Cabinet Form".  **Note:** The Quality Rating must be chosen before a cabinet can be added.
-![Add a Cabinet form](./addcabinet.PNG)
+![Add a Cabinet form](./readme images/addcabinet.PNG)
 
 Special Considerations for the Add Cabinet sections:
 - Qty - the number of identical cabinets in the kitchen that the cabinet entry concerns
@@ -80,7 +80,7 @@ Special Considerations for the Add Cabinet sections:
 
 ##### Printing
 The user can click the "Print" button when all relevant information has been entered.  If there is essential missing information or contradiction, the lacking sections will be highlighted in red and no files will be generated.  The user should correct the information before clicking "Print" again.
-![Error example](./redhighlight.PNG)
+![Error example](./readme images/redhighlight.PNG)
 On clicking the print button, the application will generate a Cabinet Specifics Sheet, a Cabinet Specifics Sheet with cabinet pricing breakdown, and a kitchen price listing.  These documents will be saved as HTML files in the "Ready to Launch" folder. The kitchen price listing includes the adjustment for material, particle board construction, end panels, crown molding, and rating (+) or (-), however, the Cabinet Spec Sheet with pricing does not include this breakdown.  
 
 The HTML files can be printed by opening them in a web browser:
