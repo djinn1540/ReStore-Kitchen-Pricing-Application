@@ -10,7 +10,7 @@ This application is a Windows Forms Application that has an interface that can b
 ## Installation
 Requirements: Windows OS, 7 or later.
 			  Printer - connnected to the Windows OS or the location that you save the files from the Windows OS.
-1. Download the "Ready to Launch" folder from this GitHub repository and save it to some location on the computer that will be used for kitchen pricing.  This location will be where all the kitchen pricing files will be saved.
+1. Download the "Ready to Launch.zip" file from this GitHub repository and unzip it to some location on the computer that will be used for kitchen pricing.  This location will be where all the kitchen pricing files will be saved.
 2. (Optional) Create a shortcut on the desktop by the following:
 	1. Navigating to and opening the "Ready to Launch" folder.
 	2. Left-clicking once on "Kitchen Pricing Application", it may look like "Kitchen Pricing Application.exe" (if you see both, choose the one that has Type "Application"), and then right-clicking on the application.
