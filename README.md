@@ -63,6 +63,7 @@ Each kitchen attribute (Construction, Cabinet Style , Door Style, Panel Style, a
 
 In the lower-left there are points of entry for Material, End Panels, and Crown Molding.  Material is a dropdown menu of materials found in common kitchens.
 
+##### Add a Cabinet Screen
 The "Cabinets" section is table that displays all the entered cabinets and their properties.  
 To add a cabinet, the user will click the "Add Cabinet" button, this will cause a popup of the "Cabinet Form".  **Note:** The Quality Rating must be chosen before a cabinet can be added.
 ![Add a Cabinet form](./addcabinet.PNG)
@@ -75,7 +76,7 @@ Special Considerations for the Add Cabinet sections:
 - Drawers to Floor - check this box if the cabinets drawers make up almost all of the the front of the cabinet.
 - **Add Cabinet** - on click: the cabinet information is checked for completeness and contradiction.  When no error is found, the cabinet and its information will be entered into the table in the main screen.  If an error is found, the user will have to correct if before the cabinet can be accepted.
 
-
+##### Printing
 The user can click the "Print" button when all relevant information has been entered.  If there is essential missing information or contradiction, the lacking sections will be highlighted in red and no files will be generated.  The user should correct the information before clicking "Print" again.
 ![Error example](./redhighlight.PNG)
 On clicking the print button, the application will generate a Cabinet Specifics Sheet, a Cabinet Specifics Sheet with cabinet pricing breakdown, and a kitchen price listing.  These documents will be saved as HTML files in the "Ready to Launch" folder. The kitchen price listing includes the adjustment for material, particle board construction, end panels, crown molding, and rating (+) or (-), however, the Cabinet Spec Sheet with pricing does not include this breakdown.  
