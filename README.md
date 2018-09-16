@@ -1,4 +1,4 @@
-#Kitchen Pricing Application
+# Kitchen Pricing Application
 ##### Preface
 This application is made for quickly assessing the value of a secondhand kitchen.  The pricing is based on the size of the individual cabinets, features of the cabinets, material used in construction, and the condition of the kitchen as a whole.  A detailed breakdown of the pricing is provided in the Pricing section.
 My hope is that the application provides a fluid kitchen pricing experience, albeit with jarring safeguards, that relieves the computing workload.
@@ -7,7 +7,7 @@ This software, as it is currently released, is free to use.  I hope that it will
 This application is a Windows Forms Application that has an interface that can be utilized via mouse or keyboard controls (Tab, Shift, Arrow Keys, Space, and Enter).
 
 
-##Installation
+## Installation
 Requirements: Windows OS, 7 or later.
 			  Printer - connnected to the Windows OS or the location that you save the files from the Windows OS.
 1. Download the "Ready to Launch" folder from this GitHub repository and save it to some location on the computer that will be used for kitchen pricing.  This location will be where all the kitchen pricing files will be saved.
@@ -31,7 +31,7 @@ Requirements: Windows OS, 7 or later.
 
 Now we should be ready to use!
 
-##Functionality
+## Functionality
 ##### Opening the Application
 
 Upon double-left-clicking on the application or application shortcut, the user (you) will be prompted to enter your initials.  Your initials will be displayed on the pricing sheet associated with the kitchens.
@@ -50,6 +50,7 @@ Each kitchen attribute (Construction, Cabinet Style , Door Style, Panel Style, a
 	- white circle buttons: only one per group can be selected.  Thay are officailly called radio buttons.
 		(./radiobutton)
 	- white square buttons: any number of these can be selected per group.  They are officailly called check boxes.
+		(./checkbox)
 
 "Distinctive Characteristics" and "Other Information" are sections where the user can enter appropriate text.  Distinctive Characteristics has a character limit of 200 characters for the sake of the kitchen price listing template.  Other Information has a sufficiently high upper limit on number of characters.
 
@@ -77,6 +78,6 @@ The Cabinet Spec Sheet with cabinet pricing information is for the records of th
 The kitchen price listing should be posted on the kitchen to advertize its price.  The price listing includes distinctive characteristics to guard against dishonest customers switching kitchen price listings.
 
 
-##Pricing
+## Pricing
 
 The pricing of the kitchens is based off the quality of the kitchen, the function of the cabinets, size of the cabinets, the material of the cabinet fronts, the material of the cabinet interior,  presence of end panels, and presence of crown molding.
